@@ -3,7 +3,7 @@ Contributors: Happy Coders
 Donate link: http://wphappycoders.com/
 Tags: posts like dislike, posts, posts like, posts dislike, post, like dislike, like, dislike
 Requires at least: 4.5
-Tested up to: 5.1
+Tested up to: 5.2
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -55,7 +55,7 @@ Like Dislike for WordPress Posts
 This plugin provides the ability to add the like and dislike buttons for WordPress native posts.
 
 = I have enabled the plugin but like and dislike icons are not being displayed. What may be the reason ? =
-Our plugin uses the_content filter to append like and dislike icons . So if your active theme's posts template doesn't use comment_text filter to display posts text then our plugin won't be able to display like and dislike icons.
+Our plugin uses the_content filter to append like and dislike icons . So if your active theme's posts template doesn't use the_content filter to display posts content then our plugin won't be able to display like and dislike icons.
 
 = Is there any hooks available to extend the plugin ? = 
 Our plugin does contains many actions and filters which are described inside the Help Section
