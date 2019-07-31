@@ -3,7 +3,7 @@ Contributors: Happy Coders
 Donate link: http://wphappycoders.com/
 Tags: posts like dislike, posts, posts like, posts dislike, post, like dislike, like, dislike
 Requires at least: 4.5
-Tested up to: 5.1
+Tested up to: 5.2
 Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
