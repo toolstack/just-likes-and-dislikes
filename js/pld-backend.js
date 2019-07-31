@@ -9,9 +9,9 @@ jQuery(document).ready(function ($) {
         $(this).addClass('nav-tab-active');
         $('.pld-settings-section').hide();
         $('.pld-settings-section[data-settings-ref="' + settings_ref + '"]').show();
-        if(settings_ref == 'help' || settings_ref == 'about'){
+        if (settings_ref == 'help' || settings_ref == 'about') {
             $('.pld-settings-action').hide();
-        }else{
+        } else {
             $('.pld-settings-action').show();
         }
 
@@ -60,32 +60,17 @@ jQuery(document).ready(function ($) {
                     var image_url = uploaded_image.toJSON().url;
                     // Let's assign the url value to the input field
                     selector.parent().find('input[type="text"]').val(image_url);
-                    selector.parent().find('.pld-preview-holder').html('<img src="'+image_url+'"/>');
+                    selector.parent().find('.pld-preview-holder').html('<img src="' + image_url + '"/>');
                 });
     });
 
     /**
      * Save Settings
      */
-    $('.pld-settings-save-trigger').click(function () {
-        var settings_data = '';
-        $('.pld-form-field').each(function () {
-            var value = $(this).val();
-            if($(this).attr('type') && $(this).attr('type') == 'checkbox'){
-                if(!$(this).is(':checked')){
-                    var value = 0;
-                }
-            }
-            
-            var name = $(this).attr('name');
-            var parse_value = name + '=' + value;
-            if (settings_data != '') {
-                settings_data += '&' + parse_value;
-            } else {
-                settings_data = parse_value;
-            }
-        });
-        settings_data = encodeURI(settings_data);
+    $('.pld-settings-form').submit(function (e) {
+        e.preventDefault();
+
+        var settings_data = $(this).serialize();
         $.ajax({
             type: 'post',
             url: pld_admin_js_object.admin_ajax_url,
@@ -141,7 +126,7 @@ jQuery(document).ready(function ($) {
                     $('.pld-loader').hide();
                     $('.pld-info').html(res);
                     location.reload();
-                    
+
 
                 }
             });

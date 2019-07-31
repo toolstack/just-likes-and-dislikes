@@ -2,8 +2,22 @@
     <div class="pld-field-wrap">
         <label><?php _e( 'Status', PLD_TD ); ?></label>
         <div class="pld-field">
-            <input type="checkbox" name="pld_settings[basic_settings][status]" class="pld-form-field" value="1" <?php checked( $pld_settings['basic_settings']['status'], true ); ?>/>
+            <input type="checkbox" name="pld_settings[basic_settings][status]" class="pld-form-field" value="1" <?php echo (!empty( $pld_settings['basic_settings']['status'] )) ? 'checked="checked"' : ''; ?>/>
             <p class="description"><?php _e( 'Please check to enable posts like and dislike in frontend', PLD_TD ); ?></p>
+        </div>
+    </div>
+    <div class="pld-field-wrap">
+        <label><?php esc_html_e( 'Post Types', PLD_TD ); ?></label>
+        <div class="pld-field">
+            <?php
+            $post_types = get_post_types( array( 'public' => true ), 'object' );
+            $checked_post_types = (!empty( $pld_settings['basic_settings']['post_types'] )) ? $pld_settings['basic_settings']['post_types'] : array( 'post' );
+            foreach ( $post_types as $post_type_name => $post_type_object ) {
+                ?>
+                <label class="pld-checkbox-label"><input type="checkbox" name="pld_settings[basic_settings][post_types][]" value="<?php echo esc_attr( $post_type_name ); ?>" <?php echo (in_array( $post_type_name, $checked_post_types )) ? 'checked="checked"' : ''; ?> class="pld-form-field"/><?php echo esc_attr( $post_type_object->label ); ?></label>
+                <?php
+            }
+            ?>
         </div>
     </div>
     <div class="pld-field-wrap">

@@ -81,3 +81,7 @@ span.pld-preview-holder img {
     height: 300px;
     overflow-y: scroll;
 }
+label.pld-checkbox-label {
+    display: block;
+    margin-bottom: 10px;
+}

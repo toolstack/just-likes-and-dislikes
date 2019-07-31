@@ -3,21 +3,21 @@ Contributors: Happy Coders
 Donate link: http://wphappycoders.com/
 Tags: posts like dislike, posts, posts like, posts dislike, post, like dislike, like, dislike
 Requires at least: 4.5
-Tested up to: 5.2
-Stable tag: 1.0.0
+Tested up to: 5.1
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Like Dislike for WordPress Posts
+Like Dislike for WordPress Posts | WordPress Page | Custom Post Types
 
 == Description ==
-<strong>Posts Like Dislike</strong> is the <strong>Free</strong> WordPress Plugin to enable Like and Dislike Icons for default WordPress Posts. Choose Thumbs Up or Thumbs Down, Smiley or Frown, Right or Wrong icons or your own custom like dislike icons, choice is yours.
+<strong>Posts Like Dislike</strong> is the <strong>Free</strong> WordPress Plugin to enable Like and Dislike Icons for <strong>default WordPress Posts</strong> or <strong>any other post types</strong>. Choose Thumbs Up or Thumbs Down, Smiley or Frown, Right or Wrong icons or your own custom like dislike icons, choice is yours.
 
-<strong>Posts Like Dislike</strong> increases the interaction with the WordPress native posts by enabling likes and dislikes buttons along with the count.
+<strong>Posts Like Dislike</strong> increases the interaction with the WordPress posts/post types by enabling likes and dislikes buttons along with the count.
 
 = See full features list below: =
 * Status
-    - Enable or Disable Posts Like Dislike for posts
+    - Enable or Disable Posts Like Dislike for posts/page or any other post types
 * Like Dislike Position
     - After Post
     - Before Post
@@ -71,6 +71,11 @@ Our plugin does contains many actions and filters which are described inside the
 7. Like Dislike Design Settings
 
 == Changelog ==
+= 1.0.1 = 
+* Added custom post type support
+* Updated the backend settings save mechanism
+* Added array sanitization functions
+
 = 1.0.0 =
 * Initial plugin commit to wordpress.org repository
 

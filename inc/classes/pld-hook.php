@@ -12,12 +12,14 @@ if ( !class_exists( 'PLD_Hooks' ) ) {
         }
 
         function posts_like_dislike( $content ) {
+            $pld_settings = $this->pld_settings;
+            $checked_post_types = (!empty( $pld_settings['basic_settings']['post_types'] )) ? $pld_settings['basic_settings']['post_types'] : array( 'post' );
 
             global $post;
             if ( empty( $post ) ) {
                 return $content;
             }
-            if ( $post->post_type != 'post' ) {
+            if ( !in_array( $post->post_type, $checked_post_types ) ) {
                 return $content;
             }
             /**
@@ -41,7 +43,7 @@ if ( !class_exists( 'PLD_Hooks' ) ) {
 
             $like_dislike_html = ob_get_contents();
             ob_end_clean();
-            $pld_settings = $this->pld_settings;
+
             if ( $pld_settings['basic_settings']['like_dislike_position'] == 'after' ) {
                 /**
                  * Filters Like Dislike HTML

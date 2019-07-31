@@ -41,9 +41,8 @@ if ( !class_exists( 'PLD_Admin' ) ) {
             if ( isset( $_POST['_wpnonce'] ) && wp_verify_nonce( $_POST['_wpnonce'], 'pld-backend-ajax-nonce' ) ) {
                 $_POST = stripslashes_deep( $_POST );
                 parse_str( $_POST['settings_data'], $settings_data );
-                foreach ( $settings_data['pld_settings'] as $key => $val ) {
-                    $pld_settings[$key] = array_map( 'sanitize_text_field', $val );
-                }
+                $settings_data = $this->sanitize_array( $settings_data );
+                $pld_settings = $settings_data['pld_settings'];
                 /**
                  * Fires before storing the settings array into database
                  *
