@@ -3,8 +3,8 @@ Contributors: Happy Coders
 Donate link: http://wphappycoders.com/
 Tags: posts, post, custom post type,page, like, dislike, like dislike
 Requires at least: 4.5
-Tested up to: 5.4
-Stable tag: 1.0.2
+Tested up to: 5.5
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,9 @@ Like Dislike for WordPress Posts | WordPress Page | Custom Post Types
 * Custom Like Dislike Icon Upload feature
 * Icon Color Configuration
 * Count Color Configuration
+
+= Custom Function = 
+<?php echo do_shortcode('[posts_like_dislike]');?>
     
 
 == Installation ==
@@ -60,6 +63,9 @@ Our plugin uses the_content filter to append like and dislike icons . So if your
 = Is there any hooks available to extend the plugin ? = 
 Our plugin does contains many actions and filters which are described inside the Help Section
 
+= I want to display in the post detail template. Do you have a custom function? = 
+We do have a shortcode [posts_like_dislike] which can also be used as custom function through <?php echo do_shortcode('[posts_like_dislike]');?>
+
 == Screenshots ==
 
 1. Like Dislike Icon Template 1
@@ -71,6 +77,13 @@ Our plugin does contains many actions and filters which are described inside the
 7. Like Dislike Design Settings
 
 == Changelog ==
+= 1.0.3 = 
+* Added Post Like Dislike Count Info Metabox
+* Added an option to display 0 by default
+* Added alt tag in the custom image
+* Removed default post type select 
+* Added [posts_like_dislike] shortcode
+
 = 1.0.2 = 
 * WP 5.4 compatibility checked
 
@@ -83,7 +96,7 @@ Our plugin does contains many actions and filters which are described inside the
 * Initial plugin commit to wordpress.org repository
 
 == Upgrade Notice ==
-= 1.0.0 = 
+There is a new update. Please update to the latest version to get the new features and bug fixes.
 
 
 

@@ -1,8 +1,8 @@
 <div class="pld-like-wrap  pld-common-wrap">
-    <a href="javascript:void(0);" class="pld-like-trigger pld-like-dislike-trigger <?php echo ($user_ip_check == 1 || isset( $_COOKIE['pld_' . $post_id] )) ? 'pld-prevent' : ''; ?>" title="<?php echo $like_title; ?>" data-post-id="<?php echo $post_id; ?>" data-trigger-type="like" data-restriction="<?php echo esc_attr( $pld_settings['basic_settings']['like_dislike_resistriction'] ); ?>" data-ip-check="<?php echo $user_ip_check; ?>" data-user-check="<?php echo $user_check; ?>">
+    <a href="javascript:void(0);" class="pld-like-trigger pld-like-dislike-trigger <?php echo ($user_ip_check == 1 || isset($_COOKIE['pld_' . $post_id])) ? 'pld-prevent' : ''; ?>" title="<?php echo $like_title; ?>" data-post-id="<?php echo $post_id; ?>" data-trigger-type="like" data-restriction="<?php echo esc_attr($pld_settings['basic_settings']['like_dislike_resistriction']); ?>" data-ip-check="<?php echo $user_ip_check; ?>" data-user-check="<?php echo $user_check; ?>">
         <?php
-        $template = esc_attr( $pld_settings['design_settings']['template'] );
-        switch( $template ) {
+        $template = $pld_settings['design_settings']['template'];
+        switch ($template) {
             case 'template-1':
                 ?>
                 <i class="fas fa-thumbs-up"></i>
@@ -24,9 +24,9 @@
                 <?php
                 break;
             case 'custom':
-                if ( $pld_settings['design_settings']['like_icon'] != '' ) {
+                if ($pld_settings['design_settings']['like_icon'] != '') {
                     ?>
-                    <img src="<?php echo esc_url( $pld_settings['design_settings']['like_icon'] ); ?>"/>
+                    <img src="<?php echo esc_url($pld_settings['design_settings']['like_icon']); ?>" alt="<?php echo esc_attr($like_title); ?>"/>
                     <?php
                 }
                 break;
@@ -38,9 +38,9 @@
          *
          * @since 1.0.0
          */
-        do_action( 'pld_like_template', $pld_settings );
+        do_action('pld_like_template', $pld_settings);
         ?>
     </a>
-    <span class="pld-like-count-wrap pld-count-wrap"><?php echo $like_count; ?>
+    <span class="pld-like-count-wrap pld-count-wrap"><?php echo esc_html($like_count); ?>
     </span>
 </div>

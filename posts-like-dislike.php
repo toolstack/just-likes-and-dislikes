@@ -1,11 +1,11 @@
 <?php
 
-defined( 'ABSPATH' ) or die( 'No script kiddies please' );
+defined('ABSPATH') or die('No script kiddies please');
 
 /*
   Plugin Name: Posts Like Dislike
   Description: A simple plugin to add like dislike for your WordPress Posts
-  Version:     1.0.2
+  Version:     1.0.3
   Author:      WP Happy Coders
   Author URI:  http://wphappycoders.com
   License:     GPL2
@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please' );
  */
 
 
-if ( !class_exists( 'PLD_Comments_like_dislike' ) ) {
+if (!class_exists('PLD_Comments_like_dislike')) {
 
     class PLD_Comments_like_dislike {
 
@@ -45,13 +45,13 @@ if ( !class_exists( 'PLD_Comments_like_dislike' ) ) {
          * @since 1.0.0
          */
         function define_constants() {
-            defined( 'PLD_PATH' ) or define( 'PLD_PATH', plugin_dir_path( __FILE__ ) );
-            defined( 'PLD_IMG_DIR' ) or define( 'PLD_IMG_DIR', plugin_dir_url( __FILE__ ) . 'images' );
-            defined( 'PLD_CSS_DIR' ) or define( 'PLD_CSS_DIR', plugin_dir_url( __FILE__ ) . 'css' );
-            defined( 'PLD_JS_DIR' ) or define( 'PLD_JS_DIR', plugin_dir_url( __FILE__ ) . 'js' );
-            defined( 'PLD_VERSION' ) or define( 'PLD_VERSION', '1.0.2' );
-            defined( 'PLD_TD' ) or define( 'PLD_TD', 'posts-like-dislike' );
-            defined( 'PLD_BASENAME' ) or define( 'PLD_BASENAME', plugin_basename( __FILE__ ) );
+            defined('PLD_PATH') or define('PLD_PATH', plugin_dir_path(__FILE__));
+            defined('PLD_IMG_DIR') or define('PLD_IMG_DIR', plugin_dir_url(__FILE__) . 'images');
+            defined('PLD_CSS_DIR') or define('PLD_CSS_DIR', plugin_dir_url(__FILE__) . 'css');
+            defined('PLD_JS_DIR') or define('PLD_JS_DIR', plugin_dir_url(__FILE__) . 'js');
+            defined('PLD_VERSION') or define('PLD_VERSION', '1.0.3');
+            defined('PLD_TD') or define('PLD_TD', 'posts-like-dislike');
+            defined('PLD_BASENAME') or define('PLD_BASENAME', plugin_basename(__FILE__));
         }
 
     }
