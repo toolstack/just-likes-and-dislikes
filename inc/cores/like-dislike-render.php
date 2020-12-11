@@ -29,7 +29,8 @@ ob_start();
  *
  * @since 1.0.0
  */
-do_action('pld_like_dislike_output', $content);
+$shortcode = (!empty($shortcode)) ? $shortcode : false;
+do_action('pld_like_dislike_output', $content, $shortcode);
 
 $like_dislike_html = ob_get_contents();
 ob_end_clean();

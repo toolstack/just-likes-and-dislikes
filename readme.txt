@@ -3,8 +3,8 @@ Contributors: Happy Coders
 Donate link: http://wphappycoders.com/
 Tags: posts, post, custom post type,page, like, dislike, like dislike
 Requires at least: 4.5
-Tested up to: 5.5
-Stable tag: 1.0.3
+Tested up to: 5.6
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,9 @@ We do have a shortcode [posts_like_dislike] which can also be used as custom fun
 7. Like Dislike Design Settings
 
 == Changelog ==
+= 1.0.4 = 
+* WP 5.6 compatibility checked
+
 = 1.0.3 = 
 * Added Post Like Dislike Count Info Metabox
 * Added an option to display 0 by default

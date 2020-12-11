@@ -7,7 +7,7 @@ if (!class_exists('PLD_Hooks')) {
         function __construct() {
             parent::__construct();
             add_filter('the_content', array($this, 'posts_like_dislike'), 200); // hook to add html for like dislike
-            add_action('pld_like_dislike_output', array($this, 'generate_like_dislike_html'), 10);
+            add_action('pld_like_dislike_output', array($this, 'generate_like_dislike_html'), 10, 2);
             add_action('wp_head', array($this, 'custom_styles'));
             add_shortcode('posts_like_dislike', array($this, 'render_pld_shortcode'));
         }
@@ -24,7 +24,7 @@ if (!class_exists('PLD_Hooks')) {
             return $content;
         }
 
-        function generate_like_dislike_html($content) {
+        function generate_like_dislike_html($content, $shortcode) {
             include(PLD_PATH . '/inc/views/frontend/like-dislike-html.php');
         }
 
