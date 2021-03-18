@@ -3,7 +3,7 @@ Contributors: Happy Coders
 Donate link: http://wphappycoders.com/
 Tags: posts, post, custom post type,page, like, dislike, like dislike
 Requires at least: 4.5
-Tested up to: 5.6
+Tested up to: 5.7
 Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
