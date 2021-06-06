@@ -132,4 +132,14 @@ jQuery(document).ready(function ($) {
             });
         }
     });
+
+    /**
+     * Class show hide on select dropdown toggle
+     */
+    $('body').on('change', '.pld-toggle-trigger', function () {
+        var toggle_class = $(this).data('toggle-class');
+        var toggle_value = $(this).val();
+        $('.' + toggle_class).hide();
+        $('.' + toggle_class + '[data-toggle-value="' + toggle_value + '"]').show();
+    });
 });

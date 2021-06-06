@@ -18,6 +18,7 @@
                 <?php
             }
             ?>
+            <p class="description"><?php esc_html_e('Please uncheck all of these if you are wiling to generate the like dislike icon through custom function.', PLD_TD); ?></p>
         </div>
     </div>
     <div class="pld-field-wrap">
@@ -43,13 +44,20 @@
     <div class="pld-field-wrap">
         <label><?php _e('Like Dislike Restriction', PLD_TD); ?></label>
         <div class="pld-field">
-            <select name="pld_settings[basic_settings][like_dislike_resistriction]" class="pld-form-field">
+            <select name="pld_settings[basic_settings][like_dislike_resistriction]" class="pld-form-field pld-toggle-trigger" data-toggle-class="pld-login-link">
                 <option value="cookie" <?php selected($pld_settings['basic_settings']['like_dislike_resistriction'], 'cookie'); ?>><?php _e('Cookie Restriction', PLD_TD); ?></option>
                 <option value="ip" <?php selected($pld_settings['basic_settings']['like_dislike_resistriction'], 'ip'); ?>><?php _e('IP Restriction', PLD_TD); ?></option>
                 <option value="user" <?php selected($pld_settings['basic_settings']['like_dislike_resistriction'], 'user'); ?>><?php _e('Logged In User Restriction', PLD_TD); ?></option>
                 <option value="no" <?php selected($pld_settings['basic_settings']['like_dislike_resistriction'], 'no'); ?>><?php _e('No Restriction', PLD_TD); ?></option>
             </select>
             <p class="description"><?php _e('Please choose the restriction you want to assign to likers and dislikers', PLD_TD); ?></p>
+        </div>
+    </div>
+    <div class="pld-field-wrap pld-login-link" data-toggle-value="user" <?php $this->display_none($pld_settings['basic_settings']['like_dislike_resistriction'], 'user'); ?>>
+        <label><?php _e('Login Link', PLD_TD); ?></label>
+        <div class="pld-field">
+            <input type="text" name="pld_settings[basic_settings][login_link]" class="pld-form-field" value="<?php echo (!empty($pld_settings['basic_settings']['login_link'])) ? esc_url($pld_settings['basic_settings']['login_link']) : ''; ?>"/>
+            <p class="description"><?php esc_html_e('Please enter the login link where users will be redirected while trying to like or dislike without logging in. Please leave blank if you don\'t want to redirect users to login page.', PLD_TD); ?></p>
         </div>
     </div>
     <div class="pld-field-wrap">

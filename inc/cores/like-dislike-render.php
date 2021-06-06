@@ -17,7 +17,7 @@ if (empty($shortcode)) {
  *
  * @since 1.0.0
  */
-if (is_admin()) {
+if (is_admin() && !wp_doing_ajax()) {
     return $content;
 }
 ob_start();
