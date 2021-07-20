@@ -5,7 +5,7 @@ defined('ABSPATH') or die('No script kiddies please');
 /*
   Plugin Name: Posts Like Dislike
   Description: A simple plugin to add like dislike for your WordPress Posts
-  Version:     1.0.5
+  Version:     1.0.6
   Author:      WP Happy Coders
   Author URI:  http://wphappycoders.com
   License:     GPL2
@@ -16,10 +16,10 @@ defined('ABSPATH') or die('No script kiddies please');
 
 
 if (!class_exists('PLD_Comments_like_dislike')) {
-
-    class PLD_Comments_like_dislike {
-
-        function __construct() {
+    class PLD_Comments_like_dislike
+    {
+        public function __construct()
+        {
             $this->define_constants();
             $this->includes();
         }
@@ -29,7 +29,8 @@ if (!class_exists('PLD_Comments_like_dislike')) {
          *
          * @since 1.0.0
          */
-        function includes() {
+        public function includes()
+        {
             require_once PLD_PATH . '/inc/classes/pld-library.php';
             require_once PLD_PATH . '/inc/classes/pld-activation.php';
             require_once PLD_PATH . 'inc/classes/pld-init.php';
@@ -44,19 +45,17 @@ if (!class_exists('PLD_Comments_like_dislike')) {
          *
          * @since 1.0.0
          */
-        function define_constants() {
+        public function define_constants()
+        {
             defined('PLD_PATH') or define('PLD_PATH', plugin_dir_path(__FILE__));
             defined('PLD_IMG_DIR') or define('PLD_IMG_DIR', plugin_dir_url(__FILE__) . 'images');
             defined('PLD_CSS_DIR') or define('PLD_CSS_DIR', plugin_dir_url(__FILE__) . 'css');
             defined('PLD_JS_DIR') or define('PLD_JS_DIR', plugin_dir_url(__FILE__) . 'js');
-            defined('PLD_VERSION') or define('PLD_VERSION', '1.0.5');
+            defined('PLD_VERSION') or define('PLD_VERSION', '1.0.6');
             defined('PLD_TD') or define('PLD_TD', 'posts-like-dislike');
             defined('PLD_BASENAME') or define('PLD_BASENAME', plugin_basename(__FILE__));
         }
-
     }
 
     $pld_object = new PLD_Comments_like_dislike();
 }
-
-

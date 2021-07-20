@@ -2,9 +2,9 @@
 Contributors: Happy Coders
 Donate link: http://wphappycoders.com/
 Tags: posts, post, custom post type,page, like, dislike, like dislike
-Requires at least: 4.5
-Tested up to: 5.7
-Stable tag: 1.0.5
+Requires at least: 5.0
+Tested up to: 5.8
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,8 +41,13 @@ Like Dislike for WordPress Posts | WordPress Page | Custom Post Types
 * Icon Color Configuration
 * Count Color Configuration
 
+= Shortcode = 
+[posts_like_dislike id=post_id]
+Please replace post_id with the id of the post or remove id parameter for considering the post id as the id of global $post object
+
 = Custom Function = 
-`<?php echo do_shortcode('[posts_like_dislike]');?>`
+`<?php echo do_shortcode('[posts_like_dislike id=post_id]');?>`
+Please replace post_id with the id of the post or remove id parameter for considering the post id as the id of global $post object
     
 
 == Installation ==

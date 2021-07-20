@@ -1,12 +1,12 @@
 <?php
 
 defined('ABSPATH') or die('No script kiddies please!!');
-global $post;
-if (empty($post)) {
-    return $content;
-}
 $pld_settings = $this->pld_settings;
 if (empty($shortcode)) {
+    global $post;
+    if (empty($post)) {
+        return $content;
+    }
     $checked_post_types = (!empty($pld_settings['basic_settings']['post_types'])) ? $pld_settings['basic_settings']['post_types'] : array();
     if (!in_array($post->post_type, $checked_post_types)) {
         return $content;
@@ -30,7 +30,8 @@ ob_start();
  * @since 1.0.0
  */
 $shortcode = (!empty($shortcode)) ? $shortcode : false;
-do_action('pld_like_dislike_output', $content, $shortcode);
+$atts = (!empty($atts))?$atts:[];
+do_action('pld_like_dislike_output', $content, $shortcode, $atts);
 
 $like_dislike_html = ob_get_contents();
 ob_end_clean();

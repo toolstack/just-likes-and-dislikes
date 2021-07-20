@@ -1,12 +1,11 @@
 <?php
-global $post;
-$post_id = $post->ID;
+$post_id = (!empty($atts['id']))?intval($atts['id']):get_the_ID();
 $like_count = get_post_meta($post_id, 'pld_like_count', true);
 $dislike_count = get_post_meta($post_id, 'pld_dislike_count', true);
-$post_id = get_the_ID();
+
 $pld_settings = get_option('pld_settings');
 
-if ($pld_settings['basic_settings']['status'] != 1) {
+if (empty($pld_settings['basic_settings']['status']) && empty($shortcode)) {
     // if posts like dislike is disabled from backend
     return;
 }
@@ -85,7 +84,8 @@ $dislike_title = isset($pld_settings['basic_settings']['dislike_hover_text']) ? 
 
 //$this->print_array( $pld_settings );
 ?>
-<div class="pld-like-dislike-wrap pld-<?php echo esc_attr($pld_settings['design_settings']['template']); ?>">
+<div
+    class="pld-like-dislike-wrap pld-<?php echo esc_attr($pld_settings['design_settings']['template']); ?>">
     <?php
     /**
      * Like Dislike Order
