@@ -1,5 +1,5 @@
 === Posts Like Dislike ===
-Contributors: Happy Coders,Regan Khadgi
+Contributors: happy-coders, regankhadgi
 Donate link: http://wphappycoders.com/
 Tags: posts, post, custom post type,page, like, dislike, like dislike
 Requires at least: 5.0
