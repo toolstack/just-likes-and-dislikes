@@ -2,6 +2,7 @@
 
 Forked from https://wordpress.org/plugins/posts-like-dislike/
 
+|Flag             |Description                |
 |-----------------|---------------------------|
 |     Contributors| happy-coders, regankhadgi |
 |     Donate link | http://wphappycoders.com/ |
