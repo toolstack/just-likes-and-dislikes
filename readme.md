@@ -3,12 +3,19 @@
 Forked from https://wordpress.org/plugins/posts-like-dislike/
 
 Contributors: happy-coders, regankhadgi
+
 Donate link: http://wphappycoders.com/
+
 Tags: posts, post, custom post type,page, like, dislike, like dislike
+
 Requires at least: 5.0
+
 Tested up to: 6.0
+
 Stable tag: 1.0.8
+
 License: GPLv2 or later
+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Like Dislike for WordPress Posts | WordPress Page | Custom Post Types
