@@ -24,17 +24,18 @@ span.pld-avatar-holder {
 .pld-field-wrap > label {
     display: inline-block;
     font-weight: 500;
-    width: 250px;
+    width: 100%;
     vertical-align: top;
 }
 .pld-field {
     display: inline-block;
+    width: 100%;
 }
 .pld-each-template-preview {
     margin-top: 20px;
 }
 .pld-field input[type="text"] {
-    width: 500px;
+    width: 100%;
 }
 span.pld-avatar-holder img {
     border: 2px solid #f1f1f1;
