@@ -85,31 +85,35 @@ We do have a shortcode [posts_like_dislike] which can also be used as custom fun
 
 ## Screenshots
 
-1. Like Dislike Icon Template 1
-2. Like Dislike Icon Template 2
-3. Like Dislike Icon Template 3
-4. Like Dislike Icon Template 4
-5. Like Dislike Icon Custom Template
-6. Like Dislike Basic Settings
-7. Like Dislike Design Settings
+1. ![Like Dislike Icon Template 1](assets/screenshot-1.png)
+1. ![Like Dislike Icon Template 2](assets/screenshot-2.png)
+1. ![Like Dislike Icon Template 3](assets/screenshot-3.png)
+1. ![Like Dislike Icon Template 4](assets/screenshot-4.png)
+1. ![Like Dislike Basic Settings](assets/screenshot-5.png)
+1. ![Like Dislike Design Settings](assets/screenshot-6.png)
 
 ## Changelog
 
 ### 1.0.8
+* Release date: 7/21/2022
 * WP 6.0 compatibility checked
 
-### 1.0.6
+### 1.0.6/1.0.7
+* Release date: 2/13/2022
 * WP 5.7 compatibility checked
 
 ### 1.0.5
+* Release date: 7/20/2021
 * Fixed login restriction mode issue
 * Fixed ajax load issue
 * Fixed some security issues
 
 ### 1.0.4
+* Release date: 12/11/2020
 * WP 5.6 compatibility checked
 
 ### 1.0.3
+* Release date: 9/7/2020
 * Added Post Like Dislike Count Info Metabox
 * Added an option to display 0 by default
 * Added alt tag in the custom image
@@ -117,14 +121,17 @@ We do have a shortcode [posts_like_dislike] which can also be used as custom fun
 * Added `[posts_like_dislike]` shortcode
 
 ### 1.0.2
+* Release date: 4/4/2020
 * WP 5.4 compatibility checked
 
 ### 1.0.1
+* Release date: 11/17/2019
 * Added custom post type support
 * Updated the backend settings save mechanism
 * Added array sanitization functions
 
 ### 1.0.0
+* Release date: 5/8/2019
 * Initial plugin commit to wordpress.org repository
 
 ## Upgrade Notice
