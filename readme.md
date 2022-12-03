@@ -82,14 +82,11 @@ We do have a shortcode [posts_like_dislike] which can also be used as custom fun
 ### 4. Like Dislike Icon Template 4 ###
 ![Like Dislike Icon Template 4](assets/screenshot-4.png)
 
-### 5. Like Dislike Icon Custom Template ###
-![Like Dislike Icon Custom Template](assets/screenshot-5.png)
+### 5. Like Dislike Basic Settings ###
+![Like Dislike Basic Settings](assets/screenshot-5.png)
 
-### 6. Like Dislike Basic Settings ###
-![Like Dislike Basic Settings](assets/screenshot-6.png)
-
-### 7. Like Dislike Design Settings ###
-![Like Dislike Design Settings](assets/screenshot-7.png)
+### 6. Like Dislike Design Settings ###
+![Like Dislike Design Settings](assets/screenshot-6.png)
 
 
 ## Changelog ##

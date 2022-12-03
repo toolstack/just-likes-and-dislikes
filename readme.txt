@@ -74,9 +74,8 @@ We do have a shortcode [posts_like_dislike] which can also be used as custom fun
 2. Like Dislike Icon Template 2
 3. Like Dislike Icon Template 3
 4. Like Dislike Icon Template 4
-5. Like Dislike Icon Custom Template
-6. Like Dislike Basic Settings
-7. Like Dislike Design Settings
+5. Like Dislike Basic Settings
+6. Like Dislike Design Settings
 
 == Changelog ==
 = 2.0 =
