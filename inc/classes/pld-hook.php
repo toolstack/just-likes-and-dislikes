@@ -32,9 +32,9 @@ if (!class_exists('PLD_Hooks')) {
 
             foreach( $available_post_types as $type )
             {
-                add_filter('manage_edit-' . $type . 'post_sortable_columns', array($this, 'manage_post_posts_sortable_columns' ));
+                add_filter('manage_edit-' . $type . '_sortable_columns', array($this, 'manage_post_posts_sortable_columns' ));
                 add_filter('manage_' . $type . '_posts_columns', array($this, 'manage_post_posts_columns'));
-                add_action('manage_' . $type . 'post_posts_custom_column', array($this,'manage_post_posts_custom_column'), 10, 2);
+                add_action('manage_' . $type . '_posts_custom_column', array($this,'manage_post_posts_custom_column'), 10, 2);
             }
         }
 
