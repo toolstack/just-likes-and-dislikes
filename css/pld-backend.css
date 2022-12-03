@@ -86,3 +86,11 @@ label.pld-checkbox-label {
     display: block;
     margin-bottom: 10px;
 }
+.column-pld_like_count {
+    width: 5.5em;
+    text-align: left;
+}
+.column-pld_dislike_count {
+    width: 5.5em;
+    text-align: left;
+}
