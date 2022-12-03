@@ -3,9 +3,21 @@
 if (!class_exists('PLD_Hooks')) {
     class PLD_Hooks extends PLD_Library
     {
+        protected $like_column_name     = 'pld_like_count';
+        protected $dislike_column_name  = 'pld_dislike_count';
+        protected $likes_enabled        = true;
+        protected $dislikes_enabled     = true;
+
         public function __construct()
         {
             parent::__construct();
+
+            // Figure out if we're displaying likes, dislikes or both and set the class variables appropriately.
+            if($this->pld_settings == 'both' || $this->pld_settings == 'like_only' )    { $this->likes_enabled = true; }
+            if($this->pld_settings == 'both' || $this->pld_settings == 'dislike_only' ) { $this->dislikes_enabled = true; }
+            if($this->pld_settings == 'like_only' )     { $this->dislikes_enabled = false; }
+            if($this->pld_settings == 'dislike_only' )  { $this->likes_enabled = false; }
+
             add_filter('the_content', array($this, 'posts_like_dislike'), 200); // hook to add html for like dislike
             add_action('pld_like_dislike_output', array($this, 'generate_like_dislike_html'), 10, 3);
             add_action('wp_head', array($this, 'custom_styles'));
@@ -15,9 +27,10 @@ if (!class_exists('PLD_Hooks')) {
             add_filter('duplicate_post_excludelist_filter', array($this, 'duplicate_post_excludelist_filter'));
 
             // Add an admit column for like/dislikes
+            add_filter('manage_edit-post_sortable_columns', array($this, 'manage_post_posts_sortable_columns' ));
+            add_action('pre_get_posts', array($this,'pre_get_posts'));
             add_filter('manage_post_posts_columns', array($this, 'manage_post_posts_columns'));
             add_action('manage_post_posts_custom_column', array($this,'manage_post_posts_custom_column'), 10, 2);
-
         }
 
         public function posts_like_dislike($content)
@@ -48,6 +61,7 @@ if (!class_exists('PLD_Hooks')) {
         public function custom_styles()
         {
             $pld_settings = $this->pld_settings;
+
             echo "<style>";
             if ($pld_settings['design_settings']['icon_color'] != '') {
                 echo 'a.pld-like-dislike-trigger {color: ' . esc_attr($pld_settings['design_settings']['icon_color']) . ';}';
@@ -60,7 +74,36 @@ if (!class_exists('PLD_Hooks')) {
 
         public function manage_post_posts_columns($columns)
         {
-            $new_column_name = 'like_dislike';
+            // Build the like/dislike icon based on the current design settings.
+            $like_title = isset($pld_settings['basic_settings']['like_hover_text']) ? esc_attr($pld_settings['basic_settings']['like_hover_text']) : __('Like', PLD_TD);
+            $dislike_title = isset($pld_settings['basic_settings']['dislike_hover_text']) ? esc_attr($pld_settings['basic_settings']['dislike_hover_text']) : __('Dislike', PLD_TD);
+
+            switch ($this->pld_settings['design_settings']['template'])
+            {
+                case 'template-1':
+                    $like_icon      = '<i class="fas fa-thumbs-up"></i>';
+                    $dislike_icon   = '<i class="fas fa-thumbs-down"></i>';
+                    break;
+                case 'template-2':
+                    $like_icon      = '<i class="fas fa-heart"></i>';
+                    $dislike_icon   = '<i class="fa fa-heartbeat"></i>';
+                    break;
+                case 'template-3':
+                    $like_icon      = '<i class="fas fa-check"></i>';
+                    $dislike_icon   = '<i class="fas fa-times"></i>';
+                    break;
+                case 'template-4':
+                    $like_icon      = '<i class="far fa-smile"></i>';
+                    $dislike_icon   = '<i class="far fa-frown"></i>';
+                    break;
+                case 'custom':
+                    if ($this->pld_settings['design_settings']['like_icon'] != '')
+                    {
+                        $like_icon = '<img src="' . esc_url($this->pld_settings['design_settings']['like_icon']) . '" alt="' . esc_attr($like_title) . '"/>';
+                        $dislike_icon = '<img src="' . esc_url($this->pld_settings['design_settings']['dislike_icon']) . '" alt="' . esc_attr($dislike_title) . '"/>';
+                    }
+                    break;
+            }
 
             // Loop through and create a new array, adding in our column at the right spot.
             foreach( $columns as $key => $value )
@@ -69,84 +112,69 @@ if (!class_exists('PLD_Hooks')) {
 
                 if( $key == 'comments' )
                 {
-                    $new_columns[ $new_column_name ] = __( 'Like/Dislike', 'posts-like-dislike' );
+                    // Setup placeholders to set later.
+                    if($this->likes_enabled) { $new_columns[ $this->like_column_name ] = '';}
+                    if($this->dislikes_enabled) {$new_columns[ $this->dislike_column_name ] = '';}
                 }
             }
 
-            // Make sure our column has been added, if not, add it to the end.
-            if( ! array_key_exists( $new_column_name, $new_columns ) )
-            {
-                    $new_columns[ $new_column_name ] = __( 'Like/Dislike', 'posts-like-dislike' );
-            }
+            // Now actually set the new column values, if they weren't added in the above loop, they will be added to the end now.
+            if($this->likes_enabled) { $new_columns[ $this->like_column_name ] = $like_icon;}
+            if($this->dislikes_enabled) {$new_columns[ $this->dislike_column_name ] = $dislike_icon;}
 
             return $new_columns;
         }
 
         public function manage_post_posts_custom_column($column_key, $post_id)
         {
-            $new_column_name = 'like_dislike';
-
-            if( $column_key == $new_column_name )
+            if ($column_key == $this->like_column_name || $column_key == $this->dislike_column_name)
             {
                 $pld_settings = $this->pld_settings;
-                $like_count = get_post_meta( $post_id, 'pld_like_count', true );
-                $dislike_count = get_post_meta( $post_id, 'pld_dislike_count', true );
+                $like_count = intval( get_post_meta( $post_id, 'pld_like_count', true ) );
+                $dislike_count = intval( get_post_meta( $post_id, 'pld_dislike_count', true ) );
 
-                if( $like_count > 0 )
+                if ($column_key == $this->like_column_name )
                 {
-                    $like_title = isset( $pld_settings['basic_settings']['like_hover_text']) ? esc_attr( $pld_settings['basic_settings']['like_hover_text'] ) : __( 'Like', PLD_TD );
-
-                    switch( $pld_settings['design_settings']['template'] )
-                    {
-                        case 'template-1':
-                            echo '<i class="dashicons dashicons-thumbs-up"></i>';
-                            break;
-                        case 'template-2':
-                            echo '<i class="dashicons dashicons-heart"></i>';
-                            break;
-                        case 'template-3':
-                            echo '<i class="dashicons dashicons-yes"></i>';
-                            break;
-                        case 'template-4':
-                            echo '<i class="dashicons dashicons-smiley"></i>';
-                        case 'custom':
-                        if ($pld_settings['design_settings']['like_icon'] != '')
-                        {
-                            echo '<img src="' . esc_url( $pld_settings['design_settings']['like_icon'] ) . '" alt="' . esc_attr( $like_title ) . '"/>';
-                        }
-                        break;
-                    }
-
-                    echo "<span class='pld-like-count-wrap pld-count-wrap'>$like_count</span>";
+                    echo $like_count > 0 ? $like_count : '—';
                 }
 
-                if( $dislike_count > 0 )
+                if( $column_key == $this->dislike_column_name)
                 {
-                    $dislike_title = isset( $pld_settings['basic_settings']['dislike_hover_text']) ? esc_attr( $pld_settings['basic_settings']['dislike_hover_text'] ) : __( 'Dislike', PLD_TD );
-
-                    switch( $pld_settings['design_settings']['template'] )
-                    {
-                        case 'template-1':
-                            echo '<i class="dashicons dashicons-thumbs-down"></i>';
-                            break;
-                        case 'template-2':
-                            echo '<i class="dashicons dashicons-dismiss"></i>';
-                            break;
-                        case 'template-3':
-                            echo '<i class="dashicons dashicons-no"></i>';
-                            break;
-                        case 'template-4':
-                            echo '<i class="dashicons dashicons-dismiss"></i>';
-                        case 'custom':
-                        if ($pld_settings['design_settings']['like_icon'] != '')
-                        {
-                            echo '<img src="' . esc_url( $pld_settings['design_settings']['dislike_icon'] ) . '" alt="' . esc_attr( $dislike_title ) . '"/>';
-                        }
-                        break;
-                    }
-
-                    echo "<span class='pld-like-count-wrap pld-count-wrap'>$dislike_count</span>";
+                    echo $dislike_count > 0 ? $dislike_count : '—';
                 }
+            }
+        }
+
+        public function manage_post_posts_sortable_columns($columns)
+        {
+            $columns['pld_like_count']      = 'pld_like_count';
+            $columns['pld_dislike_count']   = 'pld_dislike_count';
+
+            return $columns;
+        }
+
+        public function pre_get_posts($query)
+        {
+            global $wpdb;
+
+            // Only filter in the admin
+            if( ! is_admin() )
+                return;
+
+            $orderby = $query->get( 'orderby');
+
+            // Filter if orderby is set to 'pld_like_count'
+            if( $this->like_column_name == $orderby )
+            {
+                $query->set('meta_key',$this->like_column_name);
+                $query->set('orderby',$this->like_column_name);
+            }
+
+            // Filter if orderby is set to 'pld_dislike_count'
+            if( $this->like_discolumn_name == $orderby )
+            {
+                $query->set('meta_key',$this->like_discolumn_name);
+                $query->set('orderby',$this->like_discolumn_name);
             }
         }
     }
