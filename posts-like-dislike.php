@@ -10,7 +10,6 @@ defined('ABSPATH') or die('No script kiddies please');
   Author URI:  http://wphappycoders.com
   License:     GPL2
   License URI: https://www.gnu.org/licenses/gpl-2.0.html
-  Domain Path: /languages
   Text Domain: posts-like-dislike
  */
 
