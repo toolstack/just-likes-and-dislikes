@@ -6,7 +6,7 @@ if ( !class_exists( 'PLD_Enqueue' ) ) {
 
         /**
          * Includes all the frontend and backend JS and CSS enqueues
-         * 
+         *
          * @since 1.0.0
          */
         function __construct() {
@@ -16,8 +16,8 @@ if ( !class_exists( 'PLD_Enqueue' ) ) {
 
         function register_frontend_assets() {
             /**
-             * Fontawesome 5 support 
-             * 
+             * Fontawesome 5 support
+             *
              * @version 1.0.6
              */
             wp_enqueue_style( 'pld-font-awesome', PLD_CSS_DIR . '/fontawesome/css/all.min.css', array(), PLD_VERSION );
@@ -30,6 +30,7 @@ if ( !class_exists( 'PLD_Enqueue' ) ) {
         }
 
         function register_backend_assets( $hook ) {
+            wp_enqueue_style( 'pld-font-awesome', PLD_CSS_DIR . '/fontawesome/css/all.min.css', array(), PLD_VERSION );
             wp_enqueue_style( 'wp-color-picker' );
             wp_enqueue_media();
             wp_enqueue_style( 'pld-admin-css', PLD_CSS_DIR . '/pld-backend.css', array(), PLD_VERSION );
