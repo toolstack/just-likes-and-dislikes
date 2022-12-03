@@ -7,26 +7,30 @@ if ( !class_exists( 'PLD_Activation' ) ) {
 
 		/**
 		 * Includes all the activation tasks
-		 * 
+		 *
 		 * @since 1.0.0
 		 */
 		function __construct() {
 			register_activation_hook( PLD_PATH . 'posts-like-dislike.php', array( $this, 'activation_tasks' ) );
 		}
-		
+
 		/**
 		 * Store default settings in database on activation
-		 * 
+		 *
 		 * @since 1.0.0
 		 */
 		function activation_tasks() {
 			$default_settings = $this->get_default_settings();
+
 			if(!get_option('pld_settings')){
 				update_option('pld_settings',$default_settings);
 			}
+
+			register_post_meta('posts', 'pld_like_count', array('default' => 0));
+			register_post_meta('posts', 'pld_dislike_count', array('default' => 0));
 		}
 
-		
+
 
 	}
 
