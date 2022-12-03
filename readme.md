@@ -100,6 +100,7 @@ We do have a shortcode [posts_like_dislike] which can also be used as custom fun
 * Add proper meta data registration
 * Remove old internationalization code
 * Fix widget width for Gutenberg
+* Update font awesome to v6.2.1
 
 ### 1.0.8 ###
 * Release date: 21/7/2022
