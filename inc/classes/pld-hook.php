@@ -26,11 +26,16 @@ if (!class_exists('PLD_Hooks')) {
             // Add filter to exclude copying the like/dislike counts when using Yoast Duplicate Posts.
             add_filter('duplicate_post_excludelist_filter', array($this, 'duplicate_post_excludelist_filter'));
 
-            // Add an admit column for like/dislikes
-            add_filter('manage_edit-post_sortable_columns', array($this, 'manage_post_posts_sortable_columns' ));
+            // Add an admin column for like/dislikes
             add_action('pre_get_posts', array($this,'pre_get_posts'));
-            add_filter('manage_post_posts_columns', array($this, 'manage_post_posts_columns'));
-            add_action('manage_post_posts_custom_column', array($this,'manage_post_posts_custom_column'), 10, 2);
+            $available_post_types = get_post_types(array(), 'names');
+
+            foreach( $available_post_types as $type )
+            {
+                add_filter('manage_edit-' . $type . 'post_sortable_columns', array($this, 'manage_post_posts_sortable_columns' ));
+                add_filter('manage_' . $type . '_posts_columns', array($this, 'manage_post_posts_columns'));
+                add_action('manage_' . $type . 'post_posts_custom_column', array($this,'manage_post_posts_custom_column'), 10, 2);
+            }
         }
 
         public function posts_like_dislike($content)
