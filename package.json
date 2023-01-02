@@ -1,17 +1,4 @@
 {
-  "name": "posts-like-dislike",
-  "version": "1.0.8",
-  "description": "Like Dislike for WordPress Posts | WordPress Page | Custom Post Types",
-  "keywords": [
-    "admin",
-    "posts",
-    "like",
-    "dislike",
-    "wordpress"
-  ],
-  "author": [ "happy-coders", "regankhadgi", "Greg Ross" ],
-  "license": "GPL-2.0+",
-  "homepage": "http://wphappycoders.com/",
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-contrib-jshint": "~0.10.0",
