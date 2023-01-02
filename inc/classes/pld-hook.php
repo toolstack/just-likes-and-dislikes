@@ -26,6 +26,9 @@ if (!class_exists('PLD_Hooks')) {
             // Add filter to exclude copying the like/dislike counts when using Yoast Duplicate Posts.
             add_filter('duplicate_post_excludelist_filter', array($this, 'duplicate_post_excludelist_filter'));
 
+            // Filter out the like/dislike counts on excerpts.
+            add_filter('get_the_excerpt', array( $this, 'the_excerpt_filter'));
+
             // Add an admin column for like/dislikes
             add_action('pre_get_posts', array($this,'pre_get_posts'));
             $available_post_types = get_post_types(array(), 'names');
@@ -36,6 +39,15 @@ if (!class_exists('PLD_Hooks')) {
                 add_filter('manage_' . $type . '_posts_columns', array($this, 'manage_post_posts_columns'));
                 add_action('manage_' . $type . '_posts_custom_column', array($this,'manage_post_posts_custom_column'), 10, 2);
             }
+        }
+
+        public function the_excerpt_filter($excerpt) {
+            $filter_start_pattern = preg_quote( '<!-- ###START### Post Like Dislike Content -->' );
+            $filter_end_pattern = preg_quote( '<!-- ###END### Post Like Dislike Content -->' );
+
+            $excerpt = preg_replace( $filter_start_pattern . '*.' . $filter_end_pattern, '', $excerpt );
+
+            return $excerpt;
         }
 
         public function posts_like_dislike($content)

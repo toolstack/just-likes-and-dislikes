@@ -20,6 +20,16 @@ if (empty($shortcode)) {
 if (is_admin() && !wp_doing_ajax()) {
     return $content;
 }
+
+/**
+ * Don't implement on embeded requests
+ *
+ * @since 2.0.0
+ */
+if( array_key_exists( 'embed', $_REQUEST ) ) {
+    return $content;
+}
+
 ob_start();
 
 /**
