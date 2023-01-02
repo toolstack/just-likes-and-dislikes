@@ -43,7 +43,7 @@ if (!class_exists('PLD_Hooks')) {
             }
         }
 
-        public function the_excerpt_filter($excerpt) 
+        public function the_excerpt_filter($excerpt)
 	{
             return preg_replace( $this->filter_pattern, '', $excerpt );
         }
@@ -119,6 +119,10 @@ if (!class_exists('PLD_Hooks')) {
                     }
                     break;
             }
+
+            // Add a span infront of them to make them look right in the screen options pulldown.
+            $like_icon = '<span><span class="vers" title="' . __( 'Like', PLD_TD ) . '" aria-hidden="true"></span><span class="screen-reader-text">' . __( 'Like', PLD_TD ) . '</span></span>' . $like_icon;
+            $dislike_icon = '<span><span class="vers" title="' . __( 'Dislike', PLD_TD ) . '" aria-hidden="true"></span><span class="screen-reader-text">' . __( 'Dislike', PLD_TD ) . '</span></span>' . $dislike_icon;
 
             // Loop through and create a new array, adding in our column at the right spot.
             foreach( $columns as $key => $value )
