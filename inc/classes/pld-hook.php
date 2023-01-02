@@ -8,6 +8,8 @@ if (!class_exists('PLD_Hooks')) {
         protected $likes_enabled        = true;
         protected $dislikes_enabled     = true;
 
+        private $filter_pattern = '\<\!\-\- \#\#\#START\#\#\# Post Like Dislike Content \-\-\>*.\<\!\-\- \#\#\#END\#\#\# Post Like Dislike Content \-\-\>';
+
         public function __construct()
         {
             parent::__construct();
@@ -41,13 +43,9 @@ if (!class_exists('PLD_Hooks')) {
             }
         }
 
-        public function the_excerpt_filter($excerpt) {
-            $filter_start_pattern = preg_quote( '<!-- ###START### Post Like Dislike Content -->' );
-            $filter_end_pattern = preg_quote( '<!-- ###END### Post Like Dislike Content -->' );
-
-            $excerpt = preg_replace( $filter_start_pattern . '*.' . $filter_end_pattern, '', $excerpt );
-
-            return $excerpt;
+        public function the_excerpt_filter($excerpt) 
+	{
+            return preg_replace( $this->filter_pattern, '', $excerpt );
         }
 
         public function posts_like_dislike($content)
