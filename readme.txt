@@ -83,6 +83,7 @@ We do have a shortcode [posts_like_dislike] which can also be used as custom fun
 * Add sortable columns to the admin posts list
 * Add filter for Yoast Duplicate Posts so the like/dislike count is reset
 * Add proper meta data registration
+* Removed like/dislike counts from excerpts and embeds
 * Remove old internationalization code
 * Fix widget width for Gutenberg
 * Update font awesome to v6.2.1
