@@ -204,10 +204,10 @@ if (!class_exists('PLD_Hooks')) {
             }
 
             // Filter if orderby is set to 'pld_dislike_count'
-            if( $this->like_discolumn_name == $orderby )
+            if( $this->dislike_column_name == $orderby )
             {
-                $query->set('meta_key',$this->like_discolumn_name);
-                $query->set('orderby',$this->like_discolumn_name);
+                $query->set('meta_key',$this->dislike_column_name);
+                $query->set('orderby',$this->dislike_column_name);
             }
         }
     }
