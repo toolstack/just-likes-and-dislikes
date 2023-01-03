@@ -36,7 +36,7 @@ if ( !class_exists( 'PLD_Enqueue' ) ) {
             wp_enqueue_style( 'pld-admin-css', PLD_CSS_DIR . '/pld-backend.css', array(), PLD_VERSION );
             wp_enqueue_script( 'pld-admin-js', PLD_JS_DIR . '/pld-backend.js', array( 'jquery', 'wp-color-picker' ), PLD_VERSION );
             $ajax_nonce = wp_create_nonce( 'pld-backend-ajax-nonce' );
-            $messages = array( 'wait' => __( 'Please wait', PLD_TD ), 'restore_confirm' => __( 'Are you sure you want to restore default settings?', PLD_TD ) );
+            $messages = array( 'wait' => __( 'Please wait', 'posts-like-dislike' ), 'restore_confirm' => __( 'Are you sure you want to restore default settings?', 'posts-like-dislike' ) );
             $js_object = array( 'admin_ajax_url' => admin_url( 'admin-ajax.php' ), 'admin_ajax_nonce' => $ajax_nonce, 'messages' => $messages );
             wp_localize_script( 'pld-admin-js', 'pld_admin_js_object', $js_object );
         }

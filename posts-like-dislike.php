@@ -47,7 +47,6 @@ if (!class_exists('PLD_Comments_like_dislike')) {
             defined('PLD_CSS_DIR') or define('PLD_CSS_DIR', plugin_dir_url(__FILE__) . 'css');
             defined('PLD_JS_DIR') or define('PLD_JS_DIR', plugin_dir_url(__FILE__) . 'js');
             defined('PLD_VERSION') or define('PLD_VERSION', '1.0.8');
-            defined('PLD_TD') or define('PLD_TD', 'posts-like-dislike');
             defined('PLD_BASENAME') or define('PLD_BASENAME', plugin_basename(__FILE__));
         }
     }

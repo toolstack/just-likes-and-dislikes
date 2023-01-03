@@ -79,8 +79,8 @@ $like_count = apply_filters('pld_like_count', $like_count, $post_id);
  */
 $dislike_count = apply_filters('pld_dislike_count', $dislike_count, $post_id);
 
-$like_title = isset($pld_settings['basic_settings']['like_hover_text']) ? esc_attr($pld_settings['basic_settings']['like_hover_text']) : __('Like', PLD_TD);
-$dislike_title = isset($pld_settings['basic_settings']['dislike_hover_text']) ? esc_attr($pld_settings['basic_settings']['dislike_hover_text']) : __('Dislike', PLD_TD);
+$like_title = isset($pld_settings['basic_settings']['like_hover_text']) ? esc_attr($pld_settings['basic_settings']['like_hover_text']) : __('Like', 'posts-like-dislike');
+$dislike_title = isset($pld_settings['basic_settings']['dislike_hover_text']) ? esc_attr($pld_settings['basic_settings']['dislike_hover_text']) : __('Dislike', 'posts-like-dislike');
 
 //$this->print_array( $pld_settings );
 ?>

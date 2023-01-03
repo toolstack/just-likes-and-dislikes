@@ -71,7 +71,7 @@ if (!class_exists('PLD_Admin')) {
                  * @since 1.0.0
                  */
                 update_option('pld_settings', apply_filters('pld_settings', $pld_settings));
-                die(__('Settings saved successfully', PLD_TD));
+                die(__('Settings saved successfully', 'posts-like-dislike'));
             } else {
                 die('No script kiddies please!!');
             }
@@ -84,7 +84,7 @@ if (!class_exists('PLD_Admin')) {
         function restore_settings() {
             $default_settings = $this->get_default_settings();
             update_option('pld_settings', $default_settings);
-            die(__('Settings restored successfully.Redirecting...', PLD_TD));
+            die(__('Settings restored successfully.Redirecting...', 'posts-like-dislike'));
         }
 
         /**
@@ -94,7 +94,7 @@ if (!class_exists('PLD_Admin')) {
          */
         function add_setting_link($links) {
             $settings_link = array(
-                '<a href="' . admin_url('options-general.php?page=posts-like-dislike') . '">' . __('Settings', PLD_TD) . '</a>',
+                '<a href="' . admin_url('options-general.php?page=posts-like-dislike') . '">' . __('Settings', 'posts-like-dislike') . '</a>',
             );
             return array_merge($links, $settings_link);
         }

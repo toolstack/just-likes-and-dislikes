@@ -7,10 +7,10 @@ $pld_settings = $this->pld_settings;
     <h2 class="nav-tab-wrapper wp-clearfix">
         <?php
         $pld_tabs = array(
-            'basic' => array('label' => __('Basic Settings', PLD_TD)),
-            'design' => array('label' => __('Design Settings', PLD_TD)),
-            'help' => array('label' => __('Help', PLD_TD)),
-            'about' => array('label' => __('About Us', PLD_TD))
+            'basic' => array('label' => __('Basic Settings', 'posts-like-dislike')),
+            'design' => array('label' => __('Design Settings', 'posts-like-dislike')),
+            'help' => array('label' => __('Help', 'posts-like-dislike')),
+            'about' => array('label' => __('About Us', 'posts-like-dislike'))
         );
         /**
          * Filters the tabs
@@ -52,8 +52,8 @@ $pld_settings = $this->pld_settings;
             <div class="pld-field-wrap pld-settings-action">
                 <label></label>
                 <div class="pld-field">
-                    <input type="submit" class="pld-settings-save-trigger button-primary" value="<?php _e('Save settings', PLD_TD); ?>"/>
-                    <input type="button" class="pld-settings-restore-trigger button-secondary" value="<?php _e('Restore settings', PLD_TD); ?>"/>
+                    <input type="submit" class="pld-settings-save-trigger button-primary" value="<?php _e('Save settings', 'posts-like-dislike'); ?>"/>
+                    <input type="button" class="pld-settings-restore-trigger button-secondary" value="<?php _e('Restore settings', 'posts-like-dislike'); ?>"/>
                 </div>
             </div>
         </form>
@@ -61,7 +61,7 @@ $pld_settings = $this->pld_settings;
     </div>
     <div class="pld-info-wrap" style="display:none;">
         <img src="<?php echo PLD_IMG_DIR . '/ajax-loader.gif'; ?>" class="pld-loader"/>
-        <span class="pld-info"><?php _e('Please wait.', PLD_TD); ?></span>
+        <span class="pld-info"><?php _e('Please wait.', 'posts-like-dislike'); ?></span>
         <span class="dashicons dashicons-dismiss pld-close-info"></span>
     </div>
 </div>

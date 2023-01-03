@@ -90,8 +90,8 @@ if (!class_exists('PLD_Hooks')) {
         public function manage_post_posts_columns($columns)
         {
             // Build the like/dislike icon based on the current design settings.
-            $like_title = isset($pld_settings['basic_settings']['like_hover_text']) ? esc_attr($pld_settings['basic_settings']['like_hover_text']) : __('Like', PLD_TD);
-            $dislike_title = isset($pld_settings['basic_settings']['dislike_hover_text']) ? esc_attr($pld_settings['basic_settings']['dislike_hover_text']) : __('Dislike', PLD_TD);
+            $like_title = isset($pld_settings['basic_settings']['like_hover_text']) ? esc_attr($pld_settings['basic_settings']['like_hover_text']) : __('Like', 'posts-like-dislike');
+            $dislike_title = isset($pld_settings['basic_settings']['dislike_hover_text']) ? esc_attr($pld_settings['basic_settings']['dislike_hover_text']) : __('Dislike', 'posts-like-dislike');
 
             switch ($this->pld_settings['design_settings']['template'])
             {
@@ -121,8 +121,8 @@ if (!class_exists('PLD_Hooks')) {
             }
 
             // Add a span infront of them to make them look right in the screen options pulldown.
-            $like_icon = '<span><span class="vers" title="' . __( 'Like', PLD_TD ) . '" aria-hidden="true"></span><span class="screen-reader-text">' . __( 'Like', PLD_TD ) . '</span></span>' . $like_icon;
-            $dislike_icon = '<span><span class="vers" title="' . __( 'Dislike', PLD_TD ) . '" aria-hidden="true"></span><span class="screen-reader-text">' . __( 'Dislike', PLD_TD ) . '</span></span>' . $dislike_icon;
+            $like_icon = '<span><span class="vers" title="' . __( 'Like', 'posts-like-dislike' ) . '" aria-hidden="true"></span><span class="screen-reader-text">' . __( 'Like', 'posts-like-dislike' ) . '</span></span>' . $like_icon;
+            $dislike_icon = '<span><span class="vers" title="' . __( 'Dislike', 'posts-like-dislike' ) . '" aria-hidden="true"></span><span class="screen-reader-text">' . __( 'Dislike', 'posts-like-dislike' ) . '</span></span>' . $dislike_icon;
 
             // Loop through and create a new array, adding in our column at the right spot.
             foreach( $columns as $key => $value )
