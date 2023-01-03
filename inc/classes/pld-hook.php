@@ -8,7 +8,8 @@ if (!class_exists('PLD_Hooks')) {
         protected $likes_enabled        = true;
         protected $dislikes_enabled     = true;
 
-        private $filter_pattern = '\<\!\-\- \#\#\#START\#\#\# Post Like Dislike Content \-\-\>*.\<\!\-\- \#\#\#END\#\#\# Post Like Dislike Content \-\-\>';
+        private $before_filter_pattern = '/^[\s*\d+]+/';
+        private $after_filter_pattern = '/[\s*\d+]+$/';
 
         public function __construct()
         {
@@ -44,8 +45,21 @@ if (!class_exists('PLD_Hooks')) {
         }
 
         public function the_excerpt_filter($excerpt)
-	{
-            return preg_replace( $this->filter_pattern, '', $excerpt );
+        {
+            if ($this->pld_settings['basic_settings']['like_dislike_position'] == 'before')
+            {
+                $new_excerpt = preg_replace( $this->before_filter_pattern, '', $excerpt );
+            }
+
+            if ($this->pld_settings['basic_settings']['like_dislike_position'] == 'after')
+            {
+                $new_excerpt = preg_replace( $this->after_filter_pattern, '', $excerpt );
+            }
+
+            // Make sure we got a string back, otherwise something went wrong and just return the old except.
+            if( is_string( $new_excerpt ) ) { $excerpt = $new_excerpt; }
+
+            return $excerpt;
         }
 
         public function posts_like_dislike($content)

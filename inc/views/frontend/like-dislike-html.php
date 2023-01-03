@@ -84,7 +84,6 @@ $dislike_title = isset($pld_settings['basic_settings']['dislike_hover_text']) ? 
 
 //$this->print_array( $pld_settings );
 ?>
-<!-- ###START### Post Like Dislike Content -->
 <div
     class="pld-like-dislike-wrap pld-<?php echo esc_attr($pld_settings['design_settings']['template']); ?>">
     <?php
@@ -111,4 +110,3 @@ $dislike_title = isset($pld_settings['basic_settings']['dislike_hover_text']) ? 
     }
     ?>
 </div>
-<!-- ###END### Post Like Dislike Content -->
