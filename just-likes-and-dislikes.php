@@ -4,7 +4,7 @@ defined('ABSPATH') or die('No script kiddies please');
 
 /*
   Plugin Name: Just Likes and Dislikes
-  Description: A simple plugin to add like dislike to WordPress.
+  Description: A simple plugin to add likes and dislikes to WordPress.
   Version:     2.0
   Author:      GregRoss
   Author URI:  http://toolstack.com
