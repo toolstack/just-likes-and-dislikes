@@ -1,19 +1,20 @@
 === Just Likes and Dislikes ===
-Contributors: happy-coders, regankhadgi, toolstack
-Donate link: http://wphappycoders.com/
-Tags: posts, post, custom post type,page, like, dislike, like dislike
+Contributors: GregRoss
+Tags: like, dislike, posts, pages, comments
 Requires at least: 5.0
 Tested up to: 6.0
 Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Like Dislike for WordPress Posts | WordPress Page | Custom Post Types
+Like and dislike feature for WordPress.
 
 == Description ==
-*Just Likes and Dislikes* is the *Free* WordPress Plugin to enable Like and Dislike Icons for *default WordPress Posts* or *any other post types*. Choose Thumbs Up or Thumbs Down, Smiley or Frown, Right or Wrong icons or your own custom like dislike icons, choice is yours.
+**Just Likes and Dislikes is a fork of the excellent [Post Like Dislike](https://wordpress.org/plugins/posts-like-dislike/) and [Comment Like and Dislike](https://wordpress.org/plugins/comments-like-dislike/) by [WP Happy Coders](http://wphappycoders.com/)**
 
-*Just Likes and Dislikes* increases the interaction with the WordPress posts/post types by enabling likes and dislikes buttons along with the count.
+Just Likes and Dislikes enables like and dislike icons for posts, pages and comments. Choose Thumbs Up or Thumbs Down, Smiley or Frown, Right or Wrong icons or your own custom like dislike icons, the choice is yours.
+
+Just Likes and Dislikes increases the interaction with the WordPress by enabling likes and dislikes buttons along with the count.
 
 = See full features list below: =
 * Status
@@ -42,16 +43,16 @@ Like Dislike for WordPress Posts | WordPress Page | Custom Post Types
 * Count Color Configuration
 
 = Shortcode =
-[posts_like_dislike id=post_id]
+[just_like_and_dislike id=post_id]
 Please replace post_id with the id of the post or remove id parameter for considering the post id as the id of global $post object
 
 = Custom Function =
-`<?php echo do_shortcode('[posts_like_dislike id=post_id]');?>`
+`<?php echo do_shortcode('[just_like_and_dislike id=post_id]');?>`
 Please replace post_id with the id of the post or remove id parameter for considering the post id as the id of global $post object
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/posts-like-dislike` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/just-like-and-dislike` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 1. Use the Just Likes and Dislikes settings page inside the Posts Menu to configure the plugin
 

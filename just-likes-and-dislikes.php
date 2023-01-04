@@ -4,10 +4,10 @@ defined('ABSPATH') or die('No script kiddies please');
 
 /*
   Plugin Name: Just Likes and Dislikes
-  Description: A simple plugin to add like dislike for your WordPress Posts
+  Description: A simple plugin to add like dislike to WordPress.
   Version:     2.0
-  Author:      WP Happy Coders
-  Author URI:  http://wphappycoders.com
+  Author:      GregRoss
+  Author URI:  http://toolstack.com
   License:     GPL2
   License URI: https://www.gnu.org/licenses/gpl-2.0.html
   Text Domain: just-likes-and-dislikes
