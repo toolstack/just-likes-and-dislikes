@@ -1,41 +1,41 @@
 <?php
-$pld_settings = $this->pld_settings;
+$jlad_settings = $this->jlad_settings;
 ?>
-<div class="wrap pld-wrap">
-    <div class="pld-header"><h3><?php _e('Posts Like Dislike', 'posts-like-dislike'); ?><span class="pld-avatar-holder"><img src="<?php echo PLD_IMG_DIR . '/avatar.jpeg'; ?>"/></span></h3></div>
-    <div class="pld-clear"></div>
+<div class="wrap jlad-wrap">
+    <div class="jlad-header"><h3><?php _e('Just Likes and Dislikes', 'just-likes-and-dislikes'); ?><span class="jlad-avatar-holder"><img src="<?php echo JLAD_IMG_DIR . '/avatar.jpeg'; ?>"/></span></h3></div>
+    <div class="jlad-clear"></div>
     <h2 class="nav-tab-wrapper wp-clearfix">
         <?php
-        $pld_tabs = array(
-            'basic' => array('label' => __('Basic Settings', 'posts-like-dislike')),
-            'design' => array('label' => __('Design Settings', 'posts-like-dislike')),
-            'help' => array('label' => __('Help', 'posts-like-dislike')),
-            'about' => array('label' => __('About Us', 'posts-like-dislike'))
+        $jlad_tabs = array(
+            'basic' => array('label' => __('Basic Settings', 'just-likes-and-dislikes')),
+            'design' => array('label' => __('Design Settings', 'just-likes-and-dislikes')),
+            'help' => array('label' => __('Help', 'just-likes-and-dislikes')),
+            'about' => array('label' => __('About Us', 'just-likes-and-dislikes'))
         );
         /**
          * Filters the tabs
          *
          * @since 1.0.0
          *
-         * @param array $pld_tabs
+         * @param array $jlad_tabs
          */
-        $pld_tabs = apply_filters('pld_admin_tabs', $pld_tabs);
-        $pld_tab_counter = 0;
-        foreach ($pld_tabs as $pld_tab => $pld_tab_detail) {
-            $pld_tab_counter++;
+        $jlad_tabs = apply_filters('jlad_admin_tabs', $jlad_tabs);
+        $jlad_tab_counter = 0;
+        foreach ($jlad_tabs as $jlad_tab => $jlad_tab_detail) {
+            $jlad_tab_counter++;
             ?>
-            <a href="javascript:void(0);" class="nav-tab <?php echo ($pld_tab_counter == 1) ? 'nav-tab-active' : ''; ?> pld-tab-trigger" data-settings-ref="<?php echo $pld_tab; ?>"><?php echo $pld_tab_detail['label']; ?></a>
+            <a href="javascript:void(0);" class="nav-tab <?php echo ($jlad_tab_counter == 1) ? 'nav-tab-active' : ''; ?> jlad-tab-trigger" data-settings-ref="<?php echo $jlad_tab; ?>"><?php echo $jlad_tab_detail['label']; ?></a>
             <?php
         }
         ?>
 
     </h2>
-    <div class="pld-settings-section-wrap">
-        <form class="pld-settings-form">
-            <?php require PLD_PATH . 'inc/views/backend/boxes/basic-settings.php'; ?>
-            <?php require PLD_PATH . 'inc/views/backend/boxes/design-settings.php'; ?>
-            <?php require PLD_PATH . 'inc/views/backend/boxes/help.php'; ?>
-            <?php require PLD_PATH . 'inc/views/backend/boxes/about-us.php'; ?>
+    <div class="jlad-settings-section-wrap">
+        <form class="jlad-settings-form">
+            <?php require JLAD_PATH . 'inc/views/backend/boxes/basic-settings.php'; ?>
+            <?php require JLAD_PATH . 'inc/views/backend/boxes/design-settings.php'; ?>
+            <?php require JLAD_PATH . 'inc/views/backend/boxes/help.php'; ?>
+            <?php require JLAD_PATH . 'inc/views/backend/boxes/about-us.php'; ?>
 
 
 
@@ -43,25 +43,25 @@ $pld_settings = $this->pld_settings;
             /**
              * Fires when displaying the tabs section
              *
-             * @param array $pld_settings
+             * @param array $jlad_settings
              *
              * @since 1.0.0
              */
-            do_action('pld_admin_tab_section', $pld_settings);
+            do_action('jlad_admin_tab_section', $jlad_settings);
             ?>
-            <div class="pld-field-wrap pld-settings-action">
+            <div class="jlad-field-wrap jlad-settings-action">
                 <label></label>
-                <div class="pld-field">
-                    <input type="submit" class="pld-settings-save-trigger button-primary" value="<?php _e('Save settings', 'posts-like-dislike'); ?>"/>
-                    <input type="button" class="pld-settings-restore-trigger button-secondary" value="<?php _e('Restore settings', 'posts-like-dislike'); ?>"/>
+                <div class="jlad-field">
+                    <input type="submit" class="jlad-settings-save-trigger button-primary" value="<?php _e('Save settings', 'just-likes-and-dislikes'); ?>"/>
+                    <input type="button" class="jlad-settings-restore-trigger button-secondary" value="<?php _e('Restore settings', 'just-likes-and-dislikes'); ?>"/>
                 </div>
             </div>
         </form>
 
     </div>
-    <div class="pld-info-wrap" style="display:none;">
-        <img src="<?php echo PLD_IMG_DIR . '/ajax-loader.gif'; ?>" class="pld-loader"/>
-        <span class="pld-info"><?php _e('Please wait.', 'posts-like-dislike'); ?></span>
-        <span class="dashicons dashicons-dismiss pld-close-info"></span>
+    <div class="jlad-info-wrap" style="display:none;">
+        <img src="<?php echo JLAD_IMG_DIR . '/ajax-loader.gif'; ?>" class="jlad-loader"/>
+        <span class="jlad-info"><?php _e('Please wait.', 'just-likes-and-dislikes'); ?></span>
+        <span class="dashicons dashicons-dismiss jlad-close-info"></span>
     </div>
 </div>

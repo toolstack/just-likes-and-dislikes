@@ -1,13 +1,13 @@
-<div class="pld-dislike-wrap  pld-common-wrap">
+<div class="jlad-dislike-wrap  jlad-common-wrap">
     <a href="<?php echo esc_attr($href); ?>"
-       class="pld-dislike-trigger pld-like-dislike-trigger <?php echo ($already_liked == 1) ? 'pld-prevent' : ''; ?>"
+       class="jlad-dislike-trigger jlad-like-dislike-trigger <?php echo ($already_liked == 1) ? 'jlad-prevent' : ''; ?>"
        title="<?php echo esc_attr($dislike_title); ?>"
        data-post-id="<?php echo intval($post_id); ?>"
        data-trigger-type="dislike"
-       data-restriction="<?php echo esc_attr($pld_settings['basic_settings']['like_dislike_resistriction']); ?>"
+       data-restriction="<?php echo esc_attr($jlad_settings['basic_settings']['like_dislike_resistriction']); ?>"
        data-already-liked="<?php echo esc_attr($already_liked); ?>">
            <?php
-            $template = esc_attr($pld_settings['design_settings']['template']);
+            $template = esc_attr($jlad_settings['design_settings']['template']);
             switch ($template) {
             case 'template-1':
                 ?>
@@ -30,9 +30,9 @@
                 <?php
                 break;
             case 'custom':
-                if ($pld_settings['design_settings']['dislike_icon'] != '') {
+                if ($jlad_settings['design_settings']['dislike_icon'] != '') {
                     ?>
-                    <img src="<?php echo esc_url($pld_settings['design_settings']['dislike_icon']); ?>" alt="<?php echo esc_attr($dislike_title); ?>"/>
+                    <img src="<?php echo esc_url($jlad_settings['design_settings']['dislike_icon']); ?>" alt="<?php echo esc_attr($dislike_title); ?>"/>
                     <?php
                 }
                 break;
@@ -40,12 +40,12 @@
             /**
              * Fires when template is being loaded
              *
-             * @param array $pld_settings
+             * @param array $jlad_settings
              *
              * @since 1.0.0
              */
-            do_action('pld_dislike_template', $pld_settings);
+            do_action('jlad_dislike_template', $jlad_settings);
             ?>
     </a>
-    <span class="pld-dislike-count-wrap pld-count-wrap"><?php echo esc_html($dislike_count); ?></span>
+    <span class="jlad-dislike-count-wrap jlad-count-wrap"><?php echo esc_html($dislike_count); ?></span>
 </div>

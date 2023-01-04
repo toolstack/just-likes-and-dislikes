@@ -1,15 +1,15 @@
 <?php
 
-if (!class_exists('PLD_Library')) {
+if (!class_exists('JLAD_Library')) {
 
-    class PLD_Library
+    class JLAD_Library
     {
 
-        var $pld_settings;
+        var $jlad_settings;
 
         function __construct()
         {
-            $this->pld_settings = get_option('pld_settings');
+            $this->jlad_settings = get_option('jlad_settings');
         }
 
         function print_array($array)
@@ -48,7 +48,7 @@ if (!class_exists('PLD_Library')) {
              *
              * @since 1.0.0
              */
-            return apply_filters('pld_default_settings', $default_settings);
+            return apply_filters('jlad_default_settings', $default_settings);
         }
 
         /**

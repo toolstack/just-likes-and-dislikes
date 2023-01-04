@@ -1,10 +1,10 @@
 <?php
 
-if (!class_exists('PLD_Hooks')) {
-    class PLD_Hooks extends PLD_Library
+if (!class_exists('JLAD_Hooks')) {
+    class JLAD_Hooks extends JLAD_Library
     {
-        protected $like_column_name     = 'pld_like_count';
-        protected $dislike_column_name  = 'pld_dislike_count';
+        protected $like_column_name     = 'jlad_like_count';
+        protected $dislike_column_name  = 'jlad_dislike_count';
         protected $likes_enabled        = true;
         protected $dislikes_enabled     = true;
 
@@ -16,19 +16,19 @@ if (!class_exists('PLD_Hooks')) {
             parent::__construct();
 
             // Figure out if we're displaying likes, dislikes or both and set the class variables appropriately.
-            if($this->pld_settings == 'both' || $this->pld_settings == 'like_only' ) { $this->likes_enabled = true; 
+            if($this->jlad_settings == 'both' || $this->jlad_settings == 'like_only' ) { $this->likes_enabled = true; 
             }
-            if($this->pld_settings == 'both' || $this->pld_settings == 'dislike_only' ) { $this->dislikes_enabled = true; 
+            if($this->jlad_settings == 'both' || $this->jlad_settings == 'dislike_only' ) { $this->dislikes_enabled = true; 
             }
-            if($this->pld_settings == 'like_only' ) { $this->dislikes_enabled = false; 
+            if($this->jlad_settings == 'like_only' ) { $this->dislikes_enabled = false; 
             }
-            if($this->pld_settings == 'dislike_only' ) { $this->likes_enabled = false; 
+            if($this->jlad_settings == 'dislike_only' ) { $this->likes_enabled = false; 
             }
 
             add_filter('the_content', array($this, 'posts_like_dislike'), 200); // hook to add html for like dislike
-            add_action('pld_like_dislike_output', array($this, 'generate_like_dislike_html'), 10, 3);
+            add_action('jlad_like_dislike_output', array($this, 'generate_like_dislike_html'), 10, 3);
             add_action('wp_head', array($this, 'custom_styles'));
-            add_shortcode('posts_like_dislike', array($this, 'render_pld_shortcode'));
+            add_shortcode('posts_like_dislike', array($this, 'render_jlad_shortcode'));
 
             // Add filter to exclude copying the like/dislike counts when using Yoast Duplicate Posts.
             add_filter('duplicate_post_excludelist_filter', array($this, 'duplicate_post_excludelist_filter'));
@@ -50,11 +50,11 @@ if (!class_exists('PLD_Hooks')) {
 
         public function the_excerpt_filter($excerpt)
         {
-            if ($this->pld_settings['basic_settings']['like_dislike_position'] == 'before') {
+            if ($this->jlad_settings['basic_settings']['like_dislike_position'] == 'before') {
                 $new_excerpt = preg_replace($this->before_filter_pattern, '', $excerpt);
             }
 
-            if ($this->pld_settings['basic_settings']['like_dislike_position'] == 'after') {
+            if ($this->jlad_settings['basic_settings']['like_dislike_position'] == 'after') {
                 $new_excerpt = preg_replace($this->after_filter_pattern, '', $excerpt);
             }
 
@@ -67,39 +67,39 @@ if (!class_exists('PLD_Hooks')) {
 
         public function posts_like_dislike($content)
         {
-            include PLD_PATH . '/inc/cores/like-dislike-render.php';
+            include JLAD_PATH . '/inc/cores/like-dislike-render.php';
             return $content;
         }
 
         public function duplicate_post_excludelist_filter($meta_excludelist)
         {
             // Merges the defaults array with our own array of custom fields.
-            return array_merge($meta_excludelist, ['pld_like_count', 'pld_dislike_count']);
+            return array_merge($meta_excludelist, ['jlad_like_count', 'jlad_dislike_count']);
         }
 
-        public function render_pld_shortcode($atts)
+        public function render_jlad_shortcode($atts)
         {
             $content = '';
             $shortcode = true;
-            include PLD_PATH . '/inc/cores/like-dislike-render.php';
+            include JLAD_PATH . '/inc/cores/like-dislike-render.php';
             return $content;
         }
 
         public function generate_like_dislike_html($content, $shortcode, $atts)
         {
-            include PLD_PATH . '/inc/views/frontend/like-dislike-html.php';
+            include JLAD_PATH . '/inc/views/frontend/like-dislike-html.php';
         }
 
         public function custom_styles()
         {
-            $pld_settings = $this->pld_settings;
+            $jlad_settings = $this->jlad_settings;
 
             echo "<style>";
-            if ($pld_settings['design_settings']['icon_color'] != '') {
-                echo 'a.pld-like-dislike-trigger {color: ' . esc_attr($pld_settings['design_settings']['icon_color']) . ';}';
+            if ($jlad_settings['design_settings']['icon_color'] != '') {
+                echo 'a.jlad-like-dislike-trigger {color: ' . esc_attr($jlad_settings['design_settings']['icon_color']) . ';}';
             }
-            if ($pld_settings['design_settings']['count_color'] != '') {
-                echo 'span.pld-count-wrap {color: ' . esc_attr($pld_settings['design_settings']['count_color']) . ';}';
+            if ($jlad_settings['design_settings']['count_color'] != '') {
+                echo 'span.jlad-count-wrap {color: ' . esc_attr($jlad_settings['design_settings']['count_color']) . ';}';
             }
             echo "</style>";
         }
@@ -107,10 +107,10 @@ if (!class_exists('PLD_Hooks')) {
         public function manage_post_posts_columns($columns)
         {
             // Build the like/dislike icon based on the current design settings.
-            $like_title = isset($pld_settings['basic_settings']['like_hover_text']) ? esc_attr($pld_settings['basic_settings']['like_hover_text']) : __('Like', 'posts-like-dislike');
-            $dislike_title = isset($pld_settings['basic_settings']['dislike_hover_text']) ? esc_attr($pld_settings['basic_settings']['dislike_hover_text']) : __('Dislike', 'posts-like-dislike');
+            $like_title = isset($jlad_settings['basic_settings']['like_hover_text']) ? esc_attr($jlad_settings['basic_settings']['like_hover_text']) : __('Like', 'just-likes-and-dislikes');
+            $dislike_title = isset($jlad_settings['basic_settings']['dislike_hover_text']) ? esc_attr($jlad_settings['basic_settings']['dislike_hover_text']) : __('Dislike', 'just-likes-and-dislikes');
 
-            switch ($this->pld_settings['design_settings']['template'])
+            switch ($this->jlad_settings['design_settings']['template'])
             {
             case 'template-1':
                 $like_icon      = '<i class="fas fa-thumbs-up"></i>';
@@ -129,16 +129,16 @@ if (!class_exists('PLD_Hooks')) {
                 $dislike_icon   = '<i class="far fa-frown"></i>';
                 break;
             case 'custom':
-                if ($this->pld_settings['design_settings']['like_icon'] != '') {
-                    $like_icon = '<img src="' . esc_url($this->pld_settings['design_settings']['like_icon']) . '" alt="' . esc_attr($like_title) . '"/>';
-                    $dislike_icon = '<img src="' . esc_url($this->pld_settings['design_settings']['dislike_icon']) . '" alt="' . esc_attr($dislike_title) . '"/>';
+                if ($this->jlad_settings['design_settings']['like_icon'] != '') {
+                    $like_icon = '<img src="' . esc_url($this->jlad_settings['design_settings']['like_icon']) . '" alt="' . esc_attr($like_title) . '"/>';
+                    $dislike_icon = '<img src="' . esc_url($this->jlad_settings['design_settings']['dislike_icon']) . '" alt="' . esc_attr($dislike_title) . '"/>';
                 }
                 break;
             }
 
             // Add a span infront of them to make them look right in the screen options pulldown.
-            $like_icon = '<span><span class="vers" title="' . __('Like', 'posts-like-dislike') . '" aria-hidden="true"></span><span class="screen-reader-text">' . __('Like', 'posts-like-dislike') . '</span></span>' . $like_icon;
-            $dislike_icon = '<span><span class="vers" title="' . __('Dislike', 'posts-like-dislike') . '" aria-hidden="true"></span><span class="screen-reader-text">' . __('Dislike', 'posts-like-dislike') . '</span></span>' . $dislike_icon;
+            $like_icon = '<span><span class="vers" title="' . __('Like', 'just-likes-and-dislikes') . '" aria-hidden="true"></span><span class="screen-reader-text">' . __('Like', 'just-likes-and-dislikes') . '</span></span>' . $like_icon;
+            $dislike_icon = '<span><span class="vers" title="' . __('Dislike', 'just-likes-and-dislikes') . '" aria-hidden="true"></span><span class="screen-reader-text">' . __('Dislike', 'just-likes-and-dislikes') . '</span></span>' . $dislike_icon;
 
             // Loop through and create a new array, adding in our column at the right spot.
             foreach( $columns as $key => $value )
@@ -166,9 +166,9 @@ if (!class_exists('PLD_Hooks')) {
         public function manage_post_posts_custom_column($column_key, $post_id)
         {
             if ($column_key == $this->like_column_name || $column_key == $this->dislike_column_name) {
-                $pld_settings = $this->pld_settings;
-                $like_count = intval(get_post_meta($post_id, 'pld_like_count', true));
-                $dislike_count = intval(get_post_meta($post_id, 'pld_dislike_count', true));
+                $jlad_settings = $this->jlad_settings;
+                $like_count = intval(get_post_meta($post_id, 'jlad_like_count', true));
+                $dislike_count = intval(get_post_meta($post_id, 'jlad_dislike_count', true));
 
                 if ($column_key == $this->like_column_name ) {
                     echo $like_count > 0 ? $like_count : '—';
@@ -182,8 +182,8 @@ if (!class_exists('PLD_Hooks')) {
 
         public function manage_post_posts_sortable_columns($columns)
         {
-            $columns['pld_like_count']      = 'pld_like_count';
-            $columns['pld_dislike_count']   = 'pld_dislike_count';
+            $columns['jlad_like_count']      = 'jlad_like_count';
+            $columns['jlad_dislike_count']   = 'jlad_dislike_count';
 
             return $columns;
         }
@@ -199,13 +199,13 @@ if (!class_exists('PLD_Hooks')) {
 
             $orderby = $query->get('orderby');
 
-            // Filter if orderby is set to 'pld_like_count'
+            // Filter if orderby is set to 'jlad_like_count'
             if($this->like_column_name == $orderby ) {
                 $query->set('meta_key', $this->like_column_name);
                 $query->set('orderby', $this->like_column_name);
             }
 
-            // Filter if orderby is set to 'pld_dislike_count'
+            // Filter if orderby is set to 'jlad_dislike_count'
             if($this->dislike_column_name == $orderby ) {
                 $query->set('meta_key', $this->dislike_column_name);
                 $query->set('orderby', $this->dislike_column_name);
@@ -213,5 +213,5 @@ if (!class_exists('PLD_Hooks')) {
         }
     }
 
-    new PLD_Hooks();
+    new JLAD_Hooks();
 }

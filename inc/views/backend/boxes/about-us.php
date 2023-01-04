@@ -1,8 +1,8 @@
-<div class="pld-settings-section" data-settings-ref="about" style="display:none;">
-	<h3><?php _e( 'Who we are ?', 'posts-like-dislike' ); ?></h3>
-	<p><?php _e( 'We are WP Happy Coders {:)} ,bunch of <strong>WordPress Developers</strong> with enthusiasm towards <strong>WordPress</strong> trying to spread happiness through WordPress by developing some Handy Wordpress Plugins.', 'posts-like-dislike' ); ?></p>
-	<p><?php _e( 'If you really liked our plugin then please give us a rating from <a href="https://wordpress.org/support/plugin/posts-like-dislike/reviews/#form" target="_blank">here</a>. That\'s the only way to keep us motivated to make the plugin even better.', 'posts-like-dislike' ); ?></p>
-	<h3><?php _e( 'Like us on facebook for latest updates', 'posts-like-dislike' ); ?></h3>
+<div class="jlad-settings-section" data-settings-ref="about" style="display:none;">
+	<h3><?php _e( 'Who we are ?', 'just-likes-and-dislikes' ); ?></h3>
+	<p><?php _e( 'We are WP Happy Coders {:)} ,bunch of <strong>WordPress Developers</strong> with enthusiasm towards <strong>WordPress</strong> trying to spread happiness through WordPress by developing some Handy Wordpress Plugins.', 'just-likes-and-dislikes' ); ?></p>
+	<p><?php _e( 'If you really liked our plugin then please give us a rating from <a href="https://wordpress.org/support/plugin/just-likes-and-dislikes/reviews/#form" target="_blank">here</a>. That\'s the only way to keep us motivated to make the plugin even better.', 'just-likes-and-dislikes' ); ?></p>
+	<h3><?php _e( 'Like us on facebook for latest updates', 'just-likes-and-dislikes' ); ?></h3>
 	<div id="fb-root"></div>
 	<script>(function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];

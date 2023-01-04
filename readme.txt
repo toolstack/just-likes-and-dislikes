@@ -1,4 +1,4 @@
-=== Posts Like Dislike ===
+=== Just Likes and Dislikes ===
 Contributors: happy-coders, regankhadgi, toolstack
 Donate link: http://wphappycoders.com/
 Tags: posts, post, custom post type,page, like, dislike, like dislike
@@ -11,13 +11,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Like Dislike for WordPress Posts | WordPress Page | Custom Post Types
 
 == Description ==
-*Posts Like Dislike* is the *Free* WordPress Plugin to enable Like and Dislike Icons for *default WordPress Posts* or *any other post types*. Choose Thumbs Up or Thumbs Down, Smiley or Frown, Right or Wrong icons or your own custom like dislike icons, choice is yours.
+*Just Likes and Dislikes* is the *Free* WordPress Plugin to enable Like and Dislike Icons for *default WordPress Posts* or *any other post types*. Choose Thumbs Up or Thumbs Down, Smiley or Frown, Right or Wrong icons or your own custom like dislike icons, choice is yours.
 
-*Posts Like Dislike* increases the interaction with the WordPress posts/post types by enabling likes and dislikes buttons along with the count.
+*Just Likes and Dislikes* increases the interaction with the WordPress posts/post types by enabling likes and dislikes buttons along with the count.
 
 = See full features list below: =
 * Status
-    - Enable or Disable Posts Like Dislike for posts/page or any other post types
+    - Enable or Disable Just Likes and Dislikes for posts/page or any other post types
 * Like Dislike Position
     - After Post
     - Before Post
@@ -53,7 +53,7 @@ Please replace post_id with the id of the post or remove id parameter for consid
 
 1. Upload the plugin files to the `/wp-content/plugins/posts-like-dislike` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
-1. Use the Posts Like Dislike settings page inside the Posts Menu to configure the plugin
+1. Use the Just Likes and Dislikes settings page inside the Posts Menu to configure the plugin
 
 == Frequently Asked Questions ==
 = What does this plugin do ? =

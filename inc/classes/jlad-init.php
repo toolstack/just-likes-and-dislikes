@@ -1,23 +1,23 @@
 <?php
 
-if(!class_exists('PLD_Init')) {
-    class PLD_Init
+if(!class_exists('JLAD_Init')) {
+    class JLAD_Init
     {
         function __construct()
         {
-            add_action('init', array($this,'pld_init'));
+            add_action('init', array($this,'jlad_init'));
         }
 
-        function pld_init()
+        function jlad_init()
         {
             /**
              * Fires when Init hook is fired through plugin
              *
              * @since 1.0.0
              */
-            do_action('pld_init');
+            do_action('jlad_init');
         }
     }
 
-    new PLD_Init();
+    new JLAD_Init();
 }

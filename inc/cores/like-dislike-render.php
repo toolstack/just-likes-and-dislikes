@@ -1,13 +1,13 @@
 <?php
 
 defined('ABSPATH') or die('No script kiddies please!!');
-$pld_settings = $this->pld_settings;
+$jlad_settings = $this->jlad_settings;
 if (empty($shortcode)) {
     global $post;
     if (empty($post)) {
         return $content;
     }
-    $checked_post_types = (!empty($pld_settings['basic_settings']['post_types'])) ? $pld_settings['basic_settings']['post_types'] : array();
+    $checked_post_types = (!empty($jlad_settings['basic_settings']['post_types'])) ? $jlad_settings['basic_settings']['post_types'] : array();
     if (!in_array($post->post_type, $checked_post_types)) {
         return $content;
     }
@@ -41,21 +41,21 @@ ob_start();
  */
 $shortcode = (!empty($shortcode)) ? $shortcode : false;
 $atts = (!empty($atts))?$atts:[];
-do_action('pld_like_dislike_output', $content, $shortcode, $atts);
+do_action('jlad_like_dislike_output', $content, $shortcode, $atts);
 
 $like_dislike_html = ob_get_contents();
 ob_end_clean();
 
-if ($pld_settings['basic_settings']['like_dislike_position'] == 'after') {
+if ($jlad_settings['basic_settings']['like_dislike_position'] == 'after') {
     /**
      * Filters Like Dislike HTML
      *
      * @param string $like_dislike_html
-     * @param array $pld_settings
+     * @param array $jlad_settings
      *
      * @since 1.0.0
      */
-    $content .= apply_filters('pld_like_dislike_html', $like_dislike_html, $pld_settings);
+    $content .= apply_filters('jlad_like_dislike_html', $like_dislike_html, $jlad_settings);
 } else {
-    $content = apply_filters('pld_like_dislike_html', $like_dislike_html, $pld_settings) . $content;
+    $content = apply_filters('jlad_like_dislike_html', $like_dislike_html, $jlad_settings) . $content;
 }
