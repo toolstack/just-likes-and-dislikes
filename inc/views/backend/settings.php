@@ -2,15 +2,15 @@
 $jlad_settings = $this->jlad_settings;
 ?>
 <div class="wrap jlad-wrap">
-    <div class="jlad-header"><h3><?php _e('Just Likes and Dislikes', 'just-likes-and-dislikes'); ?><span class="jlad-avatar-holder"><img src="<?php echo JLAD_IMG_DIR . '/avatar.jpeg'; ?>"/></span></h3></div>
+    <h1><?php _e('Just Likes and Dislikes', 'just-likes-and-dislikes'); ?></h1>
     <div class="jlad-clear"></div>
     <h2 class="nav-tab-wrapper wp-clearfix">
         <?php
         $jlad_tabs = array(
-            'basic' => array('label' => __('Basic Settings', 'just-likes-and-dislikes')),
-            'design' => array('label' => __('Design Settings', 'just-likes-and-dislikes')),
+            'basic' => array('label' => __('Basic', 'just-likes-and-dislikes')),
+            'design' => array('label' => __('Design', 'just-likes-and-dislikes')),
             'help' => array('label' => __('Help', 'just-likes-and-dislikes')),
-            'about' => array('label' => __('About Us', 'just-likes-and-dislikes'))
+            'about' => array('label' => __('About', 'just-likes-and-dislikes'))
         );
         /**
          * Filters the tabs
@@ -35,7 +35,7 @@ $jlad_settings = $this->jlad_settings;
             <?php require JLAD_PATH . 'inc/views/backend/boxes/basic-settings.php'; ?>
             <?php require JLAD_PATH . 'inc/views/backend/boxes/design-settings.php'; ?>
             <?php require JLAD_PATH . 'inc/views/backend/boxes/help.php'; ?>
-            <?php require JLAD_PATH . 'inc/views/backend/boxes/about-us.php'; ?>
+            <?php require JLAD_PATH . 'inc/views/backend/boxes/about.php'; ?>
 
 
 

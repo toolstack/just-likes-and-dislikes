@@ -67,7 +67,7 @@ Our plugin uses the_content filter to append like and dislike icons . So if your
 Our plugin does contains many actions and filters which are described inside the Help Section
 
 = I want to display in the post detail template. Do you have a custom function? =
-We do have a shortcode [posts_like_dislike] which can also be used as custom function through `<?php echo do_shortcode('[posts_like_dislike]');?>`
+We do have a shortcode [just_likes_and_dislikes] which can also be used as custom function through `<?php echo do_shortcode('[posts_like_dislike]');?>`
 
 == Screenshots ==
 
