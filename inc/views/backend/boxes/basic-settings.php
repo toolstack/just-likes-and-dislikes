@@ -1,9 +1,9 @@
 <div class="jlad-settings-section" data-settings-ref="basic">
     <div class="jlad-field-wrap">
-        <label><?php _e('Status', 'just-likes-and-dislikes'); ?></label>
+        <label><?php _e('Enabled', 'just-likes-and-dislikes'); ?>:</label>
         <div class="jlad-field">
-            <input type="checkbox" name="jlad_settings[basic_settings][status]" class="jlad-form-field" value="1" <?php echo (!empty($jlad_settings['basic_settings']['status'])) ? 'checked="checked"' : ''; ?>/>
-            <p class="description"><?php _e('Please check to enable posts like and dislike in frontend', 'just-likes-and-dislikes'); ?></p>
+            <input type="checkbox" name="jlad_settings[basic_settings][status]" class="jlad-form-field" value="1" <?php checked( $jlad_settings['basic_settings']['status'], '1'); ?>/>
+            <p class="description"><?php _e('Please check to enable like/dislike display', 'just-likes-and-dislikes'); ?></p>
         </div>
     </div>
     <div class="jlad-field-wrap">
@@ -14,7 +14,7 @@
             $checked_post_types = (!empty($jlad_settings['basic_settings']['post_types'])) ? $jlad_settings['basic_settings']['post_types'] : array();
             foreach ($post_types as $post_type_name => $post_type_object) {
                 ?>
-                <label class="jlad-checkbox-label"><input type="checkbox" name="jlad_settings[basic_settings][post_types][]" value="<?php echo esc_attr($post_type_name); ?>" <?php echo (in_array($post_type_name, $checked_post_types)) ? 'checked="checked"' : ''; ?> class="jlad-form-field"/><?php echo esc_attr($post_type_object->label); ?></label>
+                <label class="jlad-checkbox-label"><input type="checkbox" name="jlad_settings[basic_settings][post_types][]" value="<?php echo esc_attr($post_type_name); ?>" <?php checked( in_array($post_type_name, $checked_post_types), true ); ?> class="jlad-form-field"/><?php echo esc_attr($post_type_object->label); ?></label>
                 <?php
             }
             ?>
@@ -82,16 +82,16 @@
         </div>
     </div>
     <div class="jlad-field-wrap">
-        <label><?php esc_html_e('Display 0(Zero) by default', 'just-likes-and-dislikes'); ?></label>
+        <label><?php esc_html_e('Display 0(zero) by default', 'just-likes-and-dislikes'); ?></label>
         <div class="jlad-field">
-            <input type="checkbox" name="jlad_settings[basic_settings][display_zero]" class="jlad-form-field" value="1" <?php echo (!empty($jlad_settings['basic_settings']['display_zero'])) ? 'checked="checked"' : ''; ?>/>
+            <input type="checkbox" name="jlad_settings[basic_settings][display_zero]" class="jlad-form-field" value="1" <?php checked( $jlad_settings['basic_settings']['display_zero'], '1'); ?>/>
             <p class="description"><?php _e('Please check if you want to show 0 for no likes and dislikes', 'just-likes-and-dislikes'); ?></p>
         </div>
     </div>
     <div class="jlad-field-wrap">
         <label><?php esc_html_e('Hide Counter Info Metabox', 'just-likes-and-dislikes'); ?></label>
         <div class="jlad-field">
-            <input type="checkbox" name="jlad_settings[basic_settings][hide_counter_info_metabox]" class="jlad-form-field" value="1" <?php echo (!empty($jlad_settings['basic_settings']['hide_counter_info_metabox'])) ? 'checked="checked"' : ''; ?>/>
+            <input type="checkbox" name="jlad_settings[basic_settings][hide_counter_info_metabox]" class="jlad-form-field" value="1" <?php checked( $jlad_settings['basic_settings']['hide_counter_info_metabox'], '1' ); ?>/>
             <p class="description"><?php _e('Please check if you want to hide the counter info metabox in the post edit screen. ', 'just-likes-and-dislikes'); ?></p>
         </div>
     </div>
