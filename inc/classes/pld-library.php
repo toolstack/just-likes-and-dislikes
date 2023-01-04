@@ -2,15 +2,18 @@
 
 if (!class_exists('PLD_Library')) {
 
-    class PLD_Library {
+    class PLD_Library
+    {
 
         var $pld_settings;
 
-        function __construct() {
+        function __construct()
+        {
             $this->pld_settings = get_option('pld_settings');
         }
 
-        function print_array($array) {
+        function print_array($array)
+        {
             echo "<pre>";
             print_r($array);
             echo "</pre>";
@@ -23,7 +26,8 @@ if (!class_exists('PLD_Library')) {
          *
          * @since 1.0.0
          */
-        function get_default_settings() {
+        function get_default_settings()
+        {
             $default_settings = array();
             $default_settings['basic_settings']['status'] = 0;
             $default_settings['basic_settings']['like_dislike_position'] = 'after';
@@ -54,7 +58,8 @@ if (!class_exists('PLD_Library')) {
          *
          * @since 1.0.0
          */
-        function get_user_IP() {
+        function get_user_IP()
+        {
             $client = @$_SERVER['HTTP_CLIENT_IP'];
             $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
             $remote = $_SERVER['REMOTE_ADDR'];
@@ -72,13 +77,15 @@ if (!class_exists('PLD_Library')) {
 
         /**
          * Sanitizes Multi Dimensional Array
-         * @param array $array
-         * @param array $sanitize_rule
+         *
+         * @param  array $array
+         * @param  array $sanitize_rule
          * @return array
          *
          * @since 1.0.0
          */
-        function sanitize_array($array = array(), $sanitize_rule = array()) {
+        function sanitize_array($array = array(), $sanitize_rule = array())
+        {
             if (!is_array($array) || count($array) == 0) {
                 return array();
             }
@@ -101,22 +108,23 @@ if (!class_exists('PLD_Library')) {
         /**
          * Sanitizes Value
          *
-         * @param type $value
-         * @param type $sanitize_type
+         * @param  type $value
+         * @param  type $sanitize_type
          * @return string
          *
          * @since 1.0.0
          */
-        function sanitize_value($value = '', $sanitize_type = 'text') {
+        function sanitize_value($value = '', $sanitize_type = 'text')
+        {
             switch ($sanitize_type) {
-                case 'html':
-                    return $this->sanitize_html($value);
+            case 'html':
+                return $this->sanitize_html($value);
                     break;
-                case 'none':
-                    return $value;
+            case 'none':
+                return $value;
                     break;
-                default:
-                    return sanitize_text_field($value);
+            default:
+                return sanitize_text_field($value);
                     break;
             }
         }
@@ -124,12 +132,13 @@ if (!class_exists('PLD_Library')) {
         /**
          * Sanitizes the content by bypassing allowed html
          *
-         * @param string $text
+         * @param  string $text
          * @return string
          *
          * @since 1.0.0
          */
-        function sanitize_html($text) {
+        function sanitize_html($text)
+        {
             $allowed_html = wp_kses_allowed_html('post');
             return wp_kses($text, $allowed_html);
         }
@@ -142,7 +151,8 @@ if (!class_exists('PLD_Library')) {
          *
          * @since 1.0.5
          */
-        function display_none($param1, $param2) {
+        function display_none($param1, $param2)
+        {
             if ($param1 != $param2) {
                 echo 'style="display:none"';
             }
@@ -153,11 +163,13 @@ if (!class_exists('PLD_Library')) {
          *
          * @since 1.0.5
          */
-        function get_current_page_url() {
-            if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+        function get_current_page_url()
+        {
+            if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
                 $url = "https://";
-            else
+            } else {
                 $url = "http://";
+            }
             // Append the host(domain name, ip) to the URL.
             $url .= $_SERVER['HTTP_HOST'];
 

@@ -14,7 +14,6 @@ $href = 'javascript:void(0)';
 
 /**
  * Cookie Restriction Validation
- *
  */
 if ($pld_settings['basic_settings']['like_dislike_resistriction'] == 'cookie' && isset($_COOKIE['pld_' . $post_id])) {
     $already_liked = 1;
@@ -92,20 +91,20 @@ $dislike_title = isset($pld_settings['basic_settings']['dislike_hover_text']) ? 
      */
     if ($pld_settings['basic_settings']['display_order'] == 'like-dislike') {
         if ($pld_settings['basic_settings']['like_dislike_display'] != 'dislike_only') {
-            include(PLD_PATH . 'inc/views/frontend/like.php');
+            include PLD_PATH . 'inc/views/frontend/like.php';
         }
         if ($pld_settings['basic_settings']['like_dislike_display'] != 'like_only') {
-            include(PLD_PATH . 'inc/views/frontend/dislike.php');
+            include PLD_PATH . 'inc/views/frontend/dislike.php';
         }
     } else {
         /**
          * Dislike Like Order
          */
         if ($pld_settings['basic_settings']['like_dislike_display'] != 'like_only') {
-            include(PLD_PATH . 'inc/views/frontend/dislike.php');
+            include PLD_PATH . 'inc/views/frontend/dislike.php';
         }
         if ($pld_settings['basic_settings']['like_dislike_display'] != 'dislike_only') {
-            include(PLD_PATH . 'inc/views/frontend/like.php');
+            include PLD_PATH . 'inc/views/frontend/like.php';
         }
     }
     ?>

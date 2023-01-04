@@ -7,10 +7,10 @@
        data-restriction="<?php echo esc_attr($pld_settings['basic_settings']['like_dislike_resistriction']); ?>"
        data-already-liked="<?php echo esc_attr($already_liked); ?>">
            <?php
-           $template = esc_attr($pld_settings['design_settings']['template']);
-           switch ($template) {
-               case 'template-1':
-                   ?>
+            $template = esc_attr($pld_settings['design_settings']['template']);
+            switch ($template) {
+            case 'template-1':
+                ?>
                 <i class="fas fa-thumbs-down"></i>
                 <?php
                 break;
@@ -36,16 +36,16 @@
                     <?php
                 }
                 break;
-        }
-        /**
-         * Fires when template is being loaded
-         *
-         * @param array $pld_settings
-         *
-         * @since 1.0.0
-         */
-        do_action('pld_dislike_template', $pld_settings);
-        ?>
+            }
+            /**
+             * Fires when template is being loaded
+             *
+             * @param array $pld_settings
+             *
+             * @since 1.0.0
+             */
+            do_action('pld_dislike_template', $pld_settings);
+            ?>
     </a>
     <span class="pld-dislike-count-wrap pld-count-wrap"><?php echo esc_html($dislike_count); ?></span>
 </div>

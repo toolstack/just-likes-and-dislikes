@@ -32,10 +32,10 @@ $pld_settings = $this->pld_settings;
     </h2>
     <div class="pld-settings-section-wrap">
         <form class="pld-settings-form">
-            <?php include(PLD_PATH . 'inc/views/backend/boxes/basic-settings.php'); ?>
-            <?php include(PLD_PATH . 'inc/views/backend/boxes/design-settings.php'); ?>
-            <?php include(PLD_PATH . 'inc/views/backend/boxes/help.php'); ?>
-            <?php include(PLD_PATH . 'inc/views/backend/boxes/about-us.php'); ?>
+            <?php require PLD_PATH . 'inc/views/backend/boxes/basic-settings.php'; ?>
+            <?php require PLD_PATH . 'inc/views/backend/boxes/design-settings.php'; ?>
+            <?php require PLD_PATH . 'inc/views/backend/boxes/help.php'; ?>
+            <?php require PLD_PATH . 'inc/views/backend/boxes/about-us.php'; ?>
 
 
 

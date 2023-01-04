@@ -2,14 +2,17 @@
 
 if (!class_exists('PLD_Ajax')) {
 
-    class PLD_Ajax extends PLD_Library {
+    class PLD_Ajax extends PLD_Library
+    {
 
-        function __construct() {
+        function __construct()
+        {
             add_action('wp_ajax_pld_post_ajax_action', array($this, 'like_dislike_action'));
             add_action('wp_ajax_nopriv_pld_post_ajax_action', array($this, 'like_dislike_action'));
         }
 
-        function like_dislike_action() {
+        function like_dislike_action()
+        {
             if (isset($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], 'pld-ajax-nonce')) {
                 $post_id = sanitize_text_field($_POST['post_id']);
                 /**
@@ -24,7 +27,6 @@ if (!class_exists('PLD_Ajax')) {
 
                 /**
                  * Cookie Restriction Validation
-                 *
                  */
                 if ($pld_settings['basic_settings']['like_dislike_resistriction'] == 'cookie' && isset($_COOKIE['pld_' . $post_id])) {
                     $response_array = array('success' => true, 'message' => 'Invalid action');
@@ -101,7 +103,6 @@ if (!class_exists('PLD_Ajax')) {
                 }
                 /**
                  * Check the liked ips and insert the user ips for future checking
-                 *
                  */
                 if ($pld_settings['basic_settings']['like_dislike_resistriction'] == 'ip') {
                     $liked_ips = get_post_meta($post_id, 'pld_ips', true);

@@ -26,7 +26,7 @@ if (is_admin() && !wp_doing_ajax()) {
  *
  * @since 2.0.0
  */
-if( array_key_exists( 'embed', $_REQUEST ) ) {
+if(array_key_exists('embed', $_REQUEST) ) {
     return $content;
 }
 
