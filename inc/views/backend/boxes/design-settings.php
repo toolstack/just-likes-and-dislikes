@@ -23,7 +23,7 @@
 					<div class="jlad-template-previews-wrap">
 						<?php for ( $i = 1; $i <= 4; $i++ ) {
 							?>
-							<div class="jlad-each-template-preview" <?php if ( 'template-' . $i != $jlad_settings['design_settings']['template'] ) { ?>style="display:none"<?php } ?> data-template-ref="template-<?php echo $i; ?>"><img src="<?php echo JLAD_IMG_DIR . '/template-previews/template-' . $i . '.jpeg'; ?>"/></div>
+							<div class="jlad-each-template-preview" <?php if ( 'template-' . $i != $jlad_settings['design_settings']['template'] ) { ?>style="display:none"<?php } ?> data-template-ref="template-<?php echo $i; ?>"><img src="<?php echo JLAD_IMG_DIR . '/template-' . $i . '.jpeg'; ?>"/></div>
 							<?php
 						}
 

@@ -10,11 +10,6 @@
     margin-top: 20px;
     padding:20px
 }
-span.jlad-avatar-holder {
-    float: right;
-    margin-top: -31px;
-    margin-right: -14px;
-}
 .jlad-clear {
     clear: both;
 }
@@ -36,11 +31,6 @@ span.jlad-avatar-holder {
 }
 .jlad-field input[type="text"] {
     width: 100%;
-}
-span.jlad-avatar-holder img {
-    border: 2px solid #f1f1f1;
-    margin-top: -1px;
-    margin-right: -1px;
 }
 .jlad-header h3{color:#fff;}
 .jlad-info-wrap {
