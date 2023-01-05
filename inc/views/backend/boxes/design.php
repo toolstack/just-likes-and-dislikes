@@ -14,9 +14,15 @@
 				 * @since 1.0.0
 				 */
 				$jlad_total_templates = apply_filters( 'jlad_total_templates', 4 );
+				$jlad_template_names = array(
+												'template-1' => __( 'Thumbs', 'just-likes-and-dislikes' ),
+												'template-2' => __( 'Hearts', 'just-likes-and-dislikes' ),
+												'template-3' => __( 'Check/Cross-out', 'just-likes-and-dislikes' ),
+												'template-4' => __( 'Happy/Sad', 'just-likes-and-dislikes' )
+											);
 				for ( $i = 1; $i <= $jlad_total_templates; $i++ ) {
 					?>
-					<option value="template-<?php echo $i; ?>" <?php selected( $jlad_settings['design_settings']['template'], 'template-' . $i ); ?>><?php echo __( 'Template ', 'just-likes-and-dislikes' ) . $i; ?></option>
+					<option value="template-<?php echo $i; ?>" <?php selected( $jlad_settings['design_settings']['template'], 'template-' . $i ); ?>><?php echo $jlad_template_names['template-'. $i]; ?></option>
 					<?php
 				}
 				?>
