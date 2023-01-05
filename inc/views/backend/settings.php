@@ -32,12 +32,10 @@ $jlad_settings = $this->jlad_settings;
     </h2>
     <div class="jlad-settings-section-wrap">
         <form class="jlad-settings-form">
-            <?php require JLAD_PATH . 'inc/views/backend/boxes/basic-settings.php'; ?>
-            <?php require JLAD_PATH . 'inc/views/backend/boxes/design-settings.php'; ?>
+            <?php require JLAD_PATH . 'inc/views/backend/boxes/basic.php'; ?>
+            <?php require JLAD_PATH . 'inc/views/backend/boxes/design.php'; ?>
             <?php require JLAD_PATH . 'inc/views/backend/boxes/help.php'; ?>
             <?php require JLAD_PATH . 'inc/views/backend/boxes/about.php'; ?>
-
-
 
             <?php
             /**

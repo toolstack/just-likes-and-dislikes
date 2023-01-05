@@ -1,103 +1,23 @@
 <div class="jlad-settings-section" data-settings-ref="help" style="display:none">
-    <h3><?php esc_html_e('Status', 'just-likes-and-dislikes'); ?>
-    </h3>
-    <p><?php esc_html_e('This can be used to enable or disable like dislike in the frontend posts.', 'just-likes-and-dislikes'); ?>
-    </p>
-
-    <div class="jlad-separator"></div>
-    <h3><?php esc_html_e('Post Types', 'just-likes-and-dislikes'); ?>
-    </h3>
-    <p><?php esc_html_e('You can choose the post type for which you want to enable the like dislike buttons.', 'just-likes-and-dislikes'); ?>
-    </p>
-
-    <div class="jlad-separator"></div>
-    <h3><?php esc_html_e('Like Dislike Position', 'just-likes-and-dislikes'); ?>
-    </h3>
-    <p><?php esc_html_e('This can be used to control whether like dislike should be shown before.', 'just-likes-and-dislikes'); ?>
-    </p>
-
-    <div class="jlad-separator"></div>
-
-    <h3><?php esc_html_e('Like Dislike Display', 'just-likes-and-dislikes'); ?>
-    </h3>
-    <p><?php esc_html_e('This can be used to control whether like or dislike or both should be shown.', 'just-likes-and-dislikes'); ?>
-    </p>
-
-    <div class="jlad-separator"></div>
-
-    <h3><?php esc_html_e('Like Dislike Restriction', 'just-likes-and-dislikes'); ?>
-    </h3>
-    <p><?php esc_html_e('This can be used to prevent liking or disliking same posts from same liker or disliker through Cookie or IP.', 'just-likes-and-dislikes'); ?>
-    </p>
-
-    <div class="jlad-separator"></div>
-
-    <h3><?php esc_html_e('Like Dislike Display Order', 'just-likes-and-dislikes'); ?>
-    </h3>
-    <p><?php esc_html_e('This can be used control the display order of like and dislike.', 'just-likes-and-dislikes'); ?>
-    </p>
-
-    <div class="jlad-separator"></div>
-
-    <h3><?php esc_html_e('Like Hover Text', 'just-likes-and-dislikes'); ?>
-    </h3>
-    <p><?php esc_html_e('The field is for the hover text of like button.', 'just-likes-and-dislikes'); ?>
-    </p>
-
-    <div class="jlad-separator"></div>
-    <h3><?php esc_html_e('Dislike Hover Text', 'just-likes-and-dislikes'); ?>
-    </h3>
-    <p><?php esc_html_e('This field is for the hover text of dislike button.', 'just-likes-and-dislikes'); ?>
-    </p>
-
-    <div class="jlad-separator"></div>
-    <h3><?php esc_html_e('Display 0(Zero) by default', 'just-likes-and-dislikes'); ?>
-    </h3>
-    <p><?php esc_html_e('If you will check this option, the count will show as 0 by default.', 'just-likes-and-dislikes'); ?>
-    </p>
-
-    <div class="jlad-separator"></div>
-    <h3><?php esc_html_e('Hide Counter Info Metabox', 'just-likes-and-dislikes'); ?>
-    </h3>
-    <p><?php esc_html_e('You can check this if you don\'t want to show the like dislike count info in the post edit screen.', 'just-likes-and-dislikes'); ?>
-    </p>
-
-    <div class="jlad-separator"></div>
-
-    <h3><?php esc_html_e('Like Dislike Templates', 'just-likes-and-dislikes'); ?>
-    </h3>
-    <p><?php esc_html_e('There are altogether 5 templates including a custom template. Custom templates can be used to customize the like and dislike display by uploading your own icons.', 'just-likes-and-dislikes'); ?>
-    </p>
-
-    <div class="jlad-separator"></div>
-
-    <h3><?php esc_html_e('Icon Color', 'just-likes-and-dislikes'); ?>
-    </h3>
-    <p><?php esc_html_e('This can be used to override the color of icon provided by your active theme.', 'just-likes-and-dislikes'); ?>
-    </p>
-
-    <div class="jlad-separator"></div>
-
-    <h3><?php esc_html_e('Count Color', 'just-likes-and-dislikes'); ?>
-    </h3>
-    <p><?php esc_html_e('This can be used to override the color of count provided by your active theme.', 'just-likes-and-dislikes'); ?>
-    </p>
-
-    <div class="jlad-separator"></div>
 
     <h3><?php esc_html_e('Shortcode', 'just-likes-and-dislikes'); ?>
     </h3>
-    <p><input type="text" onfocus="this.select();" value="[posts_like_dislike id=post_id]" /></p>
+    <p><input type="text" class="jlad-fake-text" onfocus="this.select();" value="[posts_like_dislike id=post_id]" /></p>
+
+    <div class="jlad-separator"></div>
 
     <h3><?php esc_html_e('Custom Function', 'just-likes-and-dislikes'); ?>
     </h3>
     <p>
     <pre>&lt;?php echo do_shortcode('[posts_like_dislike id=post_id]');?&gt;</pre>
-    <span class="description"><?php esc_html_e('Please replace post_id with the id of the post for which you want to get the like and dislike icon. Please remove id parameter for considering the post id as the id of global $post object', 'just-likes-and-dislikes');?></span>
+    <span class="description"><?php esc_html_e('Replace post_id with the id of the post for which you want to get the like and dislike icon, or remove it to use the current global $post object', 'just-likes-and-dislikes');?></span>
     </p>
+
+    <div class="jlad-separator"></div>
+
     <h3><?php esc_html_e('Available Filters', 'just-likes-and-dislikes'); ?>
     </h3>
-    <div class="jlad-fixed-height">
+    <div>
 
         <pre>
 /**
@@ -174,11 +94,12 @@ $like_count = apply_filters( 'jlad_like_count', $like_count, $post_id );
 $dislike_count = apply_filters( 'jlad_dislike_count', $dislike_count, $post_id );
     </pre>
     </div>
+
     <div class="jlad-separator"></div>
 
     <h3><?php esc_html_e('Available Actions', 'just-likes-and-dislikes'); ?>
     </h3>
-    <div class="jlad-fixed-height">
+    <div>
         <pre>
 /**
  * Fires before storing the settings array into database

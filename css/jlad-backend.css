@@ -5,33 +5,52 @@
 }
 
 .jlad-settings-section-wrap {
-    background: #fff;
     min-height: 370px;
     margin-top: 20px;
     padding:20px
 }
+
 .jlad-clear {
     clear: both;
 }
+
 .jlad-field-wrap {
-    margin-bottom: 20px;
+    clear: both;
 }
+
 .jlad-field-wrap > label {
     display: inline-block;
     font-weight: 500;
     width: 100%;
     vertical-align: top;
 }
+
 .jlad-field {
+    margin-top: 20px;
     display: inline-block;
-    width: 100%;
+    float: left;
 }
+
+.jlad-field-label {
+    font-weight: 500;
+}
+
+.jlad-field-description {
+    margin-top: 20px;
+    width: 20%;
+    text-align: right;
+    float: left;
+    padding-right: 20px;
+}
+
 .jlad-each-template-preview {
     margin-top: 20px;
 }
+
 .jlad-field input[type="text"] {
     width: 100%;
 }
+
 .jlad-header h3{color:#fff;}
 .jlad-info-wrap {
     background: #257924;
@@ -41,46 +60,150 @@
     left: 45%;
     padding: 10px;
 }
+
 img.jlad-loader {
     margin-right: 10px;
     vertical-align: middle;
     margin-top: -3px;
 }
+
 .jlad-close-info {
     margin-left: 20px;
     cursor: pointer;
 }
+
 span.jlad-preview-holder {
     width: 50px;
     display: block;
     vertical-align: top;
     margin-top: 10px;
 }
+
 span.jlad-preview-holder img {
     max-width: 100% !important;
 }
+
 .jlad-separator {
     border-bottom: 1px solid #bbb;
     padding: 10px;
 }
+
 .jlad-settings-section-wrap pre {
     border-left: 5px solid #258ef7;
     background: #eee;
     padding: 5px;
 }
+
 .jlad-fixed-height {
     height: 300px;
     overflow-y: scroll;
 }
+
 label.jlad-checkbox-label {
     display: block;
     margin-bottom: 10px;
 }
-.column-pld_like_count {
+
+.column-jlad_like_count {
     width: 5.5em;
     text-align: left;
 }
-.column-pld_dislike_count {
+
+.column-jlad_dislike_count {
     width: 5.5em;
     text-align: left;
+}
+
+/* The switch - the box around the slider */
+.jlad-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 25px;
+  margin-top: 10px;
+
+}
+
+.jlad-switch:first-of-type {
+  margin-top: 0px;
+}
+
+/* The switch text beside the switch */
+.jlad-switch-text {
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  margin-left: 1em;
+}
+
+/* Hide default HTML checkbox */
+.jlad-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.jlad-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.jlad-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .jlad-slider {
+  background-color: #2196F3;
+}
+
+input:focus + .jlad-slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .jlad-slider:before {
+  -webkit-transform: translateX(14px);
+  -ms-transform: translateX(14px);
+  transform: translateX(14px);
+}
+
+/* Rounded sliders */
+.jlad-slider.jlad-round {
+  border-radius: 14px;
+}
+
+.jlad-slider.jlad-round:before {
+  border-radius: 50%;
+}
+
+.jlad-fake-text {
+  border: none !important;
+  display: inline !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  padding: 0px !important;
+  width: auto !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.jlad_logo {
+  width: 250px;
+  height: 250px;
 }
