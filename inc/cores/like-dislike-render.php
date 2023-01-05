@@ -2,16 +2,18 @@
 
 defined('ABSPATH') or die('No script kiddies please!!');
 $jlad_settings = $this->jlad_settings;
+
 if (empty($shortcode)) {
     global $post;
     if (empty($post)) {
         return $content;
     }
     $checked_post_types = (!empty($jlad_settings['basic_settings']['post_types'])) ? $jlad_settings['basic_settings']['post_types'] : array();
-    if (!in_array($post->post_type, $checked_post_types)) {
+    if (in_array($post->post_type, $checked_post_types)) {
         return $content;
     }
 }
+
 /**
  * Don't implement on admin section
  *
