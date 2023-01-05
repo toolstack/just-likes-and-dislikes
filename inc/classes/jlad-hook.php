@@ -119,31 +119,7 @@ if (!class_exists('JLAD_Hooks')) {
             $like_title = isset($this->jlad_settings['basic_settings']['like_hover_text']) ? esc_attr($this->jlad_settings['basic_settings']['like_hover_text']) : __('Like', 'just-likes-and-dislikes');
             $dislike_title = isset($this->jlad_settings['basic_settings']['dislike_hover_text']) ? esc_attr($this->jlad_settings['basic_settings']['dislike_hover_text']) : __('Dislike', 'just-likes-and-dislikes');
 
-            switch ($this->jlad_settings['design_settings']['template'])
-            {
-            case 'template-1':
-                $like_icon      = '<i class="fas fa-thumbs-up"></i>';
-                $dislike_icon   = '<i class="fas fa-thumbs-down"></i>';
-                break;
-            case 'template-2':
-                $like_icon      = '<i class="fas fa-heart"></i>';
-                $dislike_icon   = '<i class="fa fa-heartbeat"></i>';
-                break;
-            case 'template-3':
-                $like_icon      = '<i class="fas fa-check"></i>';
-                $dislike_icon   = '<i class="fas fa-times"></i>';
-                break;
-            case 'template-4':
-                $like_icon      = '<i class="far fa-smile"></i>';
-                $dislike_icon   = '<i class="far fa-frown"></i>';
-                break;
-            case 'custom':
-                if ($this->jlad_settings['design_settings']['like_icon'] != '') {
-                    $like_icon = '<img src="' . esc_url($this->jlad_settings['design_settings']['like_icon']) . '" alt="' . esc_attr($like_title) . '"/>';
-                    $dislike_icon = '<img src="' . esc_url($this->jlad_settings['design_settings']['dislike_icon']) . '" alt="' . esc_attr($dislike_title) . '"/>';
-                }
-                break;
-            }
+            list( $like_icon, $dislike_icon ) = $this->get_template_icon( $this->jlad_settings['design_settings']['template'] );
 
             // Add a span infront of them to make them look right in the screen options pulldown.
             $like_icon = '<span><span class="vers" title="' . __('Like', 'just-likes-and-dislikes') . '" aria-hidden="true"></span><span class="screen-reader-text">' . __('Like', 'just-likes-and-dislikes') . '</span></span>' . $like_icon;

@@ -80,8 +80,6 @@ $dislike_count = apply_filters('jlad_dislike_count', $dislike_count, $post_id);
 
 $like_title = isset($jlad_settings['basic_settings']['like_hover_text']) ? esc_attr($jlad_settings['basic_settings']['like_hover_text']) : __('Like', 'just-likes-and-dislikes');
 $dislike_title = isset($jlad_settings['basic_settings']['dislike_hover_text']) ? esc_attr($jlad_settings['basic_settings']['dislike_hover_text']) : __('Dislike', 'just-likes-and-dislikes');
-
-//$this->print_array( $jlad_settings );
 ?>
 <div
     class="jlad-like-dislike-wrap jlad-<?php echo esc_attr($jlad_settings['design_settings']['template']); ?>">

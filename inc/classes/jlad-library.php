@@ -55,6 +55,54 @@ if (!class_exists('JLAD_Library')) {
             return apply_filters('jlad_default_settings', $default_settings);
         }
 
+        function get_template_names()
+        {
+        return array(
+                            'template-1' => __( 'Thumbs', 'just-likes-and-dislikes' ),
+                            'template-2' => __( 'Hearts', 'just-likes-and-dislikes' ),
+                            'template-3' => __( 'Check/Cross-out', 'just-likes-and-dislikes' ),
+                            'template-4' => __( 'Happy/Sad', 'just-likes-and-dislikes' ),
+                            'template-5' => __( 'Plus/Minus', 'just-likes-and-dislikes' ),
+                            'custom'     => __( 'Custom', 'just-likes-and-dislikes' )
+                    );
+        }
+
+        function get_template_icon( $template )
+        {
+            switch ($template)
+            {
+            case 'template-1':
+                $like_icon      = '<i class="fas fa-thumbs-up"></i>';
+                $dislike_icon   = '<i class="fas fa-thumbs-down"></i>';
+                break;
+            case 'template-2':
+                $like_icon      = '<i class="fas fa-heart"></i>';
+                $dislike_icon   = '<i class="fa fa-heartbeat"></i>';
+                break;
+            case 'template-3':
+                $like_icon      = '<i class="fas fa-check"></i>';
+                $dislike_icon   = '<i class="fas fa-times"></i>';
+                break;
+            case 'template-4':
+                $like_icon      = '<i class="far fa-smile"></i>';
+                $dislike_icon   = '<i class="far fa-frown"></i>';
+                break;
+            case 'template-5':
+                $like_icon      = '<i class="fa-solid fa-plus"></i>';
+                $dislike_icon   = '<i class="fa-solid fa-minus"></i>';
+                break;
+            case 'custom':
+                if ($this->jlad_settings['design_settings']['like_icon'] != '') {
+                    $like_icon = '<img src="' . esc_attr($this->jlad_settings['design_settings']['like_icon']) . '" alt="' . esc_attr($like_title) . '"/>';
+                    $dislike_icon = '<img src="' . esc_attr($this->jlad_settings['design_settings']['dislike_icon']) . '" alt="' . esc_attr($dislike_title) . '"/>';
+                }
+                break;
+            }
+
+            return array( $like_icon, $dislike_icon );
+
+        }
+
         /**
          * Returns visitors IP address
          *

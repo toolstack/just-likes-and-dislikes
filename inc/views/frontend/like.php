@@ -8,35 +8,10 @@
        data-already-liked="<?php echo esc_attr($already_liked); ?>">
            <?php
             $template = $jlad_settings['design_settings']['template'];
-            switch ($template) {
-            case 'template-1':
-                ?>
-                <i class="fas fa-thumbs-up"></i>
-                <?php
-                break;
-            case 'template-2':
-                ?>
-                <i class="fas fa-heart"></i>
-                <?php
-                break;
-            case 'template-3':
-                ?>
-                <i class="fas fa-check"></i>
-                <?php
-                break;
-            case 'template-4':
-                ?>
-                <i class="far fa-smile"></i>
-                <?php
-                break;
-            case 'custom':
-                if ($jlad_settings['design_settings']['like_icon'] != '') {
-                    ?>
-                    <img src="<?php echo esc_attr($jlad_settings['design_settings']['like_icon']); ?>" alt="<?php echo esc_attr($like_title); ?>"/>
-                    <?php
-                }
-                break;
-            }
+            list( $like_icon, $dislike_icon ) = $this->get_template_icon( $template );
+
+            echo $like_icon;
+
             /**
              * Fires when template is being loaded
              *
