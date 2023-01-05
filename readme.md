@@ -71,17 +71,17 @@ We do have a shortcode [just_likes_and_dislikes] which can also be used as custo
 
 ## Screenshots ##
 
-### 1. Like Dislike Icon Template 1 ###
-![Like Dislike Icon Template 1](assets/screenshot-1.png)
+### 1. Like Dislike Thumbs Icons ###
+![Like Dislike Thumbs Icons](assets/screenshot-1.png)
 
-### 2. Like Dislike Icon Template 2 ###
-![Like Dislike Icon Template 2](assets/screenshot-2.png)
+### 2. Like Dislike Hearts Icons ###
+![Like Dislike Hearts Icons](assets/screenshot-2.png)
 
-### 3. Like Dislike Icon Template 3 ###
-![Like Dislike Icon Template 3](assets/screenshot-3.png)
+### 3. Like Dislike Check/Cross-out Icons ###
+![Like Dislike Check/Cross-out Icons](assets/screenshot-3.png)
 
-### 4. Like Dislike Icon Template 4 ###
-![Like Dislike Icon Template 4](assets/screenshot-4.png)
+### 4. Like Dislike Happy/Sad Icons ###
+![Like Dislike Happy/Sad Icons](assets/screenshot-4.png)
 
 ### 5. Like Dislike Basic Settings ###
 ![Like Dislike Basic Settings](assets/screenshot-5.png)
@@ -99,6 +99,7 @@ We do have a shortcode [just_likes_and_dislikes] which can also be used as custo
 * Removed like/dislike counts from excerpts and embeds
 * Remove old internationalization code
 * Fix widget width for Gutenberg
+* Update the settings page to be clearer/cleaner
 * Update font awesome to v6.2.1
 
 ### 1.0.8 ###
