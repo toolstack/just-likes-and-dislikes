@@ -57,24 +57,38 @@ if (!class_exists('JLAD_Library')) {
 
         function get_template_names()
         {
-        return array(
-                            'template-1' => __( 'Thumbs', 'just-likes-and-dislikes' ),
-                            'template-2' => __( 'Hearts', 'just-likes-and-dislikes' ),
-                            'template-3' => __( 'Check/Cross-out', 'just-likes-and-dislikes' ),
-                            'template-4' => __( 'Happy/Sad', 'just-likes-and-dislikes' ),
-                            'template-5' => __( 'Plus/Minus', 'just-likes-and-dislikes' ),
-                            'custom'     => __( 'Custom', 'just-likes-and-dislikes' )
-                    );
+            $template_names =  array(
+                                        'template-1' => __( 'Thumbs', 'just-likes-and-dislikes' ),
+                                        'template-2' => __( 'Hearts', 'just-likes-and-dislikes' ),
+                                        'template-3' => __( 'Check/Cross-out', 'just-likes-and-dislikes' ),
+                                        'template-4' => __( 'Happy/Sad', 'just-likes-and-dislikes' ),
+                                        'template-5' => __( 'Plus/Minus', 'just-likes-and-dislikes' ),
+                                        'template-6' => __( 'Up/Down', 'just-likes-and-dislikes' ),
+                                        'template-7' => __( 'Fire/Extinguisher', 'just-likes-and-dislikes' ),
+                                        'custom'     => __( 'Custom', 'just-likes-and-dislikes' )
+                                    );
+
+            /**
+             * Filters template name list
+             *
+             * @param int
+             *
+             * @since 2.0.0
+             */
+            $template_names = apply_filters( 'jlad_template_names', $template_names );
+
+            return $template_names;
+        }
+
+        function get_template_count()
+        {
+            return count( $this->get_template_names() ) - 1;
         }
 
         function get_template_icon( $template )
         {
             switch ($template)
             {
-            case 'template-1':
-                $like_icon      = '<i class="fas fa-thumbs-up"></i>';
-                $dislike_icon   = '<i class="fas fa-thumbs-down"></i>';
-                break;
             case 'template-2':
                 $like_icon      = '<i class="fas fa-heart"></i>';
                 $dislike_icon   = '<i class="fa fa-heartbeat"></i>';
@@ -88,8 +102,16 @@ if (!class_exists('JLAD_Library')) {
                 $dislike_icon   = '<i class="far fa-frown"></i>';
                 break;
             case 'template-5':
-                $like_icon      = '<i class="fa-solid fa-plus"></i>';
-                $dislike_icon   = '<i class="fa-solid fa-minus"></i>';
+                $like_icon      = '<i class="fa-solid fa-circle-plus"></i>';
+                $dislike_icon   = '<i class="fa-solid fa-circle-minus"></i></i>';
+                break;
+            case 'template-6':
+                $like_icon      = '<i class="fa-solid fa-circle-up"></i>';
+                $dislike_icon   = '<i class="fa-solid fa-circle-down"></i>';
+                break;
+            case 'template-7':
+                $like_icon      = '<i class="fa-solid fa-fire"></i>';
+                $dislike_icon   = '<i class="fa-solid fa-fire-extinguisher"></i>';
                 break;
             case 'custom':
                 if ($this->jlad_settings['design_settings']['like_icon'] != '') {
@@ -97,10 +119,47 @@ if (!class_exists('JLAD_Library')) {
                     $dislike_icon = '<img src="' . esc_attr($this->jlad_settings['design_settings']['dislike_icon']) . '" alt="' . esc_attr($dislike_title) . '"/>';
                 }
                 break;
+            default:
+                $like_icon      = '<i class="fas fa-thumbs-up"></i>';
+                $dislike_icon   = '<i class="fas fa-thumbs-down"></i>';
+                break;
             }
 
-            return array( $like_icon, $dislike_icon );
+            $icons = array( $like_icon, $dislike_icon );
 
+            /**
+             * Filters icons
+             *
+             * @param int
+             *
+             * @since 2.0.0
+             */
+            $icons = apply_filters( 'jlad_template_names', $icons );
+
+            return $icons;
+
+        }
+
+        function get_template_preview( $template, $hidden = true )
+        {
+            $html  = '<div class="jlad-each-template-preview jlad-like-dislike-wrap jlad-' . esc_attr( $template ) . '"';
+            if( $hidden ) { $html .= ' style="display: none;"'; }
+            $html .= ' data-template-ref="' . esc_attr( $template ) . '">' . PHP_EOL;
+            $html .= '<div class="jlad-template-preview jlad-like-wrap jlad-common-wrap">' . PHP_EOL;
+
+            list( $like_icon, $dislike_icon ) = $this->get_template_icon( $template );
+
+            $html .= '<a>' . $like_icon . '</a>' . PHP_EOL;
+            $html .= '<span class="jlad-like-count-wrap jlad-count-wrap">25</span>' . PHP_EOL;
+            $html .= '</div>' . PHP_EOL;
+            $html .= '<div class="jlad-template-preview jlad-dislike-wrap jlad-common-wrap">' . PHP_EOL;
+            $html .= '<a>' . $dislike_icon . '</a>' . PHP_EOL;
+            $html .= '<span class="jlad-dislike-count-wrap jlad-count-wrap">0</span>' . PHP_EOL;
+
+            $html .= '</div>' . PHP_EOL;
+            $html .= '</div>' . PHP_EOL;
+
+            return $html;
         }
 
         /**

@@ -13,7 +13,7 @@
 				 *
 				 * @since 1.0.0
 				 */
-				$jlad_total_templates = apply_filters( 'jlad_total_templates', 5 );
+				$jlad_total_templates = apply_filters( 'jlad_total_templates', $this->get_template_count() );
 				$jlad_template_names = $this->get_template_names();
 
 				for ( $i = 1; $i <= $jlad_total_templates; $i++ ) {
@@ -26,10 +26,13 @@
 			</select>
             <p class="description">(<?php _e('select the like/dislike template you wish to use, or use custom images', 'just-likes-and-dislikes'); ?>)</p>
 			<div class="jlad-template-previews-wrap">
-				<?php for ( $i = 1; $i <= 4; $i++ ) {
-					?>
-					<div class="jlad-each-template-preview" <?php if ( 'template-' . $i != $jlad_settings['design_settings']['template'] ) { ?>style="display:none"<?php } ?> data-template-ref="template-<?php echo $i; ?>"><img src="<?php echo JLAD_IMG_DIR . '/template-' . $i . '.jpeg'; ?>"/></div>
-					<?php
+				<?php for ( $i = 1; $i <= $jlad_total_templates; $i++ ) {
+					$template_name = 'template-' . $i;
+					$hidden = true;
+
+					if( $template_name == $jlad_settings['design_settings']['template'] ) { $hidden = false; }
+
+					echo $this->get_template_preview( $template_name, $i == 1 ? false : true );
 				}
 
 				/**
@@ -42,7 +45,7 @@
 				 * @since 1.0.0
 				 *
 				 */
-				do_action( 'jlad_template_previews',$jlad_settings );
+				do_action( 'jlad_template_previews', $jlad_settings );
 				?>
 
 			</div>
