@@ -145,4 +145,17 @@
         </div>
     </div>
 
+    <div class="jlad-field-wrap">
+        <div class="jlad-field-description">
+            <label class="jlad-field-label"><?php esc_html_e('Hide like/dislike columns in admin screens', 'just-likes-and-dislikes'); ?>: </label>
+        </div>
+        <div class="jlad-field">
+            <label class="jlad-switch">
+                <input type="checkbox" name="jlad_settings[basic_settings][hide_like_dislike_admin]" class="jlad-form-field" value="1" <?php checked( $jlad_settings['basic_settings']['hide_like_dislike_admin'], '1' ); ?>/>
+                <span class="jlad-slider jlad-round"></span>
+            </label>
+            <p class="description">(<?php _e('toggle if you want to hide the like/dislike columns in the posts and other admin pages', 'just-likes-and-dislikes'); ?>)</p>
+        </div>
+    </div>
+
 </div>

@@ -15,14 +15,23 @@ if (!class_exists('JLAD_Hooks')) {
         {
             parent::__construct();
 
+            $display_type = $this->jlad_settings['basic_settings']['like_dislike_display'];
+
             // Figure out if we're displaying likes, dislikes or both and set the class variables appropriately.
-            if($this->jlad_settings == 'both' || $this->jlad_settings == 'like_only' ) { $this->likes_enabled = true; 
+            if($display_type == 'both' || $display_type == 'like_only' ) {
+                $this->likes_enabled = true;
             }
-            if($this->jlad_settings == 'both' || $this->jlad_settings == 'dislike_only' ) { $this->dislikes_enabled = true; 
+
+            if($display_type == 'both' || $display_type == 'dislike_only' ) {
+                $this->dislikes_enabled = true;
             }
-            if($this->jlad_settings == 'like_only' ) { $this->dislikes_enabled = false; 
+
+            if($display_type == 'like_only' ) {
+                $this->dislikes_enabled = false;
             }
-            if($this->jlad_settings == 'dislike_only' ) { $this->likes_enabled = false; 
+
+            if($display_type == 'dislike_only' ) {
+                $this->likes_enabled = false;
             }
 
             add_filter('the_content', array($this, 'posts_like_dislike'), 200); // hook to add html for like dislike
@@ -36,15 +45,17 @@ if (!class_exists('JLAD_Hooks')) {
             // Filter out the like/dislike counts on excerpts.
             add_filter('get_the_excerpt', array( $this, 'the_excerpt_filter'));
 
-            // Add an admin column for like/dislikes
-            add_action('pre_get_posts', array($this,'pre_get_posts'));
-            $available_post_types = get_post_types(array(), 'names');
+            if( ! $this->jlad_settings['basic_settings']['hide_like_dislike_admin'] ) {
+                // Add an admin column for like/dislikes
+                add_action('pre_get_posts', array($this,'pre_get_posts'));
+                $available_post_types = get_post_types(array(), 'names');
 
-            foreach( $available_post_types as $type )
-            {
-                add_filter('manage_edit-' . $type . '_sortable_columns', array($this, 'manage_post_posts_sortable_columns' ));
-                add_filter('manage_' . $type . '_posts_columns', array($this, 'manage_post_posts_columns'));
-                add_action('manage_' . $type . '_posts_custom_column', array($this,'manage_post_posts_custom_column'), 10, 2);
+                foreach( $available_post_types as $type )
+                {
+                    add_filter('manage_edit-' . $type . '_sortable_columns', array($this, 'manage_post_posts_sortable_columns' ));
+                    add_filter('manage_' . $type . '_posts_columns', array($this, 'manage_post_posts_columns'));
+                    add_action('manage_' . $type . '_posts_custom_column', array($this,'manage_post_posts_custom_column'), 10, 2);
+                }
             }
         }
 
@@ -59,7 +70,7 @@ if (!class_exists('JLAD_Hooks')) {
             }
 
             // Make sure we got a string back, otherwise something went wrong and just return the old except.
-            if(is_string($new_excerpt) ) { $excerpt = $new_excerpt; 
+            if(is_string($new_excerpt) ) { $excerpt = $new_excerpt;
             }
 
             return $excerpt;
