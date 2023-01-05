@@ -36,7 +36,7 @@
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php _e('Display Position', 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php _e('Display position', 'just-likes-and-dislikes'); ?>: </label>
         </div>
         <div class="jlad-field">
             <select name="jlad_settings[basic_settings][like_dislike_position]" class="jlad-form-field">
@@ -63,7 +63,7 @@
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php _e('User Restriction Mode', 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php _e('User restriction mode', 'just-likes-and-dislikes'); ?>: </label>
         </div>
         <div class="jlad-field">
             <select name="jlad_settings[basic_settings][like_dislike_resistriction]" class="jlad-form-field jlad-toggle-trigger" data-toggle-class="jlad-login-link">
@@ -78,7 +78,7 @@
 
     <div class="jlad-field-wrap jlad-login-link" data-toggle-value="user" <?php $this->display_none($jlad_settings['basic_settings']['like_dislike_resistriction'], 'user'); ?>>
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php _e('Login Link', 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php _e('Login link', 'just-likes-and-dislikes'); ?>: </label>
         </div>
         <div class="jlad-field">
             <input type="text" name="jlad_settings[basic_settings][login_link]" class="jlad-form-field" value="<?php echo (!empty($jlad_settings['basic_settings']['login_link'])) ? esc_attr($jlad_settings['basic_settings']['login_link']) : ''; ?>"/>
@@ -88,7 +88,7 @@
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php _e('Display Order', 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php _e('Display order', 'just-likes-and-dislikes'); ?>: </label>
         </div>
         <div class="jlad-field">
             <select name="jlad_settings[basic_settings][display_order]" class="jlad-form-field">
@@ -101,7 +101,7 @@
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php _e("Like Hover Text", 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php _e("Like hover text", 'just-likes-and-dislikes'); ?>: </label>
         </div>
         <div class="jlad-field">
             <input type="text" name="jlad_settings[basic_settings][like_hover_text]" class="jlad-form-field" value="<?php echo isset($jlad_settings['basic_settings']['like_hover_text']) ? esc_attr($jlad_settings['basic_settings']['like_hover_text']) : ''; ?>" placeholder="<?php _e("Like", 'just-likes-and-dislikes'); ?>"/>
@@ -111,7 +111,7 @@
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php _e("Dislike Hover Text", 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php _e("Dislike hover text", 'just-likes-and-dislikes'); ?>: </label>
         </div>
         <div class="jlad-field">
             <input type="text" name="jlad_settings[basic_settings][dislike_hover_text]" class="jlad-form-field" value="<?php echo isset($jlad_settings['basic_settings']['dislike_hover_text']) ? esc_attr($jlad_settings['basic_settings']['dislike_hover_text']) : ''; ?>" placeholder="<?php _e('Dislike', 'just-likes-and-dislikes'); ?>"/>
@@ -121,7 +121,7 @@
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php esc_html_e('Display On Post with Zero Like/Dislikes', 'just-likes-and-dislikes'); ?>:</label>
+            <label class="jlad-field-label"><?php esc_html_e('Display zeros on posts with no likes/dislikes', 'just-likes-and-dislikes'); ?>:</label>
         </div>
         <div class="jlad-field">
             <label class="jlad-switch">
@@ -134,7 +134,7 @@
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php esc_html_e('Hide Counter Info Metabox', 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php esc_html_e('Hide like/dislike info metabox', 'just-likes-and-dislikes'); ?>: </label>
         </div>
         <div class="jlad-field">
             <label class="jlad-switch">

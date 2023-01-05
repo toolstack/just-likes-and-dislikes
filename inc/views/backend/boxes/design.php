@@ -1,7 +1,7 @@
 <div class="jlad-settings-section" data-settings-ref="design" style="display:none;">
 	<div class="jlad-field-wrap">
         <div class="jlad-field-description">
-			<label class="jlad-field-label"><?php _e( 'Choose Template', 'just-likes-and-dislikes' ); ?>: </label>
+			<label class="jlad-field-label"><?php _e( 'Choose template', 'just-likes-and-dislikes' ); ?>: </label>
 		</div>
 		<div class="jlad-field">
 			<select name="jlad_settings[design_settings][template]" class="jlad-form-field jlad-template-dropdown">
@@ -80,7 +80,7 @@
 	</div>
 	<div class="jlad-field-wrap jlad-template-ref"  <?php if ( $jlad_settings['design_settings']['template'] == 'custom' ) { ?>style="display:none"<?php } ?>>
         <div class="jlad-field-description">
-			<label class="jlad-field-label"><?php _e( 'Icon Color', 'just-likes-and-dislikes' ); ?>: </label>
+			<label class="jlad-field-label"><?php _e( 'Icon color', 'just-likes-and-dislikes' ); ?>: </label>
 		</div>
 		<div class="jlad-field">
 			<input type="text" name="jlad_settings[design_settings][icon_color]" class="jlad-form-field jlad-colorpicker" value="<?php echo esc_attr( $jlad_settings['design_settings']['icon_color'] ) ?>"/>
@@ -89,7 +89,7 @@
 	</div>
 	<div class="jlad-field-wrap">
         <div class="jlad-field-description">
-			<label class="jlad-field-label"><?php _e( 'Count Color', 'just-likes-and-dislikes' ); ?>: </label>
+			<label class="jlad-field-label"><?php _e( 'Counter color', 'just-likes-and-dislikes' ); ?>: </label>
 		</div>
 		<div class="jlad-field">
 			<input type="text" name="jlad_settings[design_settings][count_color]" class="jlad-form-field jlad-colorpicker" value="<?php echo esc_attr( $jlad_settings['design_settings']['count_color'] ) ?>"/>
