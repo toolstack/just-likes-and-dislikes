@@ -32,7 +32,7 @@
             case 'custom':
                 if ($jlad_settings['design_settings']['dislike_icon'] != '') {
                     ?>
-                    <img src="<?php echo esc_url($jlad_settings['design_settings']['dislike_icon']); ?>" alt="<?php echo esc_attr($dislike_title); ?>"/>
+                    <img src="<?php echo esc_attr($jlad_settings['design_settings']['dislike_icon']); ?>" alt="<?php echo esc_attr($dislike_title); ?>"/>
                     <?php
                 }
                 break;
