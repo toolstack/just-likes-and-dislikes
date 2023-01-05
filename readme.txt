@@ -71,10 +71,10 @@ We do have a shortcode [just_likes_and_dislikes] which can also be used as custo
 
 == Screenshots ==
 
-1. Like Dislike Icon Template 1
-2. Like Dislike Icon Template 2
-3. Like Dislike Icon Template 3
-4. Like Dislike Icon Template 4
+1. Like Dislike Thumbs Icons
+2. Like Dislike Hearts Icons
+3. Like Dislike Check/Cross-out Icons
+4. Like Dislike Happy/Sad Icons
 5. Like Dislike Basic Settings
 6. Like Dislike Design Settings
 
@@ -87,6 +87,7 @@ We do have a shortcode [just_likes_and_dislikes] which can also be used as custo
 * Removed like/dislike counts from excerpts and embeds
 * Remove old internationalization code
 * Fix widget width for Gutenberg
+* Update the settings page to be clearer/cleaner
 * Update font awesome to v6.2.1
 
 = 1.0.8 =
