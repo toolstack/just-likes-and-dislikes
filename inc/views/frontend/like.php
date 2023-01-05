@@ -2,7 +2,7 @@
     <a href="<?php echo esc_attr($href); ?>"
        class="jlad-like-trigger jlad-like-dislike-trigger <?php echo ($already_liked == 1) ? 'jlad-prevent' : ''; ?>"
        title="<?php echo esc_attr($like_title); ?>"
-       data-post-id="<?php echo intval($post_id); ?>"
+       data-id="<?php echo intval($data_id); ?>"
        data-trigger-type="like"
        data-restriction="<?php echo esc_attr($jlad_settings['basic_settings']['like_dislike_resistriction']); ?>"
        data-already-liked="<?php echo esc_attr($already_liked); ?>">

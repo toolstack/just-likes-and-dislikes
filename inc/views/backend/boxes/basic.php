@@ -40,8 +40,8 @@
         </div>
         <div class="jlad-field">
             <select name="jlad_settings[basic_settings][like_dislike_position]" class="jlad-form-field">
-                <option value="after" <?php selected($jlad_settings['basic_settings']['like_dislike_position'], 'after'); ?>><?php _e('After Post', 'just-likes-and-dislikes'); ?></option>
-                <option value="before" <?php selected($jlad_settings['basic_settings']['like_dislike_position'], 'before'); ?>><?php _e('Before Post', 'just-likes-and-dislikes'); ?></option>
+                <option value="after" <?php selected($jlad_settings['basic_settings']['like_dislike_position'], 'after'); ?>><?php _e('After Post/Commnet', 'just-likes-and-dislikes'); ?></option>
+                <option value="before" <?php selected($jlad_settings['basic_settings']['like_dislike_position'], 'before'); ?>><?php _e('Before Post/Comment', 'just-likes-and-dislikes'); ?></option>
             </select>
             <p class="description"><?php _e('(where you want to display the like/dislike buttons)', 'just-likes-and-dislikes'); ?></p>
         </div>

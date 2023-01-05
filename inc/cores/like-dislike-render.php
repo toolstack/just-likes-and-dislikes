@@ -43,7 +43,7 @@ ob_start();
  */
 $shortcode = (!empty($shortcode)) ? $shortcode : false;
 $atts = (!empty($atts))?$atts:[];
-do_action('jlad_like_dislike_output', $content, $shortcode, $atts);
+do_action('jlad_post_like_dislike_output', $content, $shortcode, $atts);
 
 $like_dislike_html = ob_get_contents();
 ob_end_clean();

@@ -120,7 +120,7 @@ $dislike_count = apply_filters( 'jlad_dislike_count', $dislike_count, $post_id )
  *
  * @since 1.0.0
  */
-do_action( 'jlad_like_dislike_output', $post_text, $post );
+do_action( 'jlad_post_like_dislike_output', $post_text, $post );
     </pre>
         <pre>
 /**

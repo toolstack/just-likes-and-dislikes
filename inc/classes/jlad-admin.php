@@ -30,9 +30,14 @@ if (!class_exists('JLAD_Admin')) {
             add_action('wp_ajax_nopriv_jlad_settings_restore_action', array($this, 'no_permission'));
 
             /**
-             * Count Info Meta Box
+             * Count Info Meta Box for Posts
              */
-            add_action('add_meta_boxes', array($this, 'render_count_info_metabox'));
+            add_action('add_meta_boxes', array($this, 'render_count_info_metabox_posts'));
+
+            /**
+             * Count Info Meta Box for Comments
+             */
+            add_action('add_meta_boxes', array($this, 'render_count_info_metabox_comments'));
 
             /**
              * Save posts like dislike meta box
@@ -106,21 +111,36 @@ if (!class_exists('JLAD_Admin')) {
             return array_merge($links, $settings_link);
         }
 
-        function render_count_info_metabox()
+        function render_count_info_metabox_posts()
         {
             $jlad_settings = $this->jlad_settings;
+
             $post_types = (!empty($jlad_settings['basic_settings']['post_types'])) ? $jlad_settings['basic_settings']['post_types'] : array();
+
             if (empty($jlad_settings['basic_settings']['hide_counter_info_metabox']) && !empty($post_types)) {
-                add_meta_box('jlad-count-info', esc_html__('Just Likes and Dislikes', 'just-likes-and-dislikes'), array($this, 'render_count_info_html'), $post_types, 'normal');
+                add_meta_box('jlad-count-info', esc_html__('Just Likes and Dislikes', 'just-likes-and-dislikes'), array($this, 'render_posts_count_info_html'), $post_types, 'normal');
             }
         }
 
-        function render_count_info_html($post)
+        function render_count_info_metabox_comments() {
+            if (empty($this->jlad_settings['basic_settings']['hide_counter_info_metabox'])) {
+                add_meta_box('jlad-count-info', esc_html__('Just Likes and Dislikes', 'just-likes-and-dislikes'), array($this, 'render_comments_count_info_html'), 'comment', 'normal');
+            }
+        }
+
+        function render_posts_count_info_html($post)
         {
             $post_id = $post->ID;
             $like_count = get_post_meta($post_id, 'jlad_like_count', true);
             $dislike_count = get_post_meta($post_id, 'jlad_dislike_count', true);
             include JLAD_PATH . '/inc/views/backend/jlad-metabox.php';
+        }
+
+        function render_comments_count_info_html($comment) {
+            $comment_id = $comment->comment_ID;
+            $like_count = get_comment_meta($comment_id, 'jlad_like_count', true);
+            $dislike_count = get_comment_meta($comment_id, 'jlad_dislike_count', true);
+            include(JLAD_PATH . '/inc/views/backend/jlad-metabox.php');
         }
 
         function save_jlad_metabox($post_id)

@@ -1,5 +1,6 @@
 <?php
 $post_id = (!empty($atts['id']))?intval($atts['id']):get_the_ID();
+$data_id = $post_id;
 $like_count = get_post_meta($post_id, 'jlad_like_count', true);
 $dislike_count = get_post_meta($post_id, 'jlad_dislike_count', true);
 
