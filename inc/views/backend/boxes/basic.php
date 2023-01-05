@@ -81,7 +81,7 @@
             <label class="jlad-field-label"><?php _e('Login Link', 'just-likes-and-dislikes'); ?>: </label>
         </div>
         <div class="jlad-field">
-            <input type="text" name="jlad_settings[basic_settings][login_link]" class="jlad-form-field" value="<?php echo (!empty($jlad_settings['basic_settings']['login_link'])) ? esc_url($jlad_settings['basic_settings']['login_link']) : ''; ?>"/>
+            <input type="text" name="jlad_settings[basic_settings][login_link]" class="jlad-form-field" value="<?php echo (!empty($jlad_settings['basic_settings']['login_link'])) ? esc_attr($jlad_settings['basic_settings']['login_link']) : ''; ?>"/>
             <p class="description"><?php esc_html_e('Please enter the login link where users will be redirected while trying to like or dislike without logging in. Please leave blank if you don\'t want to redirect users to login page.', 'just-likes-and-dislikes'); ?></p>
         </div>
     </div>
