@@ -103,14 +103,12 @@ if (!class_exists('JLAD_Hooks')) {
 
         public function custom_styles()
         {
-            $jlad_settings = $this->jlad_settings;
-
             echo "<style>";
-            if ($jlad_settings['design_settings']['icon_color'] != '') {
-                echo 'a.jlad-like-dislike-trigger {color: ' . esc_attr($jlad_settings['design_settings']['icon_color']) . ';}';
+            if ($this->jlad_settings['design_settings']['icon_color'] != '') {
+                echo 'a.jlad-like-dislike-trigger {color: ' . esc_attr($this->jlad_settings['design_settings']['icon_color']) . ';}';
             }
-            if ($jlad_settings['design_settings']['count_color'] != '') {
-                echo 'span.jlad-count-wrap {color: ' . esc_attr($jlad_settings['design_settings']['count_color']) . ';}';
+            if ($this->jlad_settings['design_settings']['count_color'] != '') {
+                echo 'span.jlad-count-wrap {color: ' . esc_attr($this->jlad_settings['design_settings']['count_color']) . ';}';
             }
             echo "</style>";
         }
@@ -118,8 +116,8 @@ if (!class_exists('JLAD_Hooks')) {
         public function manage_post_posts_columns($columns)
         {
             // Build the like/dislike icon based on the current design settings.
-            $like_title = isset($jlad_settings['basic_settings']['like_hover_text']) ? esc_attr($jlad_settings['basic_settings']['like_hover_text']) : __('Like', 'just-likes-and-dislikes');
-            $dislike_title = isset($jlad_settings['basic_settings']['dislike_hover_text']) ? esc_attr($jlad_settings['basic_settings']['dislike_hover_text']) : __('Dislike', 'just-likes-and-dislikes');
+            $like_title = isset($this->jlad_settings['basic_settings']['like_hover_text']) ? esc_attr($this->jlad_settings['basic_settings']['like_hover_text']) : __('Like', 'just-likes-and-dislikes');
+            $dislike_title = isset($this->jlad_settings['basic_settings']['dislike_hover_text']) ? esc_attr($this->jlad_settings['basic_settings']['dislike_hover_text']) : __('Dislike', 'just-likes-and-dislikes');
 
             switch ($this->jlad_settings['design_settings']['template'])
             {
