@@ -1,11 +1,11 @@
-function pld_setCookie(cname, cvalue, exdays) {
+function jlad_setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + "; " + expires;
 }
 
-function pld_getCookie(cname) {
+function jlad_getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
     for (var i = 0; i < ca.length; i++) {
@@ -34,12 +34,12 @@ jQuery(document).ready(function ($) {
             if (already_liked == 0) {
                 $.ajax({
                     type: 'post',
-                    url: pld_js_object.admin_ajax_url,
+                    url: jlad_js_object.admin_ajax_url,
                     data: {
                         post_id: post_id,
-                        action: 'pld_post_ajax_action',
+                        action: 'jlad_post_ajax_action',
                         type: trigger_type,
-                        _wpnonce: pld_js_object.admin_ajax_nonce
+                        _wpnonce: jlad_js_object.admin_ajax_nonce
                     },
                     beforeSend: function (xhr) {
                         ajax_flag = 1;
@@ -49,7 +49,7 @@ jQuery(document).ready(function ($) {
                         ajax_flag = 0;
                         res = $.parseJSON(res);
                         if (res.success) {
-                            var cookie_name = 'pld_' + post_id;
+                            var cookie_name = 'jlad_' + post_id;
                             var latest_count = res.latest_count;
                             selector.closest('.jlad-common-wrap').find('.jlad-count-wrap').html(latest_count);
                             if (restriction != 'no') {
