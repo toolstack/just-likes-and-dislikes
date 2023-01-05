@@ -29,13 +29,17 @@ if (!class_exists('JLAD_Library')) {
         function get_default_settings()
         {
             $default_settings = array();
-            $default_settings['basic_settings']['status'] = 0;
+            $default_settings['basic_settings']['status'] = 1;
+            $default_settings['basic_settings']['post_types'] = array();
             $default_settings['basic_settings']['like_dislike_position'] = 'after';
             $default_settings['basic_settings']['like_dislike_display'] = 'both';
             $default_settings['basic_settings']['like_dislike_resistriction'] = 'cookie';
             $default_settings['basic_settings']['display_order'] = 'like-dislike';
             $default_settings['basic_settings']['like_hover_text'] = '';
             $default_settings['basic_settings']['dislike_hover_text'] = '';
+            $default_settings['basic_settings']['display_zero'] = '';
+            $default_settings['basic_settings']['hide_counter_info_metabox'] = '';
+            $default_settings['basic_settings']['hide_like_dislike_admin'] = '';
             $default_settings['design_settings']['template'] = 'template-1';
             $default_settings['design_settings']['like_icon'] = '';
             $default_settings['design_settings']['dislike_icon'] = '';
