@@ -9,7 +9,6 @@ $jlad_settings = $this->jlad_settings;
         $jlad_tabs = array(
             'basic' => array('label' => __('Basic', 'just-likes-and-dislikes')),
             'design' => array('label' => __('Design', 'just-likes-and-dislikes')),
-            'help' => array('label' => __('Help', 'just-likes-and-dislikes')),
             'about' => array('label' => __('About', 'just-likes-and-dislikes'))
         );
 
