@@ -65,6 +65,7 @@ if (!class_exists('JLAD_Library')) {
             $default_settings['basic_settings']['display_zero'] = '';
             $default_settings['basic_settings']['hide_counter_info_metabox'] = '';
             $default_settings['basic_settings']['hide_like_dislike_admin'] = '';
+            $default_settings['basic_settings']['login_link'] = '';
             $default_settings['design_settings']['template'] = 'template-1';
             $default_settings['design_settings']['like_icon'] = '';
             $default_settings['design_settings']['dislike_icon'] = '';
