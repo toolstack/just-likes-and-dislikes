@@ -9,7 +9,32 @@ if (!class_exists('JLAD_Library')) {
 
         function __construct()
         {
+            // Load up the current settings.
             $this->jlad_settings = get_option('jlad_settings');
+
+            // Let's do some magic to make sure the settings array *always* has *all* of the keys
+            // in it.  This avoids wp_debug messages for missing keys.
+
+            // Get the default settings.
+            $defaults = $this->get_default_settings();
+
+            // Which settings groups we're going to process.
+            $settings = array( 'basic_settings', 'design_settings' );
+
+            // Loop through the setting groups.
+            foreach( $settings as $setting ) {
+                // Loop through each of the settings groups in the defaults.
+                foreach ($defaults[$setting] as $key => $value) {
+                    // Check to see if the array key from the defaults exists in the current settings.
+                    if( ! array_key_exists($key, $this->jlad_settings[$setting] ) ) {
+                        // If it doesn't, set it to an empty string.  We can't set it to the default because
+                        // the setting may have purposefully deleted the value, like the "enable" setting in basic
+                        // settings, that would then be stored as a missing key.  Instead, set it to null so the
+                        // key exists, but has no value.
+                        $this->jlad_settings[$setting][$key] = null;
+                    }
+                }
+            }
         }
 
         function print_array($array)
