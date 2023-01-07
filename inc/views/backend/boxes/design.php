@@ -39,7 +39,7 @@
 						<input type="button" class="button-primary jlad-file-uploader" value="<?php _e( 'Upload Like Icon', 'just-likes-and-dislikes' ); ?>"/>
 						<span class="jlad-preview-holder">
 							<?php if ( $jlad_settings['design_settings']['dislike_icon'] != '' ) { ?>
-								<img src="<?php echo esc_url( $jlad_settings['design_settings']['like_icon'] ); ?>"/>
+								<img src="<?php echo esc_attr( $jlad_settings['design_settings']['like_icon'] ); ?>"/>
 							<?php } ?>
 						</span>
 					</div>
@@ -51,7 +51,7 @@
 						<br>
 						<br>
 						<input type="button" class="button-primary jlad-file-uploader" value="<?php _e( 'Upload Dislike Icon', 'just-likes-and-dislikes' ); ?>"/>
-						<span class="jlad-preview-holder"><?php if ( $jlad_settings['design_settings']['dislike_icon'] != '' ) { ?><img src="<?php echo esc_url( $jlad_settings['design_settings']['dislike_icon'] ); ?>"/><?php } ?></span>
+						<span class="jlad-preview-holder"><?php if ( $jlad_settings['design_settings']['dislike_icon'] != '' ) { ?><img src="<?php echo esc_attr( $jlad_settings['design_settings']['dislike_icon'] ); ?>"/><?php } ?></span>
 					</div>
 				</div>
 			</div>
