@@ -24,7 +24,7 @@ $jlad_settings = $this->jlad_settings;
         foreach ($jlad_tabs as $jlad_tab => $jlad_tab_detail) {
             $jlad_tab_counter++;
             ?>
-            <a href="javascript:void(0);" class="nav-tab <?php echo ($jlad_tab_counter == 1) ? 'nav-tab-active' : ''; ?> jlad-tab-trigger" data-settings-ref="<?php echo esc_attr( $jlad_tab ); ?>"><?php echo esc_html( $jlad_tab_detail['label'] ); ?></a>
+            <a href="javascript:void(0);" class="nav-tab <?php echo ($jlad_tab_counter == 1) ? 'nav-tab-active' : ''; ?> jlad-tab-trigger" data-settings-ref="<?php echo esc_attr($jlad_tab); ?>"><?php echo esc_html($jlad_tab_detail['label']); ?></a>
             <?php
         }
         ?>
@@ -58,7 +58,7 @@ $jlad_settings = $this->jlad_settings;
 
     </div>
     <div class="jlad-info-wrap" style="display:none;">
-        <img src="<?php echo esc_attr( JLAD_IMG_DIR . '/ajax-loader.gif' ); ?>" class="jlad-loader"/>
+        <img src="<?php echo esc_attr(JLAD_IMG_DIR . '/ajax-loader.gif'); ?>" class="jlad-loader"/>
         <span class="jlad-info"><?php _e('Please wait.', 'just-likes-and-dislikes'); ?></span>
         <span class="dashicons dashicons-dismiss jlad-close-info"></span>
     </div>

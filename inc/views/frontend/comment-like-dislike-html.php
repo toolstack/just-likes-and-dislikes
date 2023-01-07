@@ -89,20 +89,20 @@ $dislike_count = apply_filters('jlad_dislike_count', $dislike_count, $comment_id
      */
     if ($jlad_settings['basic_settings']['display_order'] == 'like-dislike') {
         if ($jlad_settings['basic_settings']['like_dislike_display'] != 'dislike_only') {
-            include(JLAD_PATH . 'inc/views/frontend/like.php');
+            include JLAD_PATH . 'inc/views/frontend/like.php';
         }
         if ($jlad_settings['basic_settings']['like_dislike_display'] != 'like_only') {
-            include(JLAD_PATH . 'inc/views/frontend/dislike.php');
+            include JLAD_PATH . 'inc/views/frontend/dislike.php';
         }
     } else {
         /**
          * Dislike Like Order
          */
         if ($jlad_settings['basic_settings']['like_dislike_display'] != 'like_only') {
-            include(JLAD_PATH . 'inc/views/frontend/dislike.php');
+            include JLAD_PATH . 'inc/views/frontend/dislike.php';
         }
         if ($jlad_settings['basic_settings']['like_dislike_display'] != 'dislike_only') {
-            include(JLAD_PATH . 'inc/views/frontend/like.php');
+            include JLAD_PATH . 'inc/views/frontend/like.php';
         }
     }
     ?>

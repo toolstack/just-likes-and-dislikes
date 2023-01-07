@@ -50,7 +50,7 @@ if (!class_exists('JLAD_Hooks')) {
             // Filter out the like/dislike counts on excerpts.
             add_filter('get_the_excerpt', array( $this, 'the_excerpt_filter'));
 
-            if( ! $this->jlad_settings['basic_settings']['hide_like_dislike_admin'] ) {
+            if(! $this->jlad_settings['basic_settings']['hide_like_dislike_admin'] ) {
                 // Add an admin column for like/dislikes
                 add_action('pre_get_posts', array($this,'pre_get_posts'));
                 $available_post_types = get_post_types(array(), 'names');
@@ -204,7 +204,7 @@ if (!class_exists('JLAD_Hooks')) {
             $like_title = isset($this->jlad_settings['basic_settings']['like_hover_text']) ? esc_attr($this->jlad_settings['basic_settings']['like_hover_text']) : __('Like', 'just-likes-and-dislikes');
             $dislike_title = isset($this->jlad_settings['basic_settings']['dislike_hover_text']) ? esc_attr($this->jlad_settings['basic_settings']['dislike_hover_text']) : __('Dislike', 'just-likes-and-dislikes');
 
-            list( $like_icon, $dislike_icon ) = $this->get_template_icon( $this->jlad_settings['design_settings']['template'] );
+            list( $like_icon, $dislike_icon ) = $this->get_template_icon($this->jlad_settings['design_settings']['template']);
 
             // Add a span infront of them to make them look right in the screen options pulldown.
             $like_icon = '<span><span class="vers" title="' . __('Like', 'just-likes-and-dislikes') . '" aria-hidden="true"></span><span class="screen-reader-text">' . __('Like', 'just-likes-and-dislikes') . '</span></span>' . $like_icon;
@@ -274,7 +274,8 @@ if (!class_exists('JLAD_Hooks')) {
         }
 
 
-        function manage_comments_custom_column($column_key, $comment_id) {
+        function manage_comments_custom_column($column_key, $comment_id)
+        {
             if ($column_key == $this->like_column_name || $column_key == $this->dislike_column_name) {
                 $like_count = intval(get_comment_meta($comment_id, 'jlad_like_count', true));
                 $dislike_count = intval(get_comment_meta($comment_id, 'jlad_dislike_count', true));

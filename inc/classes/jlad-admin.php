@@ -122,7 +122,8 @@ if (!class_exists('JLAD_Admin')) {
             }
         }
 
-        function render_count_info_metabox_comments() {
+        function render_count_info_metabox_comments()
+        {
             if (empty($this->jlad_settings['basic_settings']['hide_counter_info_metabox'])) {
                 add_meta_box('jlad-count-info', esc_html__('Just Likes and Dislikes', 'just-likes-and-dislikes'), array($this, 'render_comments_count_info_html'), 'comment', 'normal');
             }
@@ -136,11 +137,12 @@ if (!class_exists('JLAD_Admin')) {
             include JLAD_PATH . '/inc/views/backend/jlad-metabox.php';
         }
 
-        function render_comments_count_info_html($comment) {
+        function render_comments_count_info_html($comment)
+        {
             $comment_id = $comment->comment_ID;
             $like_count = get_comment_meta($comment_id, 'jlad_like_count', true);
             $dislike_count = get_comment_meta($comment_id, 'jlad_dislike_count', true);
-            include(JLAD_PATH . '/inc/views/backend/jlad-metabox.php');
+            include JLAD_PATH . '/inc/views/backend/jlad-metabox.php';
         }
 
         function save_jlad_metabox($post_id)

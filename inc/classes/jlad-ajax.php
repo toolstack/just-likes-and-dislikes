@@ -19,7 +19,8 @@ if (!class_exists('JLAD_Ajax')) {
         }
 
         // Validate if the user is restricted to liking/disliking this post/comment.
-        function validate_restrictions( $cookie_name, $liked_users, $liked_ips ) {
+        function validate_restrictions( $cookie_name, $liked_users, $liked_ips )
+        {
             /**
              * Cookie Validation
              */
@@ -65,7 +66,8 @@ if (!class_exists('JLAD_Ajax')) {
 
         }
 
-        function like_dislike_comment_action() {
+        function like_dislike_comment_action()
+        {
             if (isset($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], 'jlad-ajax-nonce')) {
                 $comment_id = sanitize_text_field($_POST['data_id']);
                 $cookie_name = 'jlad_comment_' . $comment_id;
@@ -81,7 +83,7 @@ if (!class_exists('JLAD_Ajax')) {
 
                 $type = sanitize_text_field($_POST['type']);
 
-                validate_restrictions( $cookie_name, get_comment_meta($comment_id, 'jlad_users', true), get_comment_meta($comment_id, 'jlad_ips', true) );
+                validate_restrictions($cookie_name, get_comment_meta($comment_id, 'jlad_users', true), get_comment_meta($comment_id, 'jlad_ips', true));
 
                 if ($type == 'like') {
                     $like_count = get_comment_meta($comment_id, 'jlad_like_count', true);
@@ -116,7 +118,6 @@ if (!class_exists('JLAD_Ajax')) {
                 }
                 /**
                  * Check the liked ips and insert the user ips for future checking
-                 *
                  */
                 if ($this->jlad_settings['basic_settings']['like_dislike_resistriction'] == 'ip') {
                     $liked_ips = get_comment_meta($comment_id, 'jlad_ips', true);
@@ -172,7 +173,7 @@ if (!class_exists('JLAD_Ajax')) {
                  */
                 do_action('jlad_before_ajax_process', $post_id);
 
-                validate_restrictions( $cookie_name, get_post_meta($post_id, 'jlad_users', true), get_post_meta($post_id, 'jlad_ips', true) );
+                validate_restrictions($cookie_name, get_post_meta($post_id, 'jlad_users', true), get_post_meta($post_id, 'jlad_ips', true));
 
                 $type = sanitize_text_field($_POST['type']);
 

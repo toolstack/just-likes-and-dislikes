@@ -26,7 +26,7 @@ if (!class_exists('JLAD_Library')) {
                 // Loop through each of the settings groups in the defaults.
                 foreach ($defaults[$setting] as $key => $value) {
                     // Check to see if the array key from the defaults exists in the current settings.
-                    if( ! array_key_exists($key, $this->jlad_settings[$setting] ) ) {
+                    if(! array_key_exists($key, $this->jlad_settings[$setting]) ) {
                         // If it doesn't, set it to an empty string.  We can't set it to the default because
                         // the setting may have purposefully deleted the value, like the "enable" setting in basic
                         // settings, that would then be stored as a missing key.  Instead, set it to null so the
@@ -84,14 +84,14 @@ if (!class_exists('JLAD_Library')) {
         function get_template_names()
         {
             $template_names =  array(
-                                        'template-1' => __( 'Thumbs', 'just-likes-and-dislikes' ),
-                                        'template-2' => __( 'Hearts', 'just-likes-and-dislikes' ),
-                                        'template-3' => __( 'Check/Cross-out', 'just-likes-and-dislikes' ),
-                                        'template-4' => __( 'Happy/Sad', 'just-likes-and-dislikes' ),
-                                        'template-5' => __( 'Plus/Minus', 'just-likes-and-dislikes' ),
-                                        'template-6' => __( 'Up/Down', 'just-likes-and-dislikes' ),
-                                        'template-7' => __( 'Fire/Extinguisher', 'just-likes-and-dislikes' ),
-                                        'custom'     => __( 'Custom', 'just-likes-and-dislikes' )
+                                        'template-1' => __('Thumbs', 'just-likes-and-dislikes'),
+                                        'template-2' => __('Hearts', 'just-likes-and-dislikes'),
+                                        'template-3' => __('Check/Cross-out', 'just-likes-and-dislikes'),
+                                        'template-4' => __('Happy/Sad', 'just-likes-and-dislikes'),
+                                        'template-5' => __('Plus/Minus', 'just-likes-and-dislikes'),
+                                        'template-6' => __('Up/Down', 'just-likes-and-dislikes'),
+                                        'template-7' => __('Fire/Extinguisher', 'just-likes-and-dislikes'),
+                                        'custom'     => __('Custom', 'just-likes-and-dislikes')
                                     );
 
             /**
@@ -101,14 +101,14 @@ if (!class_exists('JLAD_Library')) {
              *
              * @since 2.0.0
              */
-            $template_names = apply_filters( 'jlad_template_names', $template_names );
+            $template_names = apply_filters('jlad_template_names', $template_names);
 
             return $template_names;
         }
 
         function get_template_count()
         {
-            return count( $this->get_template_names() ) - 1;
+            return count($this->get_template_names()) - 1;
         }
 
         function get_template_icon( $template )
@@ -160,7 +160,7 @@ if (!class_exists('JLAD_Library')) {
              *
              * @since 2.0.0
              */
-            $icons = apply_filters( 'jlad_template_names', $icons );
+            $icons = apply_filters('jlad_template_names', $icons);
 
             return $icons;
 
@@ -168,12 +168,14 @@ if (!class_exists('JLAD_Library')) {
 
         function get_template_preview( $template, $hidden = true )
         {
-            $html  = '<div class="jlad-each-template-preview jlad-like-dislike-wrap jlad-' . esc_attr( $template ) . '"';
-            if( $hidden ) { $html .= ' style="display: none;"'; }
-            $html .= ' data-template-ref="' . esc_attr( $template ) . '">' . PHP_EOL;
+            $html  = '<div class="jlad-each-template-preview jlad-like-dislike-wrap jlad-' . esc_attr($template) . '"';
+            if($hidden ) { 
+	    	$html .= ' style="display: none;"'; 
+            }
+            $html .= ' data-template-ref="' . esc_attr($template) . '">' . PHP_EOL;
             $html .= '<div class="jlad-template-preview jlad-like-wrap jlad-common-wrap">' . PHP_EOL;
 
-            list( $like_icon, $dislike_icon ) = $this->get_template_icon( $template );
+            list( $like_icon, $dislike_icon ) = $this->get_template_icon($template);
 
             $html .= '<a>' . $like_icon . '</a>' . PHP_EOL;
             $html .= '<span class="jlad-like-count-wrap jlad-count-wrap">25</span>' . PHP_EOL;

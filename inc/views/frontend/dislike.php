@@ -8,7 +8,7 @@
        data-already-liked="<?php echo esc_attr($already_liked); ?>">
            <?php
             $template = $jlad_settings['design_settings']['template'];
-            list( $like_icon, $dislike_icon ) = $this->get_template_icon( $template );
+            list( $like_icon, $dislike_icon ) = $this->get_template_icon($template);
 
             echo $dislike_icon;
 
