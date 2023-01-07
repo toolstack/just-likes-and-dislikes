@@ -12,35 +12,30 @@ Like and dislike feature for WordPress.
 ## Description ##
 **Just Likes and Dislikes is a fork of the excellent [Post Like Dislike](https://wordpress.org/plugins/posts-like-dislike/) and [Comment Like and Dislike](https://wordpress.org/plugins/comments-like-dislike/) by [WP Happy Coders](http://wphappycoders.com/)**
 
-Just Likes and Dislikes enables like and dislike icons for posts, pages and comments. Choose Thumbs Up or Thumbs Down, Smiley or Frown, Right or Wrong icons or your own custom like dislike icons, the choice is yours.
+Just Likes and Dislikes enables like and dislike icons for posts, pages and comments. Choose between multiple predefined icon sets or use your own custom like/dislike icons, the choice is yours.
 
 Just Likes and Dislikes increases the interaction with the WordPress by enabling likes and dislikes buttons along with the count.
 
 ### See full features list below: ###
-* Status
-    - Enable or Disable Just Likes and Dislikes for posts/page or any other post types
-* Like Dislike Position
-    - After Post
-    - Before Post
-* Like Dislike Display
-    - Display Both Like and Dislike
-    - Display Like Only
-    - Display Dislike Only
-* Like Dislike Restriction
-    - Cookie Restriction
-    - IP Restriction
-    - No Restriction
-* Like Dislike Order
-    - Like Dislike
-    - Dislike Like
-* 4 Pre Available Icon Templates
-    - Thumbs Up Thumbs Down
-    - Heart or Heart Beat
-    - Right or Wrong
-    - Smiley or Frown
-* Custom Like Dislike Icon Upload feature
-* Icon Color Configuration
-* Count Color Configuration
+* Select position of like/dislike display; before/after post/comment.
+* Disable like/dislikes on any post type.
+* Show likes, dislikes or both.
+* Choose which order to show likes/dislikes in.
+* Definable hover text.
+* Choose to display like/dislike counts of zero.
+* Choose method to restirct users to a single like/dislike; cookies, IP, logged in users
+* 7 available pre-defined icon templates to choose from:
+    - Thumbs
+    - Hearts
+    - Checked/Cross-out
+    - Happy/Sad
+    - Plus/Minus
+    - Up/Down
+    - Fire/Extinguisher
+* Custom like/dislike icon support
+* Icon color selector
+* Count color selector
+* Sortable like/dislike columns in admin screens (can be disabled via option)
 
 ### Shortcode ###
 [just_like_and_dislike id=post_id]
@@ -52,42 +47,35 @@ Please replace post_id with the id of the post or remove id parameter for consid
 
 ## Installation ##
 
-1. Upload the plugin files to the `/wp-content/plugins/just-like-and-dislike` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
-1. Use the Just Likes and Dislikes settings page inside the Posts Menu to configure the plugin
+1. Install the plugin through the WordPress Plugins screen.
+1. Activate the plugin through the Plugins screen in WordPress.
+1. Use the Just Likes and Dislikes settings page inside the Posts Menu to configure the plugin.
 
 ## Frequently Asked Questions ##
 ### What does this plugin do ? ###
-This plugin provides the ability to add the like and dislike buttons for WordPress native posts.
+This plugin provides the ability to add the like and dislike buttons for WordPress native posts, pages and comments.
 
 ### I have enabled the plugin but like and dislike icons are not being displayed. What may be the reason ? ###
-Our plugin uses the_content filter to append like and dislike icons . So if your active theme's posts template doesn't use the_content filter to display posts content then our plugin won't be able to display like and dislike icons.
+The plugin uses the_content filter to append like and dislike icons . So if your active theme's posts template doesn't use the_content filter to display posts content then the plugin won't be able to display like and dislike icons.
+
+You can still use the plugin, but you'll have to add some custom code to your theme (see custom function above) to support it.
 
 ### Is there any hooks available to extend the plugin ? ###
-Our plugin does contains many actions and filters which are described inside the Help Section
+There are a few available to add new default icon template options, see the code for details.
 
 ### I want to display in the post detail template. Do you have a custom function? ###
-We do have a shortcode [just_likes_and_dislikes] which can also be used as custom function through `<?php echo do_shortcode('[posts_like_dislike]');?>`
+We do have a shortcode [just_likes_and_dislikes] which can also be used as custom function through `<?php echo do_shortcode('[just_likes_and_dislikes]');?>`
 
 ## Screenshots ##
 
-### 1. Like Dislike Thumbs Icons ###
-![Like Dislike Thumbs Icons](assets/screenshot-1.png)
+### 1. Icon template examples ###
+![Icon template examples](assets/screenshot-1.png)
 
-### 2. Like Dislike Hearts Icons ###
-![Like Dislike Hearts Icons](assets/screenshot-2.png)
+### 2. Like Dislike Basic Settings ###
+![Like Dislike Basic Settings](assets/screenshot-2.png)
 
-### 3. Like Dislike Check/Cross-out Icons ###
-![Like Dislike Check/Cross-out Icons](assets/screenshot-3.png)
-
-### 4. Like Dislike Happy/Sad Icons ###
-![Like Dislike Happy/Sad Icons](assets/screenshot-4.png)
-
-### 5. Like Dislike Basic Settings ###
-![Like Dislike Basic Settings](assets/screenshot-5.png)
-
-### 6. Like Dislike Design Settings ###
-![Like Dislike Design Settings](assets/screenshot-6.png)
+### 3. Like Dislike Design Settings ###
+![Like Dislike Design Settings](assets/screenshot-3.png)
 
 
 ## Changelog ##
@@ -96,6 +84,7 @@ We do have a shortcode [just_likes_and_dislikes] which can also be used as custo
 * Add sortable columns to the admin posts list
 * Add filter for Yoast Duplicate Posts so the like/dislike count is reset
 * Add proper meta data registration
+* Merge Comments Like Dislike plugin functionality
 * Removed like/dislike counts from excerpts and embeds
 * Remove old internationalization code
 * Fix widget width for Gutenberg
