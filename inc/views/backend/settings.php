@@ -26,7 +26,6 @@ $jlad_settings = $this->jlad_settings;
         <form class="jlad-settings-form">
             <?php require JLAD_PATH . 'inc/views/backend/boxes/basic.php'; ?>
             <?php require JLAD_PATH . 'inc/views/backend/boxes/design.php'; ?>
-            <?php require JLAD_PATH . 'inc/views/backend/boxes/help.php'; ?>
             <?php require JLAD_PATH . 'inc/views/backend/boxes/about.php'; ?>
 
             <div class="jlad-field-wrap jlad-settings-action">
