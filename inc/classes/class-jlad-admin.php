@@ -99,10 +99,25 @@ if (!class_exists('JLAD_Admin')) {
         {
             $jlad_settings = $this->jlad_settings;
 
+            // If the metabox has been disabled in settings, just return now.
+            if( $jlad_settings['basic_settings']['hide_counter_info_metabox'] == '1' ) {
+                return;
+            }
+
+            // Get the list of available post types.
+            $available_post_types = get_post_types(array('public' => true), 'names');
+
+            // Get the list of excluded post types.
             $post_types = (!empty($jlad_settings['basic_settings']['post_types'])) ? $jlad_settings['basic_settings']['post_types'] : array();
 
-            if (empty($jlad_settings['basic_settings']['hide_counter_info_metabox']) && !empty($post_types)) {
-                add_meta_box('jlad-count-info', esc_html__('Just Likes and Dislikes', 'just-likes-and-dislikes'), array($this, 'render_posts_count_info_html'), $post_types, 'normal');
+            // Remove the disabled post types from the available list.
+            foreach( $post_types as $key => $value ) {
+                unset( $available_post_types[$value] );
+            }
+
+            // Show the metabox if we have any post types left.
+            if ( ! empty($available_post_types)) {
+                add_meta_box('jlad-count-info', esc_html__('Just Likes and Dislikes', 'just-likes-and-dislikes'), array($this, 'render_posts_count_info_html'), $available_post_types, 'normal');
             }
         }
 
@@ -118,7 +133,7 @@ if (!class_exists('JLAD_Admin')) {
             $post_id = $post->ID;
             $like_count = get_post_meta($post_id, 'jlad_like_count', true);
             $dislike_count = get_post_meta($post_id, 'jlad_dislike_count', true);
-            include JLAD_PATH . '/inc/views/backend/jlad-metabox.php';
+            include JLAD_PATH . '/inc/views/backend/metabox.php';
         }
 
         function render_comments_count_info_html($comment)
@@ -126,7 +141,7 @@ if (!class_exists('JLAD_Admin')) {
             $comment_id = $comment->comment_ID;
             $like_count = get_comment_meta($comment_id, 'jlad_like_count', true);
             $dislike_count = get_comment_meta($comment_id, 'jlad_dislike_count', true);
-            include JLAD_PATH . '/inc/views/backend/jlad-metabox.php';
+            include JLAD_PATH . '/inc/views/backend/metabox.php';
         }
 
         function save_jlad_metabox($post_id)
