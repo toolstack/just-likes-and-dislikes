@@ -59,25 +59,6 @@ if (!empty($jlad_settings['basic_settings']['display_zero'])) {
         $dislike_count = 0;
     }
 }
-/**
- * Filters like count
- *
- * @param type int $like_count
- * @param type int $post_id
- *
- * @since 1.0.0
- */
-$like_count = apply_filters('jlad_like_count', $like_count, $post_id);
-
-/**
- * Filters dislike count
- *
- * @param type int $dislike_count
- * @param type int $post_id
- *
- * @since 1.0.0
- */
-$dislike_count = apply_filters('jlad_dislike_count', $dislike_count, $post_id);
 
 $like_title = isset($jlad_settings['basic_settings']['like_hover_text']) ? esc_attr($jlad_settings['basic_settings']['like_hover_text']) : __('Like', 'just-likes-and-dislikes');
 $dislike_title = isset($jlad_settings['basic_settings']['dislike_hover_text']) ? esc_attr($jlad_settings['basic_settings']['dislike_hover_text']) : __('Dislike', 'just-likes-and-dislikes');

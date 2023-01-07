@@ -6,17 +6,9 @@
 		<div class="jlad-field">
 			<select name="jlad_settings[design_settings][template]" class="jlad-form-field jlad-template-dropdown">
 				<?php
-				/**
-				 * Filters total number or templates
-				 *
-				 * @param int
-				 *
-				 * @since 1.0.0
-				 */
-				$jlad_total_templates = apply_filters( 'jlad_total_templates', $this->get_template_count() );
 				$jlad_template_names = $this->get_template_names();
 
-				for ( $i = 1; $i <= $jlad_total_templates; $i++ ) {
+				for ( $i = 1; $i <= count( $jlad_template_names ) - 1; $i++ ) {
 					?>
 					<option value="template-<?php echo $i; ?>" <?php selected( $jlad_settings['design_settings']['template'], 'template-' . $i ); ?>><?php echo $jlad_template_names['template-'. $i]; ?></option>
 					<?php
@@ -26,7 +18,7 @@
 			</select>
             <p class="description">(<?php _e('select the like/dislike template you wish to use, or use custom images', 'just-likes-and-dislikes'); ?>)</p>
 			<div class="jlad-template-previews-wrap">
-				<?php for ( $i = 1; $i <= $jlad_total_templates; $i++ ) {
+				<?php for ( $i = 1; $i <= count( $jlad_template_names ) - 1; $i++ ) {
 					$template_name = 'template-' . $i;
 					$hidden = true;
 
@@ -34,18 +26,6 @@
 
 					echo $this->get_template_preview( $template_name, $i == 1 ? false : true );
 				}
-
-				/**
-				 * Fires on backend template preview
-				 *
-				 * Useful to add additional templates in backend
-				 *
-				 * @param array $jlad_settings
-				 *
-				 * @since 1.0.0
-				 *
-				 */
-				do_action( 'jlad_template_previews', $jlad_settings );
 				?>
 
 			</div>

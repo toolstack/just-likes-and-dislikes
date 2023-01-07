@@ -71,14 +71,8 @@ if (!class_exists('JLAD_Library')) {
             $default_settings['design_settings']['dislike_icon'] = '';
             $default_settings['design_settings']['icon_color'] = '';
             $default_settings['design_settings']['count_color'] = '';
-            /**
-             * Filters deault settings
-             *
-             * @param type array $default_settings
-             *
-             * @since 1.0.0
-             */
-            return apply_filters('jlad_default_settings', $default_settings);
+
+            return $default_settings;
         }
 
         function get_template_names()
@@ -154,13 +148,13 @@ if (!class_exists('JLAD_Library')) {
             $icons = array( $like_icon, $dislike_icon );
 
             /**
-             * Filters icons
+             * Filters template icons
              *
              * @param int
              *
              * @since 2.0.0
              */
-            $icons = apply_filters('jlad_template_names', $icons);
+            $icons = apply_filters('jlad_template_icons', $icons);
 
             return $icons;
 
@@ -169,8 +163,8 @@ if (!class_exists('JLAD_Library')) {
         function get_template_preview( $template, $hidden = true )
         {
             $html  = '<div class="jlad-each-template-preview jlad-like-dislike-wrap jlad-' . esc_attr($template) . '"';
-            if($hidden ) { 
-	    	$html .= ' style="display: none;"'; 
+            if($hidden ) {
+	    	$html .= ' style="display: none;"';
             }
             $html .= ' data-template-ref="' . esc_attr($template) . '">' . PHP_EOL;
             $html .= '<div class="jlad-template-preview jlad-like-wrap jlad-common-wrap">' . PHP_EOL;

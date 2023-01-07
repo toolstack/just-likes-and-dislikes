@@ -72,15 +72,6 @@ if (!class_exists('JLAD_Ajax')) {
                 $comment_id = sanitize_text_field($_POST['data_id']);
                 $cookie_name = 'jlad_comment_' . $comment_id;
 
-                /**
-                 * Action jlad_before_ajax_process
-                 *
-                 * @param type int $comment_id
-                 *
-                 * @since 1.0.7
-                 */
-                do_action('jlad_before_ajax_process', $comment_id);
-
                 $type = sanitize_text_field($_POST['type']);
 
                 validate_restrictions($cookie_name, get_comment_meta($comment_id, 'jlad_users', true), get_comment_meta($comment_id, 'jlad_ips', true));
@@ -142,16 +133,8 @@ if (!class_exists('JLAD_Ajax')) {
                         update_comment_meta($comment_id, 'jlad_users', $liked_users);
                     }
                 }
-                /**
-                 * Action jlad_after_ajax_process
-                 *
-                 * @param type int $comment_id
-                 *
-                 * @since 1.0.7
-                 */
-                do_action('jlad_after_ajax_process', $comment_id);
-                echo json_encode($response_array);
 
+                echo json_encode($response_array);
                 die();
             } else {
                 die('No script kiddies please!');
@@ -163,15 +146,6 @@ if (!class_exists('JLAD_Ajax')) {
             if (isset($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], 'jlad-ajax-nonce')) {
                 $post_id = sanitize_text_field($_POST['data_id']);
                 $cookie_name = 'jlad_post_' . $post_id;
-
-                /**
-                 * Action jlad_before_ajax_process
-                 *
-                 * @param type int $post_id
-                 *
-                 * @since 1.0.0
-                 */
-                do_action('jlad_before_ajax_process', $post_id);
 
                 validate_restrictions($cookie_name, get_post_meta($post_id, 'jlad_users', true), get_post_meta($post_id, 'jlad_ips', true));
 
@@ -235,16 +209,7 @@ if (!class_exists('JLAD_Ajax')) {
                     }
                 }
 
-                /**
-                 * Action jlad_after_ajax_process
-                 *
-                 * @param type int $post_id
-                 *
-                 * @since 1.0.0
-                 */
-                do_action('jlad_after_ajax_process', $post_id);
                 echo json_encode($response_array);
-
                 die();
             } else {
                 die('No script kiddies please!');

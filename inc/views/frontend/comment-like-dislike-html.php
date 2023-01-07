@@ -62,25 +62,6 @@ if (!empty($jlad_settings['basic_settings']['display_zero'])) {
     $like_count = (empty($like_count)) ? 0 : $like_count;
     $dislike_count = (empty($dislike_count)) ? 0 : $dislike_count;
 }
-/**
- * Filters like count
- *
- * @param type int $like_count
- * @param type int $comment_id
- *
- * @since 1.0.0
- */
-$like_count = apply_filters('jlad_like_count', $like_count, $comment_id);
-
-/**
- * Filters dislike count
- *
- * @param type int $dislike_count
- * @param type int $comment_id
- *
- * @since 1.0.0
- */
-$dislike_count = apply_filters('jlad_dislike_count', $dislike_count, $comment_id);
 ?>
 <div class="jlad-like-dislike-wrap jlad-<?php echo esc_attr($jlad_settings['design_settings']['template']); ?>">
     <?php

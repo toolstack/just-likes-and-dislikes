@@ -62,24 +62,8 @@ if (!class_exists('JLAD_Admin')) {
                 parse_str($_POST['settings_data'], $settings_data);
                 $settings_data = $this->sanitize_array($settings_data);
                 $jlad_settings = $settings_data['jlad_settings'];
-                /**
-                 * Fires before storing the settings array into database
-                 *
-                 * @param type array $settings_data - before sanitization
-                 * @param type array $jlad_settings - after sanitization
-                 *
-                 * @since 1.0.0
-                 */
-                do_action('jlad_before_save_settings', $settings_data, $jlad_settings);
 
-                /**
-                 * Filters the settings stored in the database
-                 *
-                 * @param type array $jlad_settings
-                 *
-                 * @since 1.0.0
-                 */
-                update_option('jlad_settings', apply_filters('jlad_settings', $jlad_settings));
+                update_option('jlad_settings', $jlad_settings);
                 die(__('Settings saved successfully', 'just-likes-and-dislikes'));
             } else {
                 die('No script kiddies please!!');

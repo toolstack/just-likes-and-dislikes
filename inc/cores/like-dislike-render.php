@@ -49,15 +49,7 @@ $like_dislike_html = ob_get_contents();
 ob_end_clean();
 
 if ($jlad_settings['basic_settings']['like_dislike_position'] == 'after') {
-    /**
-     * Filters Like Dislike HTML
-     *
-     * @param string $like_dislike_html
-     * @param array $jlad_settings
-     *
-     * @since 1.0.0
-     */
-    $content .= apply_filters('jlad_like_dislike_html', $like_dislike_html, $jlad_settings);
+    $content .= $like_dislike_html;
 } else {
-    $content = apply_filters('jlad_like_dislike_html', $like_dislike_html, $jlad_settings) . $content;
+    $content = $like_dislike_html . $content;
 }

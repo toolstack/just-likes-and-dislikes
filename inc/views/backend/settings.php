@@ -12,14 +12,7 @@ $jlad_settings = $this->jlad_settings;
             'help' => array('label' => __('Help', 'just-likes-and-dislikes')),
             'about' => array('label' => __('About', 'just-likes-and-dislikes'))
         );
-        /**
-         * Filters the tabs
-         *
-         * @since 1.0.0
-         *
-         * @param array $jlad_tabs
-         */
-        $jlad_tabs = apply_filters('jlad_admin_tabs', $jlad_tabs);
+
         $jlad_tab_counter = 0;
         foreach ($jlad_tabs as $jlad_tab => $jlad_tab_detail) {
             $jlad_tab_counter++;
@@ -37,16 +30,6 @@ $jlad_settings = $this->jlad_settings;
             <?php require JLAD_PATH . 'inc/views/backend/boxes/help.php'; ?>
             <?php require JLAD_PATH . 'inc/views/backend/boxes/about.php'; ?>
 
-            <?php
-            /**
-             * Fires when displaying the tabs section
-             *
-             * @param array $jlad_settings
-             *
-             * @since 1.0.0
-             */
-            do_action('jlad_admin_tab_section', $jlad_settings);
-            ?>
             <div class="jlad-field-wrap jlad-settings-action">
                 <label></label>
                 <div class="jlad-field">

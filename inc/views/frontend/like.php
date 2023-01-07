@@ -11,15 +11,6 @@
             list( $like_icon, $dislike_icon ) = $this->get_template_icon($template);
 
             echo $like_icon;
-
-            /**
-             * Fires when template is being loaded
-             *
-             * @param array $jlad_settings
-             *
-             * @since 1.0.0
-             */
-            do_action('jlad_like_template', $jlad_settings);
             ?>
     </a>
     <span class="jlad-like-count-wrap jlad-count-wrap"><?php echo esc_html($like_count); ?>
