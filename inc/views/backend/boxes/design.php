@@ -24,7 +24,7 @@
 
 					if( $template_name == $jlad_settings['design_settings']['template'] ) { $hidden = false; }
 
-					echo $this->get_template_preview( $template_name, $i == 1 ? false : true );
+					echo $this->get_template_preview( $template_name, $hidden );
 				}
 				?>
 
