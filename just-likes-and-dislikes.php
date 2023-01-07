@@ -63,7 +63,7 @@ if (!class_exists('JLAD_Comments_Like_Dislike')) {
             }
 
             if (! defined('JLAD_VERSION') ) {
-                define('JLAD_VERSION', '1.0.8');
+                define('JLAD_VERSION', '2.0.0');
             }
 
             if (! defined('JLAD_BASENAME') ) {

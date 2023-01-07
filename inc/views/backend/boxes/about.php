@@ -4,7 +4,7 @@
         <br>
         <img class="jlad_logo" src="<?php echo esc_attr(JLAD_IMG_DIR . '/thumbs-up.svg'); ?>">
 
-        <h2><?php echo sprintf(__('Just Likes and Dislikes V%s', 'just-likes-and-dislikes'), JWS_VERSION); ?></h2>
+        <h2><?php echo sprintf(__('Just Likes and Dislikes V%s', 'just-likes-and-dislikes'), JLAD_VERSION); ?></h2>
 
         <p><?php _e('a fork of', ''); ?> <a href="https://wordpress.org/plugins/posts-like-dislike/">Post Like Dislike</a> and <a href="https://wordpress.org/plugins/comments-like-dislike/">Comment Like and Dislike</a></p>
         <p><?php _e('by', ''); ?> <a href="https://toolstack.com">Greg Ross</a></p>
