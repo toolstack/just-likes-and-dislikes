@@ -30,13 +30,13 @@ if (!class_exists('JLAD_Comments_Like_Dislike')) {
          */
         public function includes()
         {
-            include_once JLAD_PATH . '/inc/classes/jlad-library.php';
-            include_once JLAD_PATH . '/inc/classes/jlad-activation.php';
-            include_once JLAD_PATH . 'inc/classes/jlad-init.php';
-            include_once JLAD_PATH . 'inc/classes/jlad-admin.php';
-            include_once JLAD_PATH . 'inc/classes/jlad-enqueue.php';
-            include_once JLAD_PATH . 'inc/classes/jlad-hook.php';
-            include_once JLAD_PATH . 'inc/classes/jlad-ajax.php';
+            include_once JLAD_PATH . '/inc/classes/class-jlad-library.php';
+            include_once JLAD_PATH . '/inc/classes/class-jlad-activation.php';
+            include_once JLAD_PATH . 'inc/classes/class-jlad-init.php';
+            include_once JLAD_PATH . 'inc/classes/class-jlad-admin.php';
+            include_once JLAD_PATH . 'inc/classes/class-jlad-enqueue.php';
+            include_once JLAD_PATH . 'inc/classes/class-jlad-hook.php';
+            include_once JLAD_PATH . 'inc/classes/class-jlad-ajax.php';
         }
 
         /**
