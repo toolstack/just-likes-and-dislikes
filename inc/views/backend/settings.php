@@ -23,7 +23,9 @@ $jlad_settings = $this->jlad_settings;
 
     </h2>
     <div class="jlad-settings-section-wrap">
-        <form class="jlad-settings-form">
+        <form method="post" class="jlad-settings-form">
+            <?php settings_fields( 'just-likes-and-dislikes' ); ?>
+
             <?php require JLAD_PATH . 'inc/views/backend/boxes/basic.php'; ?>
             <?php require JLAD_PATH . 'inc/views/backend/boxes/design.php'; ?>
             <?php require JLAD_PATH . 'inc/views/backend/boxes/about.php'; ?>
@@ -31,8 +33,7 @@ $jlad_settings = $this->jlad_settings;
             <div class="jlad-field-wrap jlad-settings-action">
                 <label></label>
                 <div class="jlad-field">
-                    <input type="submit" class="jlad-settings-save-trigger button-primary" value="<?php _e('Save settings', 'just-likes-and-dislikes'); ?>"/>
-                    <input type="button" class="jlad-settings-restore-trigger button-secondary" value="<?php _e('Restore settings', 'just-likes-and-dislikes'); ?>"/>
+                    <?php submit_button( '', 'primary', '', false );; ?>
                 </div>
             </div>
         </form>

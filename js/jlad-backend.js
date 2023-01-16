@@ -65,72 +65,11 @@ jQuery(document).ready(function ($) {
     });
 
     /**
-     * Save Settings
-     */
-    $('.jlad-settings-form').submit(function (e) {
-        e.preventDefault();
-
-        var settings_data = $(this).serialize();
-        $.ajax({
-            type: 'post',
-            url: jlad_admin_js_object.admin_ajax_url,
-            data: {
-                action: 'jlad_settings_save_action',
-                settings_data: settings_data,
-                _wpnonce: jlad_admin_js_object.admin_ajax_nonce
-            },
-            beforeSend: function (xhr) {
-                clearTimeout(info_timer);
-                $('.jlad-info-wrap').slideDown(500);
-                $('.jlad-info').html(jlad_admin_js_object.messages.wait)
-                $('.jlad-loader').show();
-            },
-            success: function (res) {
-                $('.jlad-loader').hide();
-                $('.jlad-info').html(res);
-                info_timer = setTimeout(function () {
-                    $('.jlad-info-wrap').slideUp(500);
-                }, 5000);
-
-            }
-        });
-    });
-
-    /**
      * Close Info
      *
      */
     $('.jlad-close-info').click(function () {
         $(this).parent().slideUp(500);
-    });
-
-    /**
-     * Default settings restore
-     */
-    $('.jlad-settings-restore-trigger').click(function () {
-        if (confirm(jlad_admin_js_object.messages.restore_confirm)) {
-            $.ajax({
-                type: 'post',
-                url: jlad_admin_js_object.admin_ajax_url,
-                data: {
-                    action: 'jlad_settings_restore_action',
-                    _wpnonce: jlad_admin_js_object.admin_ajax_nonce
-                },
-                beforeSend: function (xhr) {
-                    clearTimeout(info_timer);
-                    $('.jlad-info-wrap').slideDown(500);
-                    $('.jlad-info').html(jlad_admin_js_object.messages.wait)
-                    $('.jlad-loader').show();
-                },
-                success: function (res) {
-                    $('.jlad-loader').hide();
-                    $('.jlad-info').html(res);
-                    location.reload();
-
-
-                }
-            });
-        }
     });
 
     /**

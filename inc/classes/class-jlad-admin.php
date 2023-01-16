@@ -18,18 +18,6 @@ if (!class_exists('JLAD_Admin')) {
             add_filter('plugin_action_links_' . JLAD_BASENAME, array($this, 'add_setting_link'));
 
             /**
-             * Settings save action
-             */
-            add_action('wp_ajax_jlad_settings_save_action', array($this, 'save_settings'));
-            add_action('wp_ajax_nopriv_jlad_settings_save_action', array($this, 'no_permission'));
-
-            /**
-             * Settings restore action
-             */
-            add_action('wp_ajax_jlad_settings_restore_action', array($this, 'restore_settings'));
-            add_action('wp_ajax_nopriv_jlad_settings_restore_action', array($this, 'no_permission'));
-
-            /**
              * Count Info Meta Box for Posts
              */
             add_action('add_meta_boxes', array($this, 'render_count_info_metabox_posts'));
@@ -52,21 +40,124 @@ if (!class_exists('JLAD_Admin')) {
 
         function jlad_settings()
         {
+            // Save the settings before loading the rest of the page.
+            $this->save_settings();
+
             include JLAD_PATH . 'inc/views/backend/settings.php';
         }
 
         function save_settings()
         {
-            if (isset($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], 'jlad-backend-ajax-nonce')) {
-                $_POST = stripslashes_deep($_POST);
-                parse_str($_POST['settings_data'], $settings_data);
-                $settings_data = $this->sanitize_array($settings_data);
-                $jlad_settings = $settings_data['jlad_settings'];
+            // Make sure we have a valid nounce.
+            if (isset($_POST['_wpnonce']) && wp_verify_nonce( $_POST['_wpnonce'], 'just-likes-and-dislikes-options' ) ) {
+                $post_settings = $_POST['jlad_settings'];
 
+                // Check to make sure we have an array and it has both settings types.
+                if( is_array( $post_settings ) && ( ! array_key_exists('basic_settings', $post_settings ) && ! array_key_exists('design_settings', $post_settings ) ) ) {
+
+                    return;
+                }
+
+                // Setup our settings array.
+                $jlad_settings['basic_settings'] = array();
+                $jlad_settings['design_settings'] = array();
+
+                // Get the post types to validate against.
+                $post_types_objects = get_post_types(array('public' => true), 'object');
+
+                foreach( $post_types_objects as $pt ) {
+                    $post_types[] = $pt->name;
+                }
+
+                // Validate each setting that's been passed in for the basic settings page.
+                foreach( $post_settings['basic_settings'] as $key => $value ) {
+                    switch( $key ) {
+                        case 'status':
+                        case 'display_zero':
+                        case 'hide_counter_info_metabox':
+                        case 'hide_like_dislike_admin':
+                            if( intval($post_settings['basic_settings'][$key] ) == 1 ) { $jlad_settings['basic_settings'][$key] = 1; } else { $jlad_settings['basic_settings'][$key] = ''; }
+                            break;
+                        case 'login_link':
+                            $jlad_settings['basic_settings'][$key] = sanitize_text_field( $post_settings['basic_settings'][$type] );
+                            break;
+                        case 'display_order':
+                            if( $post_settings['basic_settings'][$key] == 'like-dislike' ) { $jlad_settings['basic_settings'][$key] = 'like-dislike'; } else { $jlad_settings['basic_settings'][$key] = 'dislike-like'; }
+                            break;
+                        case 'like_dislike_position':
+                            if( $post_settings['basic_settings'][$key] == 'after' ) { $jlad_settings['basic_settings'][$key] = 'after'; } else { $jlad_settings['basic_settings'][$key] = 'before'; }
+                            break;
+                        case 'post_types':
+                            if( is_array( $post_settings['basic_settings'][$key] ) ) {
+                                $jlad_settings['basic_settings'][$key] = array();
+                                foreach( $post_settings['basic_settings'][$key] as $post_type ) {
+                                    $pt = array_search( $post_type, $post_types );
+                                    if( $pt != false ) { $jlad_settings['basic_settings'][$key][] = $post_types[$pt]; };
+                                }
+                            }
+                            break;
+                        case 'like_dislike_display':
+                            switch( $post_settings['basic_settings'][$key] ) {
+                                case 'like_only':
+                                    $jlad_settings['basic_settings'][$key] = 'like_only';
+                                    break;
+                                case 'dislike_only':
+                                    $jlad_settings['basic_settings'][$key] = 'dislike_only';
+                                    break;
+                                default:
+                                    $jlad_settings['basic_settings'][$key] = 'both';
+                            }
+
+                            break;
+                        case 'like_dislike_resistriction':
+                            switch( $post_settings['basic_settings'][$key] ) {
+                                case 'cookie':
+                                    $jlad_settings['basic_settings'][$key] = 'cookie';
+                                    break;
+                                case 'ip':
+                                    $jlad_settings['basic_settings'][$key] = 'ip';
+                                    break;
+                                case 'user':
+                                    $jlad_settings['basic_settings'][$key] = 'user';
+                                    break;
+                                default:
+                                    $jlad_settings['basic_settings'][$key] = 'no';
+                            }
+
+                            break;
+                        case 'like_hover_text':
+                        case 'dislike_hover_text':
+                            $jlad_settings['basic_settings'][$key] = sanitize_text_field( $post_settings['basic_settings'][$key] );
+                            break;
+                    }
+                }
+
+                // Get the list of templates to validate against.
+                $templates = $this->get_template_names();
+
+                // Validate each setting that's been passed in for the design settings page.
+                foreach( $post_settings['design_settings'] as $key => $value ) {
+                    switch( $key ) {
+                        case 'template':
+                            if( array_key_exists( $post_settings['design_settings'][$key], $templates ) ) { $jlad_settings['design_settings'][$key] = sanitize_text_field( $post_settings['design_settings'][$key] ); }
+                            break;
+                        case 'like_icon':
+                        case 'dislike_icon':
+                            $jlad_settings['design_settings'][$key] = sanitize_text_field( $post_settings['design_settings'][$key] );
+                            break;
+                        case 'icon_color':
+                        case 'count_color':
+                            $jlad_settings['design_settings'][$key] = sanitize_text_field( $post_settings['design_settings'][$key] );
+
+                            break;
+                    }
+                }
+
+                // Store the new settings in the database.
                 update_option('jlad_settings', $jlad_settings);
-                die(__('Settings saved successfully', 'just-likes-and-dislikes'));
-            } else {
-                die('No script kiddies please!!');
+
+                // Reset the class's settings to the new settings.
+                $this->jlad_settings = $jlad_settings;
             }
         }
 
