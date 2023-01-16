@@ -35,7 +35,8 @@
 						<label class="jlad-field-label"><?php _e( 'Like Icon', 'just-likes-and-dislikes' ); ?></label>
 						<br>
 						<input type="text" name="jlad_settings[design_settings][like_icon]" class="jlad-form-field" value="<?php echo esc_url( $jlad_settings['design_settings']['like_icon'] ) ?>"/>
-						<input type="button" class="button-primary jlad-file-uploader" value="<?php _e( 'Upload', 'just-likes-and-dislikes' ); ?>"/>
+						<input type="button" class="button-primary jlad-file-uploader" value="<?php _e( 'Media', 'just-likes-and-dislikes' ); ?>"/>
+						<br>&nbsp;&nbsp;<?php _e( 'URL for the image to use as the like icon.'); ?>
 						<span class="jlad-preview-holder">
 							<?php if ( $jlad_settings['design_settings']['dislike_icon'] != '' ) { ?>
 								<img src="<?php echo esc_attr( $jlad_settings['design_settings']['like_icon'] ); ?>"/>
@@ -48,7 +49,8 @@
 						<label class="jlad-field-label"><?php _e( 'Dislike Icon', 'just-likes-and-dislikes' ); ?></label>
 						<br>
 						<input type="text" name="jlad_settings[design_settings][dislike_icon]" class="jlad-form-field" value="<?php echo esc_url( $jlad_settings['design_settings']['dislike_icon'] ) ?>"/>
-						<input type="button" class="button-primary jlad-file-uploader" value="<?php _e( 'Upload', 'just-likes-and-dislikes' ); ?>"/>
+						<input type="button" class="button-primary jlad-file-uploader" value="<?php _e( 'Media', 'just-likes-and-dislikes' ); ?>"/>
+						<br>&nbsp;&nbsp;<?php _e( 'URL for the image to use as the dislike icon.'); ?>
 						<span class="jlad-preview-holder"><?php if ( $jlad_settings['design_settings']['dislike_icon'] != '' ) { ?><img src="<?php echo esc_attr( $jlad_settings['design_settings']['dislike_icon'] ); ?>"/><?php } ?></span>
 					</div>
 				</div>
