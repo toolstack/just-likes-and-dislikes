@@ -18,6 +18,15 @@ if (!class_exists('JLAD_Library')) {
             // Get the default settings.
             $defaults = $this->get_default_settings();
 
+            // If there are no settings set, save the defaults.
+            if( ! is_array( $this->jlad_settings ) ) {
+                $this->jlad_settings = $defaults;
+
+                update_option( 'jlad_settings', $this->jlad_settings );
+
+                return;
+            }
+
             // Which settings groups we're going to process.
             $settings = array( 'basic_settings', 'design_settings' );
 
