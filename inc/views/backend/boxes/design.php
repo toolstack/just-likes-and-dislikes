@@ -31,12 +31,11 @@
 			</div>
 			<div class="jlad-custom-ref" <?php if ( $jlad_settings['design_settings']['template'] != 'custom' ) { ?>style="display:none"<?php } ?>>
 				<div class="jlad-field-wrap">
-					<label><br><?php _e( 'Like Icon', 'just-likes-and-dislikes' ); ?></label>
 					<div class="jlad-field">
+						<label class="jlad-field-label"><?php _e( 'Like Icon', 'just-likes-and-dislikes' ); ?></label>
+						<br>
 						<input type="text" name="jlad_settings[design_settings][like_icon]" class="jlad-form-field" value="<?php echo esc_url( $jlad_settings['design_settings']['like_icon'] ) ?>"/>
-						<br>
-						<br>
-						<input type="button" class="button-primary jlad-file-uploader" value="<?php _e( 'Upload Like Icon', 'just-likes-and-dislikes' ); ?>"/>
+						<input type="button" class="button-primary jlad-file-uploader" value="<?php _e( 'Upload', 'just-likes-and-dislikes' ); ?>"/>
 						<span class="jlad-preview-holder">
 							<?php if ( $jlad_settings['design_settings']['dislike_icon'] != '' ) { ?>
 								<img src="<?php echo esc_attr( $jlad_settings['design_settings']['like_icon'] ); ?>"/>
@@ -45,12 +44,11 @@
 					</div>
 				</div>
 				<div class="jlad-field-wrap">
-					<label><?php _e( 'Dislike Icon', 'just-likes-and-dislikes' ); ?></label>
 					<div class="jlad-field">
+						<label class="jlad-field-label"><?php _e( 'Dislike Icon', 'just-likes-and-dislikes' ); ?></label>
+						<br>
 						<input type="text" name="jlad_settings[design_settings][dislike_icon]" class="jlad-form-field" value="<?php echo esc_url( $jlad_settings['design_settings']['dislike_icon'] ) ?>"/>
-						<br>
-						<br>
-						<input type="button" class="button-primary jlad-file-uploader" value="<?php _e( 'Upload Dislike Icon', 'just-likes-and-dislikes' ); ?>"/>
+						<input type="button" class="button-primary jlad-file-uploader" value="<?php _e( 'Upload', 'just-likes-and-dislikes' ); ?>"/>
 						<span class="jlad-preview-holder"><?php if ( $jlad_settings['design_settings']['dislike_icon'] != '' ) { ?><img src="<?php echo esc_attr( $jlad_settings['design_settings']['dislike_icon'] ); ?>"/><?php } ?></span>
 					</div>
 				</div>
