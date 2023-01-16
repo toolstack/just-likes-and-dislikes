@@ -313,10 +313,10 @@ if (!class_exists('JLAD_Library')) {
                 $url = "http://";
             }
             // Append the host(domain name, ip) to the URL.
-            $url .= $_SERVER['HTTP_HOST'];
+            $url .= sanitize_text_field( $_SERVER['HTTP_HOST'] );
 
             // Append the requested resource location to the URL
-            $url .= $_SERVER['REQUEST_URI'];
+            $url .= sanitize_text_field( $_SERVER['REQUEST_URI'] );
 
             return $url;
         }
