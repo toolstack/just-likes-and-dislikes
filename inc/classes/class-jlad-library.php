@@ -202,9 +202,9 @@ if (!class_exists('JLAD_Library')) {
          */
         function get_user_IP()
         {
-            $client = @$_SERVER['HTTP_CLIENT_IP'];
-            $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
-            $remote = $_SERVER['REMOTE_ADDR'];
+            $client = sanitize_text_field( @$_SERVER['HTTP_CLIENT_IP'] );
+            $forward = sanitize_text_field( @$_SERVER['HTTP_X_FORWARDED_FOR'] );
+            $remote = sanitize_text_field( $_SERVER['REMOTE_ADDR'] );
 
             if (filter_var($client, FILTER_VALIDATE_IP)) {
                 $ip = $client;
