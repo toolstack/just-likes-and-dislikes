@@ -116,42 +116,47 @@ if (!class_exists('JLAD_Library')) {
 
         function get_template_icon( $template )
         {
+            $icon_color = $this->jlad_settings['design_settings']['icon_color'];
+            $color_style = '';
+
+            if( $icon_color ) { $color_style = ' style="color: ' . esc_attr( $icon_color ) . ';"'; }
+
             switch ($template)
             {
-            case 'template-2':
-                $like_icon      = '<i class="fas fa-heart"></i>';
-                $dislike_icon   = '<i class="fa fa-heartbeat"></i>';
-                break;
-            case 'template-3':
-                $like_icon      = '<i class="fas fa-check"></i>';
-                $dislike_icon   = '<i class="fas fa-times"></i>';
-                break;
-            case 'template-4':
-                $like_icon      = '<i class="far fa-smile"></i>';
-                $dislike_icon   = '<i class="far fa-frown"></i>';
-                break;
-            case 'template-5':
-                $like_icon      = '<i class="fa-solid fa-circle-plus"></i>';
-                $dislike_icon   = '<i class="fa-solid fa-circle-minus"></i></i>';
-                break;
-            case 'template-6':
-                $like_icon      = '<i class="fa-solid fa-circle-up"></i>';
-                $dislike_icon   = '<i class="fa-solid fa-circle-down"></i>';
-                break;
-            case 'template-7':
-                $like_icon      = '<i class="fa-solid fa-fire"></i>';
-                $dislike_icon   = '<i class="fa-solid fa-fire-extinguisher"></i>';
-                break;
-            case 'custom':
-                if ($this->jlad_settings['design_settings']['like_icon'] != '') {
-                    $like_icon = '<img src="' . esc_attr($this->jlad_settings['design_settings']['like_icon']) . '" alt="' . esc_attr($like_title) . '"/>';
-                    $dislike_icon = '<img src="' . esc_attr($this->jlad_settings['design_settings']['dislike_icon']) . '" alt="' . esc_attr($dislike_title) . '"/>';
-                }
-                break;
-            default:
-                $like_icon      = '<i class="fas fa-thumbs-up"></i>';
-                $dislike_icon   = '<i class="fas fa-thumbs-down"></i>';
-                break;
+                case 'template-2':
+                    $like_icon      = '<i class="fas fa-heart"' . $color_style . '></i>';
+                    $dislike_icon   = '<i class="fa fa-heartbeat"' . $color_style . '></i>';
+                    break;
+                case 'template-3':
+                    $like_icon      = '<i class="fas fa-check"' . $color_style . '></i>';
+                    $dislike_icon   = '<i class="fas fa-times"' . $color_style . '></i>';
+                    break;
+                case 'template-4':
+                    $like_icon      = '<i class="far fa-smile"' . $color_style . '></i>';
+                    $dislike_icon   = '<i class="far fa-frown"' . $color_style . '></i>';
+                    break;
+                case 'template-5':
+                    $like_icon      = '<i class="fa-solid fa-circle-plus"' . $color_style . '></i>';
+                    $dislike_icon   = '<i class="fa-solid fa-circle-minus"' . $color_style . '></i></i>';
+                    break;
+                case 'template-6':
+                    $like_icon      = '<i class="fa-solid fa-circle-up"' . $color_style . '></i>';
+                    $dislike_icon   = '<i class="fa-solid fa-circle-down"' . $color_style . '></i>';
+                    break;
+                case 'template-7':
+                    $like_icon      = '<i class="fa-solid fa-fire"' . $color_style . '></i>';
+                    $dislike_icon   = '<i class="fa-solid fa-fire-extinguisher"' . $color_style . '></i>';
+                    break;
+                case 'custom':
+                    if ($this->jlad_settings['design_settings']['like_icon'] != '') {
+                        $like_icon = '<img src="' . esc_attr($this->jlad_settings['design_settings']['like_icon']) . '" alt="' . esc_attr($like_title) . '"/>';
+                        $dislike_icon = '<img src="' . esc_attr($this->jlad_settings['design_settings']['dislike_icon']) . '" alt="' . esc_attr($dislike_title) . '"/>';
+                    }
+                    break;
+                default:
+                    $like_icon      = '<i class="fas fa-thumbs-up"' . $color_style . '></i>';
+                    $dislike_icon   = '<i class="fas fa-thumbs-down"' . $color_style . '></i>';
+                    break;
             }
 
             $icons = array( $like_icon, $dislike_icon );
