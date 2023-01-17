@@ -10,7 +10,7 @@
 
 				for ( $i = 1; $i <= count( $jlad_template_names ) - 1; $i++ ) {
 					?>
-					<option value="template-<?php echo $i; ?>" <?php selected( $jlad_settings['design_settings']['template'], 'template-' . $i ); ?>><?php echo $jlad_template_names['template-'. $i]; ?></option>
+					<option value="template-<?php echo esc_attr( $i ); ?>" <?php selected( $jlad_settings['design_settings']['template'], 'template-' . $i ); ?>><?php echo $jlad_template_names['template-'. $i]; ?></option>
 					<?php
 				}
 				?>
