@@ -27,6 +27,17 @@ if (!class_exists('JLAD_Library')) {
                 return;
             }
 
+            // Go through and merge the default keys into the main settings, this ensure all key values
+            // have been set without actually setting the values.
+            $this->jlad_settings = $this->merge_settings_and_defaults_keys( $this->jlad_settings, $defaults );
+
+        }
+
+        function merge_settings_and_defaults_keys( $jlad_settings, $defaults = null ) {
+            if( is_null( $defaults ) ) {
+                $defaults = $this->get_default_settings();
+            }
+
             // Which settings groups we're going to process.
             $settings = array( 'basic_settings', 'design_settings' );
 
@@ -35,15 +46,17 @@ if (!class_exists('JLAD_Library')) {
                 // Loop through each of the settings groups in the defaults.
                 foreach ($defaults[$setting] as $key => $value) {
                     // Check to see if the array key from the defaults exists in the current settings.
-                    if(! array_key_exists($key, $this->jlad_settings[$setting]) ) {
+                    if(! array_key_exists($key, $jlad_settings[$setting]) ) {
                         // If it doesn't, set it to an empty string.  We can't set it to the default because
                         // the setting may have purposefully deleted the value, like the "enable" setting in basic
                         // settings, that would then be stored as a missing key.  Instead, set it to null so the
                         // key exists, but has no value.
-                        $this->jlad_settings[$setting][$key] = null;
+                        $jlad_settings[$setting][$key] = null;
                     }
                 }
             }
+
+            return $jlad_settings;
         }
 
         function print_array($array)

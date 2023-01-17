@@ -60,6 +60,9 @@ if (!class_exists('JLAD_Admin')) {
                 $jlad_settings['basic_settings'] = array();
                 $jlad_settings['design_settings'] = array();
 
+                // Setup all the subkeys without setting any values, avoids any array key missing warnings.
+                $jlad_settings = $this->merge_settings_and_defaults_keys( $jlad_settings, null );
+
                 // Get the post types to validate against.
                 $post_types_objects = get_post_types(array('public' => true), 'object');
 
@@ -77,7 +80,7 @@ if (!class_exists('JLAD_Admin')) {
                             if( intval($_POST['jlad_settings']['basic_settings'][$key] ) == 1 ) { $jlad_settings['basic_settings'][$key] = 1; } else { $jlad_settings['basic_settings'][$key] = ''; }
                             break;
                         case 'login_link':
-                            $jlad_settings['basic_settings'][$key] = sanitize_text_field( $_POST['jlad_settings']['basic_settings'][$type] );
+                            $jlad_settings['basic_settings'][$key] = sanitize_text_field( $_POST['jlad_settings']['basic_settings'][$key] );
                             break;
                         case 'display_order':
                             if( $_POST['jlad_settings']['basic_settings'][$key] == 'like-dislike' ) { $jlad_settings['basic_settings'][$key] = 'like-dislike'; } else { $jlad_settings['basic_settings'][$key] = 'dislike-like'; }
