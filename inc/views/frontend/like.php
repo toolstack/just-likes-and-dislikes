@@ -10,7 +10,7 @@
             $template = $jlad_settings['design_settings']['template'];
             list( $like_icon, $dislike_icon ) = $this->get_template_icon($template);
 
-            echo $like_icon;
+            echo wp_kses( $like_icon, 'post' );
             ?>
     </a>
     <span class="jlad-like-count-wrap jlad-count-wrap"><?php echo esc_html($like_count); ?>
