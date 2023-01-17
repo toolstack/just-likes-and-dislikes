@@ -10,7 +10,20 @@
             $template = $jlad_settings['design_settings']['template'];
             list( $like_icon, $dislike_icon ) = $this->get_template_icon($template);
 
-            echo wp_kses( $dislike_icon, 'post' );
+            $kses_allow = array(
+                                  'i' => array(
+                                      'class' => array(),
+                                      'style' => array(),
+                                      'title' => array()
+                                  ),
+                                  'img' => array(
+                                      'src' => array(),
+                                      'alt' => array(),
+                                      'title' => array()
+                                  ),
+                              );
+
+            echo wp_kses( $dislike_icon, $kses_allow );
             ?>
     </a>
     <span class="jlad-dislike-count-wrap jlad-count-wrap"><?php echo esc_html($dislike_count); ?></span>
