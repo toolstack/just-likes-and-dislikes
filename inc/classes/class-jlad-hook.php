@@ -256,11 +256,11 @@ if (!class_exists('JLAD_Hooks')) {
                 $dislike_count = intval(get_post_meta($post_id, 'jlad_dislike_count', true));
 
                 if ($column_key == $this->like_column_name ) {
-                    echo $like_count > 0 ? $like_count : '—';
+                    echo esc_html( $like_count > 0 ? $like_count : '—' );
                 }
 
                 if($column_key == $this->dislike_column_name) {
-                    echo $dislike_count > 0 ? $dislike_count : '—';
+                    echo esc_html( $dislike_count > 0 ? $dislike_count : '—' );
                 }
             }
         }
@@ -281,11 +281,11 @@ if (!class_exists('JLAD_Hooks')) {
                 $dislike_count = intval(get_comment_meta($comment_id, 'jlad_dislike_count', true));
 
                 if ($column_key == $this->like_column_name ) {
-                    echo $like_count > 0 ? $like_count : '—';
+                    echo esc_html( $like_count > 0 ? $like_count : '—' );
                 }
 
                 if($column_key == $this->dislike_column_name) {
-                    echo $dislike_count > 0 ? $dislike_count : '—';
+                    echo esc_html( $dislike_count > 0 ? $dislike_count : '—' );
                 }
             }
         }
