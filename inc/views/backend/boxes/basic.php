@@ -1,20 +1,20 @@
 <div class="jlad-settings-section" data-settings-ref="basic">
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php _e('Enabled', 'just-likes-and-dislikes'); ?>:</label>
+            <label class="jlad-field-label"><?php esc_html_e('Enabled:', 'just-likes-and-dislikes'); ?></label>
         </div>
         <div class="jlad-field">
             <label class="jlad-switch">
                 <input type="checkbox" name="jlad_settings[basic_settings][status]" class="jlad-form-field" value="1" <?php checked($jlad_settings['basic_settings']['status'], '1'); ?>/>
                 <span class="jlad-slider jlad-round"></span>
             </label>
-            <p class="description">(<?php _e('toggle to enable/disable the plug-in functionality', 'just-likes-and-dislikes'); ?>)</p>
+            <p class="description"><?php esc_html_e('(toggle to enable/disable the plug-in functionality)', 'just-likes-and-dislikes'); ?></p>
         </div>
     </div>
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php esc_html_e('Disable on post types', 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php esc_html_e('Disable on post types:', 'just-likes-and-dislikes'); ?></label>
         </div>
         <div class="jlad-field">
             <?php
@@ -30,55 +30,55 @@
                 <?php
             }
             ?>
-            <p class="description">(<?php esc_html_e('toggle to disable like/dislike display for a selected post type', 'just-likes-and-dislikes'); ?>)</p>
+            <p class="description"><?php esc_html_e('(toggle to disable like/dislike display for a selected post type)', 'just-likes-and-dislikes'); ?></p>
         </div>
     </div>
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php _e('Display position', 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php esc_html_e('Display position:', 'just-likes-and-dislikes'); ?></label>
         </div>
         <div class="jlad-field">
             <select name="jlad_settings[basic_settings][like_dislike_position]" class="jlad-form-field">
-                <option value="after" <?php selected($jlad_settings['basic_settings']['like_dislike_position'], 'after'); ?>><?php _e('After Post/Commnet', 'just-likes-and-dislikes'); ?></option>
-                <option value="before" <?php selected($jlad_settings['basic_settings']['like_dislike_position'], 'before'); ?>><?php _e('Before Post/Comment', 'just-likes-and-dislikes'); ?></option>
+                <option value="after" <?php selected($jlad_settings['basic_settings']['like_dislike_position'], 'after'); ?>><?php esc_html_e('After Post/Commnet', 'just-likes-and-dislikes'); ?></option>
+                <option value="before" <?php selected($jlad_settings['basic_settings']['like_dislike_position'], 'before'); ?>><?php esc_html_e('Before Post/Comment', 'just-likes-and-dislikes'); ?></option>
             </select>
-            <p class="description"><?php _e('(where you want to display the like/dislike buttons)', 'just-likes-and-dislikes'); ?></p>
+            <p class="description"><?php esc_html_e('(where you want to display the like/dislike buttons)', 'just-likes-and-dislikes'); ?></p>
         </div>
     </div>
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php _e('Display likes or dislikes', 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php esc_html_e('Display likes or dislikes:', 'just-likes-and-dislikes'); ?></label>
         </div>
         <div class="jlad-field">
             <select name="jlad_settings[basic_settings][like_dislike_display]" class="jlad-form-field">
-                <option value="both" <?php selected($jlad_settings['basic_settings']['like_dislike_display'], 'both'); ?>><?php _e('Display Both', 'just-likes-and-dislikes'); ?></option>
-                <option value="like_only" <?php selected($jlad_settings['basic_settings']['like_dislike_display'], 'like_only'); ?>><?php _e('Display Like Only', 'just-likes-and-dislikes'); ?></option>
-                <option value="dislike_only" <?php selected($jlad_settings['basic_settings']['like_dislike_display'], 'dislike_only'); ?>><?php _e('Display Dislike Only', 'just-likes-and-dislikes'); ?></option>
+                <option value="both" <?php selected($jlad_settings['basic_settings']['like_dislike_display'], 'both'); ?>><?php esc_html_e('Display Both', 'just-likes-and-dislikes'); ?></option>
+                <option value="like_only" <?php selected($jlad_settings['basic_settings']['like_dislike_display'], 'like_only'); ?>><?php esc_html_e('Display Like Only', 'just-likes-and-dislikes'); ?></option>
+                <option value="dislike_only" <?php selected($jlad_settings['basic_settings']['like_dislike_display'], 'dislike_only'); ?>><?php esc_html_e('Display Dislike Only', 'just-likes-and-dislikes'); ?></option>
             </select>
-            <p class="description">(<?php _e('display like, dislike or both', 'just-likes-and-dislikes'); ?>)</p>
+            <p class="description"><?php esc_html_e('(display like, dislike or both)', 'just-likes-and-dislikes'); ?></p>
         </div>
     </div>
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php _e('User restriction mode', 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php esc_html_e('User restriction mode:', 'just-likes-and-dislikes'); ?></label>
         </div>
         <div class="jlad-field">
             <select name="jlad_settings[basic_settings][like_dislike_resistriction]" class="jlad-form-field jlad-toggle-trigger" data-toggle-class="jlad-login-link">
-                <option value="cookie" <?php selected($jlad_settings['basic_settings']['like_dislike_resistriction'], 'cookie'); ?>><?php _e('Cookie Restriction', 'just-likes-and-dislikes'); ?></option>
-                <option value="ip" <?php selected($jlad_settings['basic_settings']['like_dislike_resistriction'], 'ip'); ?>><?php _e('IP Restriction', 'just-likes-and-dislikes'); ?></option>
-                <option value="user" <?php selected($jlad_settings['basic_settings']['like_dislike_resistriction'], 'user'); ?>><?php _e('Logged In User Restriction', 'just-likes-and-dislikes'); ?></option>
-                <option value="no" <?php selected($jlad_settings['basic_settings']['like_dislike_resistriction'], 'no'); ?>><?php _e('No Restriction', 'just-likes-and-dislikes'); ?></option>
+                <option value="cookie" <?php selected($jlad_settings['basic_settings']['like_dislike_resistriction'], 'cookie'); ?>><?php esc_html_e('Cookie Restriction', 'just-likes-and-dislikes'); ?></option>
+                <option value="ip" <?php selected($jlad_settings['basic_settings']['like_dislike_resistriction'], 'ip'); ?>><?php esc_html_e('IP Restriction', 'just-likes-and-dislikes'); ?></option>
+                <option value="user" <?php selected($jlad_settings['basic_settings']['like_dislike_resistriction'], 'user'); ?>><?php esc_html_e('Logged In User Restriction', 'just-likes-and-dislikes'); ?></option>
+                <option value="no" <?php selected($jlad_settings['basic_settings']['like_dislike_resistriction'], 'no'); ?>><?php esc_html_e('No Restriction', 'just-likes-and-dislikes'); ?></option>
             </select>
-            <p class="description">(<?php _e('how users are restricted from multiple like/dislike entries', 'just-likes-and-dislikes'); ?>)</p>
+            <p class="description"><?php esc_html_e('(how users are restricted from multiple like/dislike entries)', 'just-likes-and-dislikes'); ?></p>
         </div>
     </div>
 
     <div class="jlad-field-wrap jlad-login-link" data-toggle-value="user" <?php $this->display_none($jlad_settings['basic_settings']['like_dislike_resistriction'], 'user'); ?>>
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php _e('Login link', 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php esc_html_e('Login link:', 'just-likes-and-dislikes'); ?></label>
         </div>
         <div class="jlad-field">
             <input type="text" name="jlad_settings[basic_settings][login_link]" class="jlad-form-field" value="<?php echo (!empty($jlad_settings['basic_settings']['login_link'])) ? esc_attr($jlad_settings['basic_settings']['login_link']) : ''; ?>"/>
@@ -88,73 +88,73 @@
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php _e('Display order', 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php esc_html_e('Display order:', 'just-likes-and-dislikes'); ?></label>
         </div>
         <div class="jlad-field">
             <select name="jlad_settings[basic_settings][display_order]" class="jlad-form-field">
-                <option value="like-dislike" <?php selected($jlad_settings['basic_settings']['display_order'], 'like-dislike'); ?>><?php _e('Like Dislike', 'just-likes-and-dislikes'); ?></option>
-                <option value="dislike-like" <?php selected($jlad_settings['basic_settings']['display_order'], 'dislike-like'); ?>><?php _e('Dislike Like', 'just-likes-and-dislikes'); ?></option>
+                <option value="like-dislike" <?php selected($jlad_settings['basic_settings']['display_order'], 'like-dislike'); ?>><?php esc_html_e('Like Dislike', 'just-likes-and-dislikes'); ?></option>
+                <option value="dislike-like" <?php selected($jlad_settings['basic_settings']['display_order'], 'dislike-like'); ?>><?php esc_html_e('Dislike Like', 'just-likes-and-dislikes'); ?></option>
             </select>
-            <p class="description">(<?php _e('which order the like/dislike icons should be displayed in', 'just-likes-and-dislikes'); ?>)</p>
+            <p class="description"><?php esc_html_e('(which order the like/dislike icons should be displayed in)', 'just-likes-and-dislikes'); ?></p>
         </div>
     </div>
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php _e("Like hover text", 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php esc_html_e('Like hover text:', 'just-likes-and-dislikes'); ?></label>
         </div>
         <div class="jlad-field">
-            <input type="text" name="jlad_settings[basic_settings][like_hover_text]" class="jlad-form-field" value="<?php echo isset($jlad_settings['basic_settings']['like_hover_text']) ? esc_attr($jlad_settings['basic_settings']['like_hover_text']) : ''; ?>" placeholder="<?php _e("Like", 'just-likes-and-dislikes'); ?>"/>
-            <p class="description">(<?php _e('the text to display when the user hovers over the like icon', 'just-likes-and-dislikes'); ?>)</p>
+            <input type="text" name="jlad_settings[basic_settings][like_hover_text]" class="jlad-form-field" value="<?php echo isset($jlad_settings['basic_settings']['like_hover_text']) ? esc_attr($jlad_settings['basic_settings']['like_hover_text']) : ''; ?>" placeholder="<?php esc_attr_e('Like', 'just-likes-and-dislikes'); ?>"/>
+            <p class="description"><?php esc_html_e('(the text to display when the user hovers over the like icon)', 'just-likes-and-dislikes'); ?></p>
         </div>
     </div>
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php _e("Dislike hover text", 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php esc_html_e('Dislike hover text:', 'just-likes-and-dislikes'); ?></label>
         </div>
         <div class="jlad-field">
-            <input type="text" name="jlad_settings[basic_settings][dislike_hover_text]" class="jlad-form-field" value="<?php echo isset($jlad_settings['basic_settings']['dislike_hover_text']) ? esc_attr($jlad_settings['basic_settings']['dislike_hover_text']) : ''; ?>" placeholder="<?php _e('Dislike', 'just-likes-and-dislikes'); ?>"/>
-            <p class="description">(<?php _e('the text to display when the user hovers over the dislike icon', 'just-likes-and-dislikes'); ?>)</p>
+            <input type="text" name="jlad_settings[basic_settings][dislike_hover_text]" class="jlad-form-field" value="<?php echo isset($jlad_settings['basic_settings']['dislike_hover_text']) ? esc_attr($jlad_settings['basic_settings']['dislike_hover_text']) : ''; ?>" placeholder="<?php esc_attr_e('Dislike', 'just-likes-and-dislikes'); ?>"/>
+            <p class="description"><?php esc_html_e('(the text to display when the user hovers over the dislike icon)', 'just-likes-and-dislikes'); ?></p>
         </div>
     </div>
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php esc_html_e('Display zeros on posts with no likes/dislikes', 'just-likes-and-dislikes'); ?>:</label>
+            <label class="jlad-field-label"><?php esc_html_e('Display zeros on posts with no likes/dislikes:', 'just-likes-and-dislikes'); ?></label>
         </div>
         <div class="jlad-field">
             <label class="jlad-switch">
                 <input type="checkbox" name="jlad_settings[basic_settings][display_zero]" class="jlad-form-field" value="1" <?php checked($jlad_settings['basic_settings']['display_zero'], '1'); ?>/>
                 <span class="jlad-slider jlad-round"></span>
             </label>
-            <p class="description">(<?php _e('toggle if you want to show zeros beside the icons for posts with no likes and dislikes yet', 'just-likes-and-dislikes'); ?>)</p>
+            <p class="description"><?php esc_html_e('(toggle if you want to show zeros beside the icons for posts with no likes and dislikes yet)', 'just-likes-and-dislikes'); ?></p>
         </div>
     </div>
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php esc_html_e('Hide like/dislike info metabox', 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php esc_html_e('Hide like/dislike info metabox:', 'just-likes-and-dislikes'); ?></label>
         </div>
         <div class="jlad-field">
             <label class="jlad-switch">
                 <input type="checkbox" name="jlad_settings[basic_settings][hide_counter_info_metabox]" class="jlad-form-field" value="1" <?php checked($jlad_settings['basic_settings']['hide_counter_info_metabox'], '1'); ?>/>
                 <span class="jlad-slider jlad-round"></span>
             </label>
-            <p class="description">(<?php _e('toggle if you want to hide the counter info metabox in the post edit screen', 'just-likes-and-dislikes'); ?>)</p>
+            <p class="description"><?php esc_html_e('(toggle if you want to hide the counter info metabox in the post edit screen)', 'just-likes-and-dislikes'); ?></p>
         </div>
     </div>
 
     <div class="jlad-field-wrap">
         <div class="jlad-field-description">
-            <label class="jlad-field-label"><?php esc_html_e('Hide like/dislike columns in admin screens', 'just-likes-and-dislikes'); ?>: </label>
+            <label class="jlad-field-label"><?php esc_html_e('Hide like/dislike columns in admin screens:', 'just-likes-and-dislikes'); ?></label>
         </div>
         <div class="jlad-field">
             <label class="jlad-switch">
                 <input type="checkbox" name="jlad_settings[basic_settings][hide_like_dislike_admin]" class="jlad-form-field" value="1" <?php checked($jlad_settings['basic_settings']['hide_like_dislike_admin'], '1'); ?>/>
                 <span class="jlad-slider jlad-round"></span>
             </label>
-            <p class="description">(<?php _e('toggle if you want to hide the like/dislike columns in the posts and other admin pages', 'just-likes-and-dislikes'); ?>)</p>
+            <p class="description"><?php esc_html_e('(toggle if you want to hide the like/dislike columns in the posts and other admin pages)', 'just-likes-and-dislikes'); ?></p>
         </div>
     </div>
 

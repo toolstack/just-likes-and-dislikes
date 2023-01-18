@@ -1,6 +1,6 @@
 <?php
 
-defined('ABSPATH') or die('No script kiddies please!!');
+defined('ABSPATH') or die(__('No script kiddies please!!', 'just-likes-and-dislikes'));
 
 if (!class_exists('JLAD_Admin')) {
 
@@ -35,7 +35,7 @@ if (!class_exists('JLAD_Admin')) {
 
         function jlad_admin_menu()
         {
-            add_options_page(__('Just Likes and Dislikes', 'just-likes-and-dislikes'), __('Just Likes and Dislikes', 'just-likes-and-dislikes'), 'manage_options', 'just-likes-and-dislikes', array($this, 'jlad_settings'));
+            add_options_page(_x('Just Likes and Dislikes', 'Page Title', 'just-likes-and-dislikes'), _x('Just Likes and Dislikes', 'Menu Title', 'just-likes-and-dislikes'), 'manage_options', 'just-likes-and-dislikes', array($this, 'jlad_settings'));
         }
 
         function jlad_settings()
@@ -209,14 +209,14 @@ if (!class_exists('JLAD_Admin')) {
 
             // Show the metabox if we have any post types left.
             if ( ! empty($available_post_types)) {
-                add_meta_box('jlad-count-info', esc_html__('Just Likes and Dislikes', 'just-likes-and-dislikes'), array($this, 'render_posts_count_info_html'), $available_post_types, 'normal');
+                add_meta_box('jlad-count-info', esc_html_x('Just Likes and Dislikes', 'Metabox Title', 'just-likes-and-dislikes'), array($this, 'render_posts_count_info_html'), $available_post_types, 'normal');
             }
         }
 
         function render_count_info_metabox_comments()
         {
             if (empty($this->jlad_settings['basic_settings']['hide_counter_info_metabox'])) {
-                add_meta_box('jlad-count-info', esc_html__('Just Likes and Dislikes', 'just-likes-and-dislikes'), array($this, 'render_comments_count_info_html'), 'comment', 'normal');
+                add_meta_box('jlad-count-info', esc_html_x('Just Likes and Dislikes', 'Metabox Title', 'just-likes-and-dislikes'), array($this, 'render_comments_count_info_html'), 'comment', 'normal');
             }
         }
 
