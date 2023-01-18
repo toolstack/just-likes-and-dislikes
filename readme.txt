@@ -66,6 +66,43 @@ There are a few available to add new default icon template options, see the code
 = I want to display in the post detail template. Do you have a custom function? =
 We do have a shortcode [just_likes_and_dislikes] which can also be used as custom function through `<?php echo do_shortcode('[just_likes_and_dislikes]');?>`
 
+= How do I migrate from Posts Like Dislike and Comments Like Dislike? =
+There is no built in migration tool at this time, however if you have access to your SQL server (probably phpMyAdmin), you can run some simply queries to migrate the data.  To do so, do the following steps:
+
+*** WARNING: The following steps are destructive and a one time process. ***
+
+1. Disable Posts Like Dislikes, Comments Like Dislike, and Just Likes and Dislikes.
+2. Remove the Posts Like Dislikes and Comments Like Dislike plugins from WordPress.
+3. Login to your SQL server and run the following SQL queries:
+	```
+	DELETE FROM `wp_commentmeta` WHERE `meta_key` LIKE 'jlad_%';
+	UPDATE `wp_commentmeta` SET `meta_key` = REPLACE(`meta_key`, 'cld_', 'jlad_');
+
+	DELETE FROM `wp_postmeta` WHERE `meta_key` LIKE 'jlad_%';
+	UPDATE `wp_postmeta` SET `meta_key` = REPLACE(`meta_key`, 'pld_', 'jlad_');
+	```
+4. Enable Just Likes and Dislikes.
+
+This above will do two things:
+- remove any existing Just Likes and Dislikes data from the database so there are no conflicts with the old data.
+- rename the Posts Like Dislike and Comments Like Dislike data to Just Likes and Dislikes data, making it available to only Just Likes and Dislikes.
+
+If you want to go back to Post Likes Dislikes and Comments Likes Dislikes, you can reverse the process:
+
+1. Disable Posts Like Dislikes, Comments Like Dislike, and Just Likes and Dislikes.
+2. Remove the Just Likes and Dislikes plugin from WordPress.
+3. Login to your SQL server and run the following SQL queries:
+	```
+	DELETE FROM `wp_commentmeta` WHERE `meta_key` LIKE 'cld_%';
+	UPDATE `wp_commentmeta` SET `meta_key` = REPLACE(`meta_key`, 'jlad_', 'cld_');
+
+	DELETE FROM `wp_postmeta` WHERE `meta_key` LIKE 'pld_%';
+	UPDATE `wp_postmeta` SET `meta_key` = REPLACE(`meta_key`, 'jlad_', 'pld_');
+	```
+4. Enable Posts Like Dislikes and Comments Like Dislike.
+
+If there are enough requests I can add this feature to the plugin.
+
 == Screenshots ==
 
 1. Icon template examples
