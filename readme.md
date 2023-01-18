@@ -117,7 +117,7 @@ If there are enough requests I can add this feature to the plugin.
 
 ## Changelog ##
 ### 2.0 ###
-* Release date: TBD
+* Release date: Jan 17, 2023
 * Add sortable columns to the admin posts list
 * Add filter for Yoast Duplicate Posts so the like/dislike count is reset
 * Add proper meta data registration
@@ -129,29 +129,29 @@ If there are enough requests I can add this feature to the plugin.
 * Update font awesome to v6.2.1
 
 ### 1.0.8 ###
-* Release date: 21/7/2022
+* Release date: July 21, 2022
 * WP 6.0 compatibility checked
 
 ### 1.0.7 ###
-* Release date: 13/2/2021
+* Release date: Feb 13, 2021
 * Added post id to shortcode
 
 ### 1.0.6 ###
-* Release date: 20/7/2021
+* Release date: July 20, 2021
 * WP 5.7 compatibility checked
 
 ### 1.0.5 ###
-* Release date: 6/6/2021
+* Release date: June 6, 2021
 * Fixed login restriction mode issue
 * Fixed ajax load issue
 * Fixed some security issues
 
 ### 1.0.4 ###
-* Release date: 11/12/2020
+* Release date: Dec 11, 2020
 * WP 5.6 compatibility checked
 
 ### 1.0.3 ###
-* Release date: 7/9/2020
+* Release date: Sept 7, 2020
 * Added Post Like Dislike Count Info Metabox
 * Added an option to display 0 by default
 * Added alt tag in the custom image
@@ -159,17 +159,17 @@ If there are enough requests I can add this feature to the plugin.
 * Added [posts_like_dislike] shortcode
 
 ### 1.0.2 ###
-* Release date: 4/4/2020
+* Release date: April 4, 2020
 * WP 5.4 compatibility checked
 
 ### 1.0.1 ###
-* Release date: 8/5/2019
+* Release date: May 8, 2019
 * Added custom post type support
 * Updated the backend settings save mechanism
 * Added array sanitization functions
 
 ### 1.0.0 ###
-* Release date: 8/5/2019
+* Release date: May 8, 2019
 * Initial plugin commit to wordpress.org repository
 
 ## Upgrade Notice ##
