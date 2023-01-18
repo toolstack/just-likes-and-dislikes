@@ -116,6 +116,10 @@ If there are enough requests I can add this feature to the plugin.
 
 
 ## Changelog ##
+### 2.1 ###
+* Release date: TBD
+* Updated: Various translation related changes, thanks @alexclassroom.
+
 ### 2.0 ###
 * Release date: Jan 17, 2023
 * Add sortable columns to the admin posts list
