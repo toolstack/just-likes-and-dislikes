@@ -74,7 +74,7 @@ if (!class_exists('JLAD_Ajax')) {
 
                 $type = sanitize_text_field($_POST['type']);
 
-                validate_restrictions($cookie_name, get_comment_meta($comment_id, 'jlad_users', true), get_comment_meta($comment_id, 'jlad_ips', true));
+                $this->validate_restrictions($cookie_name, get_comment_meta($comment_id, 'jlad_users', true), get_comment_meta($comment_id, 'jlad_ips', true));
 
                 if ($type == 'like') {
                     $like_count = get_comment_meta($comment_id, 'jlad_like_count', true);
@@ -147,7 +147,7 @@ if (!class_exists('JLAD_Ajax')) {
                 $post_id = sanitize_text_field($_POST['data_id']);
                 $cookie_name = 'jlad_post_' . $post_id;
 
-                validate_restrictions($cookie_name, get_post_meta($post_id, 'jlad_users', true), get_post_meta($post_id, 'jlad_ips', true));
+                $this->validate_restrictions($cookie_name, get_post_meta($post_id, 'jlad_users', true), get_post_meta($post_id, 'jlad_ips', true));
 
                 $type = sanitize_text_field($_POST['type']);
 
