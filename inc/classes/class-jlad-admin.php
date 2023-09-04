@@ -49,7 +49,7 @@ if (!class_exists('JLAD_Admin')) {
         function save_settings()
         {
             // Make sure we have a valid nounce.
-            if (isset($_POST['_wpnonce']) && wp_verify_nonce( $_POST['_wpnonce'], 'just-likes-and-dislikes-options' ) ) {
+            if( isset($_POST['_wpnonce'] ) && wp_verify_nonce( $_POST['_wpnonce'], 'just-likes-and-dislikes-options' ) && current_user_can( 'manage_options' ) ) {
                 // Check to make sure we have an array and it has both settings types.
                 if( is_array( $_POST['jlad_settings'] ) && ( ! array_key_exists('basic_settings', $_POST['jlad_settings'] ) && ! array_key_exists('design_settings', $_POST['jlad_settings'] ) ) ) {
 
