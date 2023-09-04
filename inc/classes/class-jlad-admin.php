@@ -93,7 +93,7 @@ if (!class_exists('JLAD_Admin')) {
                                 $jlad_settings['basic_settings'][$key] = array();
                                 foreach( $_POST['jlad_settings']['basic_settings'][$key] as $post_type ) {
                                     $pt = array_search( $post_type, $post_types );
-                                    if( $pt != false ) { $jlad_settings['basic_settings'][$key][] = $post_types[$pt]; };
+                                    if( $pt !== false ) { $jlad_settings['basic_settings'][$key][] = $post_types[$pt]; };
                                 }
                             }
                             break;
