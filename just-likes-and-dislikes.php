@@ -5,7 +5,7 @@ defined('ABSPATH') or die('No script kiddies please');
 /*
   Plugin Name: Just Likes and Dislikes
   Description: A simple plugin to add likes and dislikes to WordPress.
-  Version:     2.2
+  Version:     2.3
   Author:      GregRoss
   Author URI:  http://toolstack.com
   License:     GPL2
@@ -63,7 +63,7 @@ if (!class_exists('JLAD_Comments_Like_Dislike')) {
             }
 
             if (! defined('JLAD_VERSION') ) {
-                define('JLAD_VERSION', '2.2.0');
+                define('JLAD_VERSION', '2.3.0');
             }
 
             if (! defined('JLAD_BASENAME') ) {

@@ -2,7 +2,7 @@
 Contributors: GregRoss
 Tags: like, dislike, posts, pages, comments
 Requires at least: 5.0
-Tested up to: 6.2
+Tested up to: 6.3
 Stable tag: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -110,6 +110,11 @@ If there are enough requests I can add this feature to the plugin.
 3. Like Dislike Design Settings
 
 == Changelog ==
+= 2.3 =
+* Release date: Sept 3, 2023
+* Fixed: Inability to disable the first post type.
+* Fixed: Make sure when saving/restoring settings that the user can 'manage_settings', aka is an admin.
+
 = 2.2 =
 * Release date: April 25, 2023
 * Fixed: Incorrect class function call.
