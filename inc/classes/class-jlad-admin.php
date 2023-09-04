@@ -169,9 +169,14 @@ if (!class_exists('JLAD_Admin')) {
 
         function restore_settings()
         {
-            $default_settings = $this->get_default_settings();
-            update_option('jlad_settings', $default_settings);
-            die(__('Settings restored successfully.Redirecting...', 'just-likes-and-dislikes'));
+            if( isset( $_POST['_wpnonce']) && wp_verify_nonce( $_POST['_wpnonce'], 'just-likes-and-dislikes-options' ) && current_user_can( 'manage_options' ) ) {
+                $default_settings = $this->get_default_settings();
+                update_option('jlad_settings', $default_settings);
+                die(__('Settings restored successfully.  Redirecting...', 'just-likes-and-dislikes'));
+            } else {
+                die(__('No authorized!', 'just-likes-and-dislikes'));
+            }
+
         }
 
         /**
