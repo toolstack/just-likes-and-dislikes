@@ -116,6 +116,10 @@ If there are enough requests I can add this feature to the plugin.
 
 
 ## Changelog ##
+### 2.4 ###
+* Release date: TBD
+* Fixed: Sorting of like/dislike columns in post/comment table.
+
 ### 2.3 ###
 * Release date: Sept 3, 2023
 * Fixed: Inability to disable the first post type.
