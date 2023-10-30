@@ -311,13 +311,39 @@ if (!class_exists('JLAD_Hooks')) {
 
             // Filter if orderby is set to 'jlad_like_count'
             if($this->like_column_name == $orderby ) {
-                $query->set('meta_key', $this->like_column_name);
+                // Set the meta_query instead of meta_key so that we get
+                // all meta values, including those that don't exist yet.
+                $query->set('meta_query', array(
+                    'relation' => 'OR',
+                    array(
+                        'key' => $this->like_column_name,
+                        'compare' => 'NOT EXISTS'
+                    ),
+                    array(
+                        'key' => $this->like_column_name,
+                        'compare' => 'EXISTS'
+                    ),
+                ) );
+
                 $query->set('orderby', 'meta_value_num');
             }
 
             // Filter if orderby is set to 'jlad_dislike_count'
             if($this->dislike_column_name == $orderby ) {
-                $query->set('meta_key', $this->dislike_column_name);
+                // Set the meta_query instead of meta_key so that we get
+                // all meta values, including those that don't exist yet.
+                $query->set('meta_query', array(
+                    'relation' => 'OR',
+                    array(
+                        'key' => $this->dislike_column_name,
+                        'compare' => 'NOT EXISTS'
+                    ),
+                    array(
+                        'key' => $this->dislike_column_name,
+                        'compare' => 'EXISTS'
+                    ),
+                ) );
+
                 $query->set('orderby', 'meta_value_num');
             }
         }
@@ -335,13 +361,39 @@ if (!class_exists('JLAD_Hooks')) {
 
             // Filter if orderby is set to 'jlad_like_count'
             if($this->like_column_name == $orderby ) {
-                $query->query_vars['meta_key'] = $this->like_column_name;
+                // Set the meta_query instead of meta_key so that we get
+                // all meta values, including those that don't exist yet.
+                $query->query_vars['meta_query'] = array(
+                    'relation' => 'OR',
+                    array(
+                        'key' => $this->like_column_name,
+                        'compare' => 'NOT EXISTS'
+                    ),
+                    array(
+                        'key' => $this->like_column_name,
+                        'compare' => 'EXISTS'
+                    ),
+                );
+
                 $query->query_vars['orderby'] = 'meta_value_num';
             }
 
             // Filter if orderby is set to 'jlad_dislike_count'
             if($this->dislike_column_name == $orderby ) {
-                $query->query_vars['meta_key'] = $this->dislike_column_name;
+                // Set the meta_query instead of meta_key so that we get
+                // all meta values, including those that don't exist yet.
+                $query->query_vars['meta_query'] = array(
+                    'relation' => 'OR',
+                    array(
+                        'key' => $this->dislike_column_name,
+                        'compare' => 'NOT EXISTS'
+                    ),
+                    array(
+                        'key' => $this->dislike_column_name,
+                        'compare' => 'EXISTS'
+                    ),
+                );
+
                 $query->query_vars['orderby'] = 'meta_value_num';
             }
         }
