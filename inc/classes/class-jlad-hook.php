@@ -305,13 +305,13 @@ if (!class_exists('JLAD_Hooks')) {
             // Filter if orderby is set to 'jlad_like_count'
             if($this->like_column_name == $orderby ) {
                 $query->set('meta_key', $this->like_column_name);
-                $query->set('orderby', $this->like_column_name);
+                $query->set('orderby', 'meta_value_num');
             }
 
             // Filter if orderby is set to 'jlad_dislike_count'
             if($this->dislike_column_name == $orderby ) {
                 $query->set('meta_key', $this->dislike_column_name);
-                $query->set('orderby', $this->dislike_column_name);
+                $query->set('orderby', 'meta_value_num');
             }
         }
     }
