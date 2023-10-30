@@ -63,6 +63,13 @@ if (!class_exists('JLAD_Hooks')) {
                 }
 
                 /**
+                 * Setup sorting for comments.
+                 *
+                 * @since 2.4.0
+                 */
+                add_action('pre_get_comments', array($this,'pre_get_comments'));
+
+                /**
                  * Add like dislike columns in comments section
                  *
                  * @since 1.0.5
@@ -81,7 +88,7 @@ if (!class_exists('JLAD_Hooks')) {
                  *
                  * @since 1.0.5
                  */
-                add_filter('manage_comments_custom_column', array($this, 'manage_comments_custom_column'), 10, 2);
+                add_action('manage_comments_custom_column', array($this, 'manage_comments_custom_column'), 10, 2);
             }
 
         }
@@ -312,6 +319,30 @@ if (!class_exists('JLAD_Hooks')) {
             if($this->dislike_column_name == $orderby ) {
                 $query->set('meta_key', $this->dislike_column_name);
                 $query->set('orderby', 'meta_value_num');
+            }
+        }
+
+        public function pre_get_comments($query)
+        {
+            global $wpdb;
+
+            // Only filter in the admin
+            if(! is_admin() ) {
+                return;
+            }
+
+            $orderby = $query->query_vars['orderby'];
+
+            // Filter if orderby is set to 'jlad_like_count'
+            if($this->like_column_name == $orderby ) {
+                $query->query_vars['meta_key'] = $this->like_column_name;
+                $query->query_vars['orderby'] = 'meta_value_num';
+            }
+
+            // Filter if orderby is set to 'jlad_dislike_count'
+            if($this->dislike_column_name == $orderby ) {
+                $query->query_vars['meta_key'] = $this->dislike_column_name;
+                $query->query_vars['orderby'] = 'meta_value_num';
             }
         }
     }
