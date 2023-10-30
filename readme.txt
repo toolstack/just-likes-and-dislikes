@@ -3,7 +3,7 @@ Contributors: GregRoss
 Tags: like, dislike, posts, pages, comments
 Requires at least: 5.0
 Tested up to: 6.3
-Stable tag: 2.2
+Stable tag: 2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -111,8 +111,8 @@ If there are enough requests I can add this feature to the plugin.
 
 == Changelog ==
 = 2.4 =
-* Release date: TBD
-* Fixed: Sorting of like/dislike columns in post/comment table.
+* Release date: Oct 30, 2023
+* Fixed: Sorting of like/dislike columns in post/comment admin tables.
 
 = 2.3 =
 * Release date: Sept 3, 2023
