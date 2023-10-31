@@ -103,6 +103,20 @@ if (!class_exists('JLAD_Hooks')) {
                  * @since 2.5.0
                  */
                 add_action('manage_category_custom_column', array($this, 'manage_category_custom_column'), 10, 3);
+
+                /**
+                 * Add like dislike columns in tags section
+                 *
+                 * @since 2.5.0
+                 */
+                add_filter('manage_edit-post_tag_columns', array($this, 'manage_post_posts_columns'));
+
+                /**
+                 * Display Like Dislike count in each column
+                 *
+                 * @since 2.5.0
+                 */
+                add_action('manage_post_tag_custom_column', array($this, 'manage_tag_custom_column'), 10, 3);
             }
 
         }
@@ -325,6 +339,59 @@ if (!class_exists('JLAD_Hooks')) {
                     'numberposts' => -1,
                     'category' => $category_id,
                     'meta_key' => $this->like_column_name
+                    )
+                );
+
+                $like_count = 0;
+                foreach( $like_posts as $post ) {
+                    $like_count += intval( get_post_meta( $post->ID, 'jlad_like_count', true ) );
+                }
+
+                $dislike_count = 0;
+                foreach( $dislike_posts as $post ) {
+                    $dislike_count += intval( get_post_meta( $post->ID, 'jlad_dislike_count', true ) );
+                }
+
+                if ($column_key == $this->like_column_name ) {
+                    echo esc_html( $like_count > 0 ? $like_count : '—' );
+                }
+
+                if($column_key == $this->dislike_column_name) {
+                    echo esc_html( $dislike_count > 0 ? $dislike_count : '—' );
+                }
+            }
+        }
+
+        function manage_tag_custom_column($string, $column_key, $tag_id)
+        {
+            // By default tags are only enabled on posts, but there are plugins to enable
+            // them on pages or other taxonomies, so check what kind of post types we are
+            // dealing with and then limit the query to just those.
+            global $current_screen;
+
+            // Get the currently valid post types.
+            $post_types = get_post_types( array(), 'names', 'and');
+
+            // Get the current screen's post type.
+            $post_type = $current_screen->post_type;
+
+            // Make sure we have a valid post type, if not default to 'post'.
+            if( ! in_array($post_type, $post_types) ) { $post_type = 'post'; }
+
+            if ($column_key == $this->like_column_name || $column_key == $this->dislike_column_name) {
+                $like_posts = get_posts( array(
+                    'numberposts' => -1,
+                    'tag_id' => $tag_id,
+                    'meta_key' => $this->like_column_name,
+                    'post_type' => $post_type
+                    )
+                );
+
+                $dislike_posts = get_posts( array(
+                    'numberposts' => -1,
+                    'tag_id' => $tag_id,
+                    'meta_key' => $this->like_column_name,
+                    'post_type' => $post_type
                     )
                 );
 
