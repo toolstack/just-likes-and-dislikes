@@ -89,6 +89,20 @@ if (!class_exists('JLAD_Hooks')) {
                  * @since 1.0.5
                  */
                 add_action('manage_comments_custom_column', array($this, 'manage_comments_custom_column'), 10, 2);
+
+                /**
+                 * Add like dislike columns in categories section
+                 *
+                 * @since 2.5.0
+                 */
+                add_filter('manage_edit-category_columns', array($this, 'manage_post_posts_columns'));
+
+                /**
+                 * Display Like Dislike count in each column
+                 *
+                 * @since 2.5.0
+                 */
+                add_action('manage_category_custom_column', array($this, 'manage_category_custom_column'), 10, 3);
             }
 
         }
@@ -297,6 +311,42 @@ if (!class_exists('JLAD_Hooks')) {
             }
         }
 
+        function manage_category_custom_column($string, $column_key, $category_id)
+        {
+            if ($column_key == $this->like_column_name || $column_key == $this->dislike_column_name) {
+                $like_posts = get_posts( array(
+                    'numberposts' => -1,
+                    'category' => $category_id,
+                    'meta_key' => $this->like_column_name
+                    )
+                );
+
+                $dislike_posts = get_posts( array(
+                    'numberposts' => -1,
+                    'category' => $category_id,
+                    'meta_key' => $this->like_column_name
+                    )
+                );
+
+                $like_count = 0;
+                foreach( $like_posts as $post ) {
+                    $like_count += intval( get_post_meta( $post->ID, 'jlad_like_count', true ) );
+                }
+
+                $dislike_count = 0;
+                foreach( $dislike_posts as $post ) {
+                    $dislike_count += intval( get_post_meta( $post->ID, 'jlad_dislike_count', true ) );
+                }
+
+                if ($column_key == $this->like_column_name ) {
+                    echo esc_html( $like_count > 0 ? $like_count : '—' );
+                }
+
+                if($column_key == $this->dislike_column_name) {
+                    echo esc_html( $dislike_count > 0 ? $dislike_count : '—' );
+                }
+            }
+        }
 
         public function pre_get_posts($query)
         {
