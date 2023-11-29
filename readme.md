@@ -58,7 +58,6 @@ eg: [jlad_top_table count=3 types="post, pages" show_dislikes=false show_table_t
 | Cool post  |  6 |
 | Nice post  |  3 |
 | [no title] |  2 |
-|------------|----|
 |      Total | 11 |
 
 | Page Title | 👎️ |
@@ -66,7 +65,6 @@ eg: [jlad_top_table count=3 types="post, pages" show_dislikes=false show_table_t
 | Cool page  |  8 |
 | Nice page  |  4 |
 | [no title] |  1 |
-|------------|----|
 |      Total | 13 |
 
 ### Custom Function ###
