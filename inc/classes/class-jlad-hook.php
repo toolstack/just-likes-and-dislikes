@@ -390,7 +390,7 @@ if (!class_exists('JLAD_Hooks')) {
                 $dislike_posts = get_posts( array(
                     'numberposts' => -1,
                     'tag_id' => $tag_id,
-                    'meta_key' => $this->like_column_name,
+                    'meta_key' => $this->dislike_column_name,
                     'post_type' => $post_type
                     )
                 );
