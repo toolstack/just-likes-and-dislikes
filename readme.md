@@ -67,6 +67,31 @@ eg: [jlad_top_table count=3 types="post, pages" show_dislikes=false show_table_t
 | [no title] |  1 |
 |      Total | 13 |
 
+The table has a css class of jlad_shortcode_table, so you can style it with css, for example:
+
+```
+.jlad_shortcode_table thead,
+.jlad_shortcode_table tfoot {
+	background-color: #000077;
+	color: #FFFFFF;
+}
+
+.jlad_shortcode_table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.jlad_shortcode_table td:last-child {
+	text-align: center;
+	width: 20%;
+}
+
+.jlad_shortcode_table tfoot td:first-child {
+	text-align: right;
+}
+```
+
+Creates a table with blue background and white text header/footer rows, zebra stripes on the post list, centers the likes/dislikes column and aligns the "Total" in the footer to the right of the column.
+
 ### Custom Function ###
 `<?php echo do_shortcode('[just_like_and_dislike id=post_id]');?>`
 Please replace post_id with the id of the post or remove id parameter for considering the post id as the id of global $post object
