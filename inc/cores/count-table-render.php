@@ -73,8 +73,8 @@ $content .= "<table class='table jlad_shortcode_table'>" . PHP_EOL;
 // Create the table header row.
 $content .= "\t<thead>" . PHP_EOL;
 $content .= "\t\t<tr>" . PHP_EOL;
-$content .= "\t\t\t<td>" . sprintf( __( '%s Title', 'just-likes-and-dislikes' ) , esc_html( $type_obj->labels->singular_name ) ) . '</td>' . PHP_EOL;
-$content .= "\t\t\t<td>$type_title</td>" . PHP_EOL;
+$content .= "\t\t\t<th>" . sprintf( __( '%s Title', 'just-likes-and-dislikes' ) , esc_html( $type_obj->labels->singular_name ) ) . '</td>' . PHP_EOL;
+$content .= "\t\t\t<th>$type_title</td>" . PHP_EOL;
 $content .= "\t\t</tr>" . PHP_EOL;
 $content .= "\t</thead>" . PHP_EOL;
 
