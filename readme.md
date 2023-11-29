@@ -2,8 +2,8 @@
 **Contributors:** [gregross](https://profiles.wordpress.org/gregross/)  
 **Tags:** like, dislike, posts, pages, comments  
 **Requires at least:** 5.0  
-**Tested up to:** 6.3  
-**Stable tag:** 2.4  
+**Tested up to:** 6.4  
+**Stable tag:** 2.5  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -35,11 +35,39 @@ Just Likes and Dislikes increases the interaction with the WordPress by enabling
 * Custom like/dislike icon support
 * Icon color selector
 * Count color selector
-* Sortable like/dislike columns in admin screens (can be disabled via option)
+* NEW: Sortable like/dislike columns in post/page admin screens (can be disabled via option)
+* NEW: Total like/dislike counts on tags and category admin screens (unsortable due to technical limitations)
+* NEW: Front end shortcode to generate Top 10 style tables for liked/disliked content (comments not supported at this time).
 
 ### Shortcode ###
-[just_like_and_dislike id=post_id]
+[just_like_and_dislike id=post_id] or [jlad id=post_id]
 Please replace post_id with the id of the post or remove id parameter for considering the post id as the id of global $post object
+
+[just_like_and_dislike_top_table count=10] or [jlad_top_table count=10]
+Options available are:
+* count - Number of items to display (default 10).
+* show_likes - Display a table with the top liked posts in it (default true).
+* show_dislikes - Display a table with the top disliked posts in it (default true).
+* types - Post types to display, a comma seperated list i.e. "post" or "post, page" (default "post").
+* show_table_title - Display a title for each table in the format of "Likes for Posts", "Dislikes for Pages", etc. (default true).
+
+eg: [jlad_top_table count=3 types="post, pages" show_dislikes=false show_table_title=false]
+
+| Post Title | 👍️ |
+|------------|----|
+| Cool post  |  6 |
+| Nice post  |  3 |
+| [no title] |  2 |
+|------------|----|
+|      Total | 11 |
+
+| Page Title | 👎️ |
+|------------|----|
+| Cool page  |  8 |
+| Nice page  |  4 |
+| [no title] |  1 |
+|------------|----|
+|      Total | 13 |
 
 ### Custom Function ###
 `<?php echo do_shortcode('[just_like_and_dislike id=post_id]');?>`
@@ -116,6 +144,13 @@ If there are enough requests I can add this feature to the plugin.
 
 
 ## Changelog ##
+### 2.5 ###
+* Release date: Nov 28, 2023
+* Add: Like/dislike column to categories list (unsortable due to technical limits).
+* Add: Like/dislike column to tags list (unsortable due to technical limits).
+* Add: Shorter shortcode (jlad = just_like_and_dislike).
+* Add: Top liked/disliked tables for the front end.
+
 ### 2.4 ###
 * Release date: Oct 30, 2023
 * Fixed: Sorting of like/dislike columns in post/comment admin tables.
