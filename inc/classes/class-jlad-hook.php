@@ -525,6 +525,7 @@ if (!class_exists('JLAD_Hooks')) {
                 'show_dislikes' => $this->dislikes_enabled,
                 'types' => 'post',
                 'show_table_title' => true,
+                'show_row_numbers' => true,
             );
 
             // Process the atts and defaults into a single table.
@@ -534,6 +535,7 @@ if (!class_exists('JLAD_Hooks')) {
             if( strtolower( $options['show_likes'] ) == 'false' ) { $options['show_likes'] = false; }
             if( strtolower( $options['show_dislikes'] ) == 'false' ) { $options['show_dislikes'] = false; }
             if( strtolower( $options['show_table_title'] ) == 'false' ) { $options['show_table_title'] = false; }
+            if( strtolower( $options['show_row_numbers'] ) == 'false' ) { $options['show_row_numbers'] = false; }
 
             // Setup the types lists.
             $valid_types = array();

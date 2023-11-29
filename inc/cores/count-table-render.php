@@ -31,6 +31,7 @@ return $content;
  *                     show_dislikes    - If dislikes should be shown (unused in this function).
  *                     types            - Post types to show (unused in this function).
  *                     show_table_title - If the table title should be shown.
+ *                     show_row_number  - If the table row numbers should be shown.
  */
 
 // Get the human readable, translated type name we're displaying.
@@ -73,13 +74,17 @@ $content .= "<table class='table jlad_shortcode_table'>" . PHP_EOL;
 // Create the table header row.
 $content .= "\t<thead>" . PHP_EOL;
 $content .= "\t\t<tr>" . PHP_EOL;
-$content .= "\t\t\t<th>" . sprintf( __( '%s Title', 'just-likes-and-dislikes' ) , esc_html( $type_obj->labels->singular_name ) ) . '</td>' . PHP_EOL;
-$content .= "\t\t\t<th>$type_title</td>" . PHP_EOL;
+if( $options['show_row_numbers' ] ) { $content .= "\t\t\t<th class=\"jlad_table_row_numbers_column\">&nbsp;</td>" . PHP_EOL; }
+$content .= "\t\t\t<th class=\"jlad_table_title_column\">" . sprintf( __( '%s Title', 'just-likes-and-dislikes' ) , esc_html( $type_obj->labels->singular_name ) ) . '</td>' . PHP_EOL;
+$content .= "\t\t\t<th class=\"jlad_table_likes_column\">$type_title</td>" . PHP_EOL;
 $content .= "\t\t</tr>" . PHP_EOL;
 $content .= "\t</thead>" . PHP_EOL;
 
 // A counter to keep track of the total number of likes.
 $count = 0;
+
+// Count the rows.
+$row = 1;
 
 // Loop through the posts and output the table row.
 foreach( $posts as $post ) {
@@ -89,20 +94,23 @@ foreach( $posts as $post ) {
 
     // Output the row.
     $content .= "\t<tr>" . PHP_EOL;
-    $content .= "\t\t<td><a href='" . esc_attr( get_post_permalink( $post->ID ) ) . "'>" . esc_html( $post_title ) . '</a>' . "</td>" . PHP_EOL;
+    if( $options['show_row_numbers' ] ) { $content .= "\t\t<td class=\"jlad_table_row_numbers_column\">" . esc_html( $row ) . "</td>" . PHP_EOL; }
+    $content .= "\t\t<td class=\"jlad_table_title_column\"><a href='" . esc_attr( get_post_permalink( $post->ID ) ) . "'>" . esc_html( $post_title ) . '</a>' . "</td>" . PHP_EOL;
     $likes = intval( get_post_meta( $post->ID, $type, true ) );
-    $content .= "\t\t<td>" . esc_html( $likes > 0 ? $likes : '—' ) . "</td>" . PHP_EOL;
+    $content .= "\t\t<td class=\"jlad_table_likes_column\">" . esc_html( $likes > 0 ? $likes : '—' ) . "</td>" . PHP_EOL;
     $content .= "\t</tr>" . PHP_EOL;
 
-    // Add the like count to the total.
+    // Add to the counters.
     $count += $likes;
+    $row++;
 }
 
 // Output the footer.
 $content .= "\t<tfoot>" . PHP_EOL;
 $content .= "\t\t<tr>" . PHP_EOL;
-$content .= "\t\t\t<td>" . __( 'Total', 'just-likes-and-dislikes' ) . "</td>" . PHP_EOL;
-$content .= "\t\t\t<td>" . esc_html( $count > 0 ? $count : '—' ) . "</td>" . PHP_EOL;
+if( $options['show_row_numbers' ] ) { $content .= "\t\t\t<td class=\"jlad_table_row_numbers_column\">&nbsp;</td>" . PHP_EOL; }
+$content .= "\t\t\t<td class=\"jlad_table_title_column\">" . __( 'Total', 'just-likes-and-dislikes' ) . "</td>" . PHP_EOL;
+$content .= "\t\t\t<td class=\"jlad_table_likes_column\">" . esc_html( $count > 0 ? $count : '—' ) . "</td>" . PHP_EOL;
 $content .= "\t\t</tr>" . PHP_EOL;
 $content .= "\t</tfoot>" . PHP_EOL;
 

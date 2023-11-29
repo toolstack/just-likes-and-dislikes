@@ -50,22 +50,23 @@ Options available are:
 * show_dislikes - Display a table with the top disliked posts in it (default true).
 * types - Post types to display, a comma seperated list i.e. "post" or "post, page" (default "post").
 * show_table_title - Display a title for each table in the format of "Likes for Posts", "Dislikes for Pages", etc. (default true).
+* show_row_numbers - Display row numbers for the table (default true).
 
 eg: [jlad_top_table count=3 types="post, pages" show_dislikes=false show_table_title=false]
 
-| Post Title | 👍️ |
-|------------|----|
-| Cool post  |  6 |
-| Nice post  |  3 |
-| [no title] |  2 |
-|      Total | 11 |
+| | Post Title | 👍️ |
+|-|------------|----|
+|1| Cool post  |  6 |
+|2| Nice post  |  3 |
+|3| [no title] |  2 |
+| |      Total | 11 |
 
-| Page Title | 👎️ |
-|------------|----|
-| Cool page  |  8 |
-| Nice page  |  4 |
-| [no title] |  1 |
-|      Total | 13 |
+| | Page Title | 👎️ |
+|-|------------|----|
+|1| Cool page  |  8 |
+|2| Nice page  |  4 |
+|3| [no title] |  1 |
+| |      Total | 13 |
 
 The table has a css class of jlad_shortcode_table, so you can style it with css, for example:
 
@@ -161,6 +162,14 @@ If there are enough requests I can add this feature to the plugin.
 3. Like Dislike Design Settings
 
 == Changelog ==
+= 2.6 =
+* Release date: TBD
+* Add: Option to allow row numbers on the top liked/disliked tables.
+
+= 2.5.1 =
+* Release date: Nov 28, 2023
+* No changes.
+
 = 2.5 =
 * Release date: Nov 28, 2023
 * Add: Like/dislike column to categories list (unsortable due to technical limits).
