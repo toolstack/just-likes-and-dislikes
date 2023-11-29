@@ -40,6 +40,8 @@ if (!class_exists('JLAD_Hooks')) {
             add_action('wp_head', array($this, 'custom_styles'));
             add_shortcode('just_likes_and_dislikes', array($this, 'render_jlad_shortcode'));
             add_shortcode('jlad', array($this, 'render_jlad_shortcode'));
+            add_shortcode('just_likes_and_dislikes_top_table', array($this, 'render_top_table_shortcode'));
+            add_shortcode('jlad_top_table', array($this, 'render_top_table_shortcode'));
 
             // Add filter/actions for comments.
             add_filter('comment_text', array($this, 'comments_like_dislike'), 200, 2);
@@ -514,6 +516,80 @@ if (!class_exists('JLAD_Hooks')) {
 
                 $query->query_vars['orderby'] = 'meta_value_num';
             }
+        }
+
+        public function render_top_table_shortcode( $atts ) {
+            $defaults = array(
+                'count' => 10,
+                'show_likes' => $this->likes_enabled,
+                'show_dislikes' => $this->dislikes_enabled,
+                'types' => 'post',
+                'show_table_title' => true,
+            );
+
+            // Process the atts and defaults into a single table.
+            $options = shortcode_atts( $defaults, $atts );
+
+            // Convert text string "false" to boolean false.
+            if( strtolower( $options['show_likes'] ) == 'false' ) { $options['show_likes'] = false; }
+            if( strtolower( $options['show_dislikes'] ) == 'false' ) { $options['show_dislikes'] = false; }
+            if( strtolower( $options['show_table_title'] ) == 'false' ) { $options['show_table_title'] = false; }
+
+            // Setup the types lists.
+            $valid_types = array();
+            $types_list = explode( ',', $options['types'] );
+
+            // Get the currently valid post types.
+            $post_types = get_post_types( array(), 'names', 'and');
+
+            // Make sure we have at least one type to check.
+            if( is_array( $types_list ) && count( $types_list ) > 0 ) {
+                // Loop through the types.
+                foreach( $types_list as $type ) {
+                    // Trim and lowercase to clean up the type.
+                    $type = strtolower( trim( $type ) );
+                    // Make sure we have a valid post type,
+                    // if so add it to the valid types list,
+                    // otherwise skip it.
+                    if( in_array( $type , $post_types ) ) {
+                        $valid_types[] = $type;
+                    }
+                }
+            }
+
+            // If no valid types were found, setup posts as the default.
+            if( count( $valid_types ) == 0 ) {
+                $options['types'] = array( 'post' );
+            } else {
+                $options['types'] = $valid_types;
+            }
+
+            // Buffer for output.
+            $content = '';
+
+            // If we're showing likes, do so.
+            if( $options['show_likes'] ) {
+                // Generate a table for each valid type we have.
+                foreach( $valid_types as $post_type ) {
+                    $content .= $this->generate_count_table( $this->like_column_name, $post_type, $options);
+                }
+            }
+
+            // If we're showing dislikes, do so.
+            if( $options['show_dislikes'] ) {
+                // Generate a table for each valid type we have.
+                foreach( $valid_types as $post_type ) {
+                    $content .= $this->generate_count_table( $this->dislike_column_name, $post_type, $options);
+                }
+            }
+
+            // Return the content.
+            return $content;
+        }
+
+        private function generate_count_table( $type, $post_type, $options ) {
+            include JLAD_PATH . '/inc/cores/count-table-render.php';
+            return $content;
         }
     }
 
