@@ -39,6 +39,7 @@ if (!class_exists('JLAD_Hooks')) {
             add_action('jlad_post_like_dislike_output', array($this, 'generate_post_like_dislike_html'), 10, 3);
             add_action('wp_head', array($this, 'custom_styles'));
             add_shortcode('just_likes_and_dislikes', array($this, 'render_jlad_shortcode'));
+            add_shortcode('jlad', array($this, 'render_jlad_shortcode'));
 
             // Add filter/actions for comments.
             add_filter('comment_text', array($this, 'comments_like_dislike'), 200, 2);
