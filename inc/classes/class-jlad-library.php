@@ -230,6 +230,9 @@ if (!class_exists('JLAD_Library')) {
             $forward = sanitize_text_field( @$_SERVER['HTTP_X_FORWARDED_FOR'] );
             $remote = sanitize_text_field( $_SERVER['REMOTE_ADDR'] );
 
+            // Make sure remote is a valid IP address, otherwise use a default.
+            if (filter_var($remote, FILTER_VALIDATE_IP) === false) { $remote = '127.0.0.1'; }
+
             if (filter_var($client, FILTER_VALIDATE_IP)) {
                 $ip = $client;
             } elseif (filter_var($forward, FILTER_VALIDATE_IP)) {
