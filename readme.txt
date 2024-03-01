@@ -3,7 +3,7 @@ Contributors: GregRoss
 Tags: like, dislike, posts, pages, comments
 Requires at least: 5.0
 Tested up to: 6.4
-Stable tag: 2.5.1
+Stable tag: 2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -163,8 +163,9 @@ If there are enough requests I can add this feature to the plugin.
 
 == Changelog ==
 = 2.6 =
-* Release date: TBD
+* Release date: March 1, 2024
 * Add: Option to allow row numbers on the top liked/disliked tables.
+* Fixed: Default remote IP address set to 127.0.0.1 if no valid address can be found.
 
 = 2.5.1 =
 * Release date: Nov 28, 2023
