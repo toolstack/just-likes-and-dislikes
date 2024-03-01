@@ -23,7 +23,7 @@ Just Likes and Dislikes increases the interaction with the WordPress by enabling
 * Choose which order to show likes/dislikes in.
 * Definable hover text.
 * Choose to display like/dislike counts of zero.
-* Choose method to restirct users to a single like/dislike; cookies, IP, logged in users
+* Choose method to restrict users to a single like/dislike; cookies, IP, logged in users
 * 7 available pre-defined icon templates to choose from:
     - Thumbs
     - Hearts
@@ -48,7 +48,7 @@ Options available are:
 * count - Number of items to display (default 10).
 * show_likes - Display a table with the top liked posts in it (default true).
 * show_dislikes - Display a table with the top disliked posts in it (default true).
-* types - Post types to display, a comma seperated list i.e. "post" or "post, page" (default "post").
+* types - Post types to display, a comma separated list i.e. "post" or "post, page" (default "post").
 * show_table_title - Display a title for each table in the format of "Likes for Posts", "Dislikes for Pages", etc. (default true).
 * show_row_numbers - Display row numbers for the table (default true).
 
