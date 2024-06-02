@@ -18,12 +18,16 @@ if (!class_exists('JLAD_Enqueue') ) {
 
         function register_frontend_assets()
         {
-            /**
-             * Fontawesome 5 support
-             *
-             * @version 1.0.6
-             */
-            wp_enqueue_style('jlad-font-awesome', JLAD_CSS_DIR . '/fontawesome/css/all.min.css', array(), JLAD_VERSION);
+            $jlad_settings = get_option('jlad_settings');
+            if (empty($jlad_settings['design_settings']['disable_fontawesome']))
+            {
+                /**
+                 * Fontawesome 5 support
+                 *
+                 * @version 1.0.6
+                 */
+                wp_enqueue_style('jlad-font-awesome', JLAD_CSS_DIR . '/fontawesome/css/all.min.css', array(), JLAD_VERSION);
+            }
             wp_enqueue_style('jlad-frontend', JLAD_CSS_DIR . '/jlad-frontend.css', array(), JLAD_VERSION);
             wp_enqueue_script('jlad-frontend', JLAD_JS_DIR . '/jlad-frontend.js', array( 'jquery' ), JLAD_VERSION);
             $ajax_nonce = wp_create_nonce('jlad-ajax-nonce');

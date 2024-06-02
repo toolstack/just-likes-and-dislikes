@@ -151,6 +151,9 @@ if (!class_exists('JLAD_Admin')) {
                             $jlad_settings['design_settings'][$key] = sanitize_text_field( $_POST['jlad_settings']['design_settings'][$key] );
 
                             break;
+                        case 'disable_fontawesome':
+                            if( intval($_POST['jlad_settings']['design_settings'][$key] ) == 1 ) { $jlad_settings['design_settings'][$key] = 1; } else { $jlad_settings['design_settings'][$key] = ''; }
+                            break;
                     }
                 }
 

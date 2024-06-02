@@ -93,6 +93,7 @@ if (!class_exists('JLAD_Library')) {
             $default_settings['design_settings']['dislike_icon'] = '';
             $default_settings['design_settings']['icon_color'] = '';
             $default_settings['design_settings']['count_color'] = '';
+            $default_settings['design_settings']['disable_fontawesome'] = '';
 
             return $default_settings;
         }

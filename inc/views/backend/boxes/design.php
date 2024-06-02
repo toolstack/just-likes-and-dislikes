@@ -75,4 +75,16 @@
             <p class="description"><?php esc_html_e('(override the color of the like/dislike text provided by your active theme)', 'just-likes-and-dislikes'); ?></p>
 		</div>
 	</div>
+	<div class="jlad-field-wrap">
+		<div class="jlad-field-description">
+			<label><?php _e('Disable Fontawesome:', 'just-likes-and-dislikes'); ?></label>
+		</div>
+		<div class="jlad-field">
+			<label class="jlad-switch">
+                <input type="checkbox" name="jlad_settings[design_settings][disable_fontawesome]" class="jlad-form-field" value="1" <?php checked($jlad_settings['design_settings']['disable_fontawesome'], '1'); ?>/>
+                <span class="jlad-slider jlad-round"></span>
+            </label>
+			<p class="description"><?php _e('(disable fontawesome from loading in the frontend)', 'just-likes-and-dislikes'); ?></p>
+		</div>
+	</div>
 </div>
