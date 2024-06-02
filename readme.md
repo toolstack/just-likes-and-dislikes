@@ -2,8 +2,8 @@
 **Contributors:** [gregross](https://profiles.wordpress.org/gregross/)  
 **Tags:** like, dislike, posts, pages, comments  
 **Requires at least:** 5.0  
-**Tested up to:** 6.4  
-**Stable tag:** 2.6  
+**Tested up to:** 6.5.3  
+**Stable tag:** 2.7  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -168,6 +168,10 @@ If there are enough requests I can add this feature to the plugin.
 
 
 ## Changelog ##
+### 2.7 ###
+* Release date: June 2, 2024
+* Add: Option to disable fontawesome on the front end (pulled from upstream).
+
 ### 2.6 ###
 * Release date: March 1, 2024
 * Add: Option to allow row numbers on the top liked/disliked tables.
