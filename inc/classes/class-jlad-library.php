@@ -141,6 +141,13 @@ if (!class_exists('JLAD_Library')) {
             if( $like_title == '' ) { $like_title = __( 'Like', 'just-likes-and-dislikes' ); }
             if( $dislike_title == '' ) { $dislike_title = __( 'Dislike', 'just-likes-and-dislikes' ); }
 
+            if( $this->jlad_settings['basic_settings']['like_dislike_resistriction'] == 'user' ) {
+                if( ! is_user_logged_in() ) {
+                    $like_title = sprintf( __('%1$s (login required)', 'just-likes-and-dislikes'), $like_title );
+                    $dislike_title = sprintf( __('%1$s (login required)', 'just-likes-and-dislikes'), $dislike_title );
+                }
+            }
+
             switch ($template)
             {
                 case 'template-2':
