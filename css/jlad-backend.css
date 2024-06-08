@@ -131,18 +131,21 @@ label.jlad-checkbox-label {
     text-align: left;
 }
 
+/* The switch - the box around the entire switch */
+.jlad-switch-block {
+  margin-top: 10px;
+}
+
+.jlad-switch-block:first-of-type {
+  margin-top: 0px;
+}
+
 /* The switch - the box around the slider */
 .jlad-switch {
   position: relative;
   display: inline-block;
   width: 40px;
   height: 25px;
-  margin-top: 10px;
-
-}
-
-.jlad-switch:first-of-type {
-  margin-top: 0px;
 }
 
 /* The switch text beside the switch */
@@ -150,7 +153,8 @@ label.jlad-checkbox-label {
   display: inline-block;
   height: 25px;
   line-height: 25px;
-  margin-left: 1em;
+  margin-left: .5em;
+  vertical-align: middle;
 }
 
 /* Hide default HTML checkbox */

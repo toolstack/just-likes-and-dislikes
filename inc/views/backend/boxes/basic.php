@@ -22,11 +22,13 @@
             $checked_post_types = (!empty($jlad_settings['basic_settings']['post_types'])) ? $jlad_settings['basic_settings']['post_types'] : array();
             foreach ($post_types as $post_type_name => $post_type_object) {
                 ?>
-                <label class="jlad-switch">
-                    <input type="checkbox" name="jlad_settings[basic_settings][post_types][]" value="<?php echo esc_attr($post_type_name); ?>" <?php checked(in_array($post_type_name, $checked_post_types), true); ?> class="jlad-form-field" />
-                    <span class="jlad-slider jlad-round"></span>
-                </label>
-                <span><?php echo esc_html($post_type_object->label); ?><br></span>
+                <div class="jlad-switch-block">
+                    <label class="jlad-switch">
+                        <input type="checkbox" name="jlad_settings[basic_settings][post_types][]" value="<?php echo esc_attr($post_type_name); ?>" <?php checked(in_array($post_type_name, $checked_post_types), true); ?> class="jlad-form-field" />
+                        <span class="jlad-slider jlad-round"></span>
+                    </label>
+                    <span class="jlad-switch-text"><?php echo esc_html($post_type_object->label); ?><br></span>
+                </div>
                 <?php
             }
             ?>
