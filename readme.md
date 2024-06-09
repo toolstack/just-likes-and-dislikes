@@ -3,7 +3,7 @@
 **Tags:** like, dislike, posts, pages, comments  
 **Requires at least:** 5.0  
 **Tested up to:** 6.5.3  
-**Stable tag:** 2.7  
+**Stable tag:** 2.8  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -168,6 +168,11 @@ If there are enough requests I can add this feature to the plugin.
 
 
 ## Changelog ##
+### 2.8 ###
+* Release date: June 9, 2024
+* Add: Login hint in mouse hover when registration is required to like/dislike.
+* Fixed: Misalignment of switches and text in settings.
+
 ### 2.7 ###
 * Release date: June 2, 2024
 * Add: Option to disable fontawesome on the front end (pulled from upstream).
